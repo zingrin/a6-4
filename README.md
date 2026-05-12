@@ -8,8 +8,6 @@ The platform allows users to browse tutors, manage tutoring sessions, handle boo
 
 ---
 
-# Features
-
 ## Public Features
 
 - Browse available tutors

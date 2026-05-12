@@ -71,10 +71,11 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  /* --primary: oklch(0.205 0 0); */
-  --primary: #088395;
-  /* --primary-dark: #09637E; */
-  --primary-dark: #013545;
+  --primary: #392f5c;
+  --primary-dark: #061726;
+
+  --sidebar: #0A2540;
+  --sidebar-foreground: #F1F5F9;
   --primary-foreground: oklch(91.279% 0.0001 271.152);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(42.024% 0.00005 271.152);

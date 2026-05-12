@@ -36,7 +36,7 @@ const stats = [
 
 export default function AboutStats() {
   return (
-    <section className="py-20 bg-[#013545] relative overflow-hidden">
+    <section className="py-20 bg-[#392f5c] relative overflow-hidden">
       {/* Decorative radial */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#088395/20_0%,_transparent_70%)]" />
 

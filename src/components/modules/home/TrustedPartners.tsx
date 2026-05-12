@@ -99,15 +99,15 @@ export default function TrustedPartners() {
           {allPartners.map((partner, i) => (
             <div
               key={i}
-              className="shrink-0 flex items-center gap-4 grayscale hover:grayscale-0 transition-all duration-500 cursor-default px-6 py-3 bg-white/50 backdrop-blur-sm rounded-xl border border-transparent hover:border-slate-200 hover:shadow-sm"
+              className="shrink-0 flex items-center gap-4 transition-all duration-500 cursor-default px-6 py-4 bg-white/70 backdrop-blur-md rounded-2xl border border-white/50 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] hover:bg-white/90 hover:-translate-y-1"
             >
               <div 
-                className="flex items-center justify-center transition-transform duration-300 group-hover:scale-110" 
+                className="flex items-center justify-center transition-transform duration-500 group-hover:scale-110 drop-shadow-sm" 
                 style={{ color: partner.color }}
               >
                 {partner.icon}
               </div>
-              <span className="text-sm font-bold text-slate-700 whitespace-nowrap">
+              <span className="text-base font-bold text-slate-800 whitespace-nowrap tracking-tight">
                 {partner.name}
               </span>
             </div>

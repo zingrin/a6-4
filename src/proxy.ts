@@ -27,7 +27,7 @@ export async function proxy(request: NextRequest) {
     userRole = data.user.role;
   }
 
-  // ── Redirect authenticated users away from auth pages ──────────────────────
+  // ── Redirect authenticated users away from auth pages 
   if (
     isAuthenticated &&
     (pathname.startsWith("/login") || pathname.startsWith("/register"))
@@ -35,7 +35,7 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL(getDashboardUrl(userRole), request.url));
   }
 
-  // ── Redirect unauthenticated users to login ─────────────────────────────────
+  // ── Redirect unauthenticated users to login 
   const protectedPaths = [
     "/dashboard",
     "/tutor",
@@ -48,7 +48,7 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  // ── Role-based route guards ─────────────────────────────────────────────────
+  // ── Role-based route guards 
 
   if (pathname.startsWith("/admin") && userRole !== Roles.admin) {
     return NextResponse.redirect(new URL(getDashboardUrl(userRole), request.url));
@@ -88,4 +88,4 @@ export const config = {
     "/login",
     "/register",
   ],
-};
+};

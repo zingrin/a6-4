@@ -7,31 +7,30 @@ import { Linkedin, Twitter } from "lucide-react";
 
 const team = [
   {
-    name: "Aryan Hossain",
-    role: "Co-Founder & CEO",
-    bio: "Former EdTech lead at Coursera. Passionate about making world-class education globally accessible.",
-    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+    name: "Nafis Ahmed",
+    role: "Founder & CEO",
+    bio: "Focused on building accessible learning experiences for students worldwide with modern technology and mentorship.",
+    avatar: "https://randomuser.me/api/portraits/men/41.jpg",
   },
   {
-    name: "Sadia Rahman",
-    role: "Co-Founder & CTO",
-    bio: "Full-stack engineer with 10+ years building scalable platforms. Believes technology is the great equalizer.",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+    name: "Mehjabin Noor",
+    role: "Chief Technology Officer",
+    bio: "Frontend and backend specialist passionate about scalable systems, performance, and clean product architecture.",
+    avatar: "https://randomuser.me/api/portraits/women/52.jpg",
   },
   {
-    name: "Marcus Chen",
-    role: "Head of Tutor Success",
-    bio: "Ex-Stanford professor turned educator advocate. Personally onboards every top-rated tutor.",
-    avatar: "https://randomuser.me/api/portraits/men/55.jpg",
+    name: "Daniel Kim",
+    role: "Head of Learning Experience",
+    bio: "Works closely with instructors to create engaging, student-focused courses that deliver real-world skills.",
+    avatar: "https://randomuser.me/api/portraits/men/61.jpg",
   },
   {
-    name: "Amara Osei",
-    role: "Head of Product",
-    bio: "Product designer obsessed with delightful user experiences. Previously at Notion and Linear.",
-    avatar: "https://randomuser.me/api/portraits/women/63.jpg",
+    name: "Sara Williams",
+    role: "Lead Product Designer",
+    bio: "Designs intuitive and modern interfaces with a strong focus on usability, accessibility, and user satisfaction.",
+    avatar: "https://randomuser.me/api/portraits/women/68.jpg",
   },
 ];
-
 export default function AboutTeam() {
   return (
     <section className="py-24 bg-white">
