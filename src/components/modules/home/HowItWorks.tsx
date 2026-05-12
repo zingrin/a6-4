@@ -29,7 +29,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <div className="py-20 px-4 relative overflow-hidden">
+    <div className="py-24 px-4 relative overflow-hidden bg-gradient-to-b from-white to-[#c2a5c7]/10">
       {/* Decorative circle in top right */}
       <div className="container mx-auto px-8">
         {/* Header */}
@@ -40,36 +40,19 @@ export default function HowItWorks() {
           {steps.map((step, index) => (
             <div key={step.number} className="relative flex flex-col items-center md:items-start mx-auto">
               <div className="relative z-10 mb-6">
-                <div className="w-20 h-20 rounded-full border-3 border-white flex items-center justify-center relative">
-                  <Image
-                    src="/assets/circle.svg" 
-                    alt="Description"
-                    width={100}
-                    height={100}
-                    aria-selected={false}
-                  />
-                  <span className="text-primary text-3xl font-bold absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">{step.number}</span>
+                <div className="w-24 h-24 rounded-full border-8 border-white shadow-xl flex items-center justify-center relative bg-gradient-to-br from-[#1b182e] to-[#4a426b] hover:scale-105 transition-transform duration-300">
+                  <span className="text-white text-4xl font-bold  drop-shadow-md">{step.number}</span>
                 </div>
               </div>
-
-              <Image
-                    src="/assets/arrow.svg" 
-                    alt="Description"
-                    width={150}
-                    height={100}
-                    className={`absolute -right-10 xl:-right-1/2 hidden lg:block ${index === 0 ? "top-5" : index === 1 ? "-top-2 rotate-x-180" : "hidden lg:hidden"} `}
-                    aria-selected={false}
-                  />
-
               {/* Content */}
               <div className="text-center md:text-left">
-                <h3 className="text-xl font-bold mb-3 text-accent-foreground">{step.title}</h3>
-                <p className="text-sm leading-relaxed mb-4 max-w-60 mx-auto text-muted-foreground">
+                <h3 className="text-2xl font-bold mb-3 text-[#1b182e]">{step.title}</h3>
+                <p className="text-base leading-relaxed mb-6 max-w-xs mx-auto md:mx-0 text-slate-600">
                   {step.description}
                 </p>
                 <Link
                   href="/tutors"
-                  className="inline-flex text-primary items-center gap-2 text-sm font-medium hover:gap-3 transition-all duration-300"
+                  className="inline-flex text-[#1b182e] items-center gap-2 text-sm font-semibold hover:gap-3 transition-all duration-300 hover:text-opacity-80"
                 >
                   {step.link}
                   <ArrowRight className="w-4 h-4" />

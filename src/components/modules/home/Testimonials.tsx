@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "motion/react";
 import { Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -68,43 +71,111 @@ function StarRating({ rating }: { rating: number }) {
 
 export default function Testimonials() {
   return (
-    <section className="container mx-auto px-8 py-16">
+    <section className="container mx-auto px-8 py-16 overflow-hidden">
       <SectionHeader
         title="What Our Students Say"
-        description="Discover how SkillBridge has empowered thousands of learners across the globe to achieve their goals. From mastering new technologies to accelerating career growth, our world-class mentors are dedicated to your success. Read their inspiring stories and join a thriving community of lifelong learners today."
+        description="Discover how SkillBridge has empowered thousands of learners across the globe."
         className="text-center"
       />
 
-      <div className="flex flex-wrap justify-center gap-6">
-        {testimonials.map((t, i) => (
-          <div key={i} className="shrink-0 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.4rem)]">
-            <Card className="border shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 h-full">
-              <CardContent className="p-6 flex flex-col gap-4 h-full">
-                {/* Author Info */}
-                <div className="flex items-center gap-3 pb-2 border-b">
-                  <Avatar className="w-10 h-10 border">
-                    <AvatarImage src={t.avatar ?? undefined} alt={t.name} />
-                    <AvatarFallback className="bg-primary text-white text-sm font-semibold">
-                      {getInitials(t.name)}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <p className="text-sm font-semibold text-gray-900">{t.name}</p>
-                    <p className="text-xs text-muted-foreground">{t.role}</p>
+      <div className="relative mt-12 flex flex-col gap-6 h-[650px] overflow-hidden">
+        {/* First 3 */}
+        <motion.div
+          animate={{ y: ["0%", "-100%"] }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="space-y-6"
+        >
+          {[...testimonials.slice(0, 3), ...testimonials.slice(0, 3)].map(
+            (t, i) => (
+              <Card
+                key={i}
+                className="border shadow-sm hover:shadow-md transition-all duration-300"
+              >
+                <CardContent className="p-6 flex flex-col gap-4">
+                  <div className="flex items-center gap-3 pb-2 border-b">
+                    <Avatar className="w-10 h-10 border">
+                      <AvatarImage
+                        src={t.avatar ?? undefined}
+                        alt={t.name}
+                      />
+                      <AvatarFallback className="bg-primary text-white text-sm font-semibold">
+                        {getInitials(t.name)}
+                      </AvatarFallback>
+                    </Avatar>
+
+                    <div>
+                      <p className="text-sm font-semibold text-gray-900">
+                        {t.name}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {t.role}
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                {/* Stars */}
-                <StarRating rating={t.rating} />
+                  <StarRating rating={t.rating} />
 
-                {/* Quote */}
-                <p className="text-sm text-muted-foreground leading-relaxed flex-1">
-                  &ldquo;{t.text}&rdquo;
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        ))}
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    &ldquo;{t.text}&rdquo;
+                  </p>
+                </CardContent>
+              </Card>
+            )
+          )}
+        </motion.div>
+
+        {/* Last 3 */}
+        <motion.div
+          animate={{ y: ["100%", "0%"] }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="absolute top-0 right-0 w-full lg:w-1/2 space-y-6"
+        >
+          {[...testimonials.slice(3, 6), ...testimonials.slice(3, 6)].map(
+            (t, i) => (
+              <Card
+                key={i}
+                className="border shadow-sm hover:shadow-md transition-all duration-300"
+              >
+                <CardContent className="p-6 flex flex-col gap-4">
+                  <div className="flex items-center gap-3 pb-2 border-b">
+                    <Avatar className="w-10 h-10 border">
+                      <AvatarImage
+                        src={t.avatar ?? undefined}
+                        alt={t.name}
+                      />
+                      <AvatarFallback className="bg-primary text-white text-sm font-semibold">
+                        {getInitials(t.name)}
+                      </AvatarFallback>
+                    </Avatar>
+
+                    <div>
+                      <p className="text-sm font-semibold text-gray-900">
+                        {t.name}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        {t.role}
+                      </p>
+                    </div>
+                  </div>
+
+                  <StarRating rating={t.rating} />
+
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    &ldquo;{t.text}&rdquo;
+                  </p>
+                </CardContent>
+              </Card>
+            )
+          )}
+        </motion.div>
       </div>
     </section>
   );

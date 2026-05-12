@@ -45,7 +45,7 @@ const partners = [
   },
   {
     name: "LinkedIn learning",
-    color: "#0077B5", // Official LinkedIn Blue
+    color: "#0077B5", 
     icon: <FaLinkedin size={32} />,
   },
   {
@@ -75,7 +75,6 @@ const partners = [
   },
 ];
 
-// Duplicate for seamless infinite scroll
 const allPartners = [...partners, ...partners];
 
 export default function TrustedPartners() {
