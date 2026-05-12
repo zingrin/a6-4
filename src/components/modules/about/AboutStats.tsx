@@ -46,7 +46,7 @@ export default function AboutStats() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-teal-300 font-bold tracking-widest uppercase text-sm"
+            className="text-[#b1fac6] font-bold tracking-widest uppercase text-sm"
           >
             By The Numbers
           </motion.span>
@@ -65,7 +65,7 @@ export default function AboutStats() {
               transition={{ delay: i * 0.12, duration: 0.6 }}
               className="flex flex-col items-center text-center gap-4 p-8 border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-teal-400/30 transition-all duration-300"
             >
-              <div className="w-14 h-14 bg-primary/30 border border-primary/40 flex items-center justify-center text-teal-300">
+              <div className="w-14 h-14 bg-primary/30 border border-primary/40 flex items-center justify-center text-[#b1fac6]">
                 {stat.icon}
               </div>
               <StatCounter value={stat.value} suffix={stat.suffix} />
