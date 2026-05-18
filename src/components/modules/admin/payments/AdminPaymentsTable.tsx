@@ -135,7 +135,7 @@ export default function AdminPaymentsTable({
                   </TableCell>
                   <TableCell>
                     {payment.booking ? (
-                      <Badge className="bg-blue-500/10 text-blue-600 border-blue-500/20 font-bold text-[10px] px-2 py-0.5 rounded-md uppercase tracking-tighter">
+                      <Badge className="bg-[#65f55b]/10 text-[#65f55b] border-[#65f55b]/20 font-bold text-[10px] px-2 py-0.5 rounded-md uppercase tracking-tighter">
                         <User className="h-3 w-3 mr-1" /> Tutoring
                       </Badge>
                     ) : (

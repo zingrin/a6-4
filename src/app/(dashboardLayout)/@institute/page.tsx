@@ -135,7 +135,7 @@ export default async function InstituteDashboard() {
                     className="flex items-center justify-between p-4 bg-background/50 border border-transparent hover:border-border/50 hover:bg-background rounded-xl transition-all group"
                 >
                     <div className="flex items-center gap-3">
-                        <div className="h-10 w-10 rounded-xl bg-blue-500/10 text-blue-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <div className="h-10 w-10 rounded-xl bg-[#65f55b]/10 text-[#65f55b] flex items-center justify-center group-hover:scale-110 transition-transform">
                             <User className="h-5 w-5" />
                         </div>
                         <div className="flex flex-col">

@@ -32,7 +32,7 @@
 //         <Button
 //           type="submit"
 //           size="icon"
-//           className="absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 transition-all duration-300"
+//           className="absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-gradient-to-r from-[#65f55b] to-indigo-600 hover:from-[#65f55b] hover:to-indigo-700 transition-all duration-300"
 //         >
 //           <Search className="h-5 w-5" />
 //         </Button>

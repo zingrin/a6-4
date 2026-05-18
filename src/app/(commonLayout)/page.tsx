@@ -8,9 +8,10 @@ import { Hero } from "@/components/modules/home/Hero";
 import HowItWorksWithImages from "@/components/modules/home/HowItWorks";
 import Testimonials from "@/components/modules/home/Testimonials";
 import TrustedPartners from "@/components/modules/home/TrustedPartners";
-import GlobalVisionaries from "@/components/modules/home/GlobalVisionaries";
 import StatsSection from "@/components/modules/home/StatsSection";
 import WhyChooseUs from "@/components/modules/home/WhyChooseUs";
+import PopularCategories from "@/components/modules/home/PopularCategories";
+import GlobalVisionaries from "@/components/modules/home/GlobalVisionaries";
 
 export default async function Home() {
 
@@ -18,6 +19,7 @@ export default async function Home() {
     <div>
       <Hero />
       <GlobalVisionaries />
+      <PopularCategories />
       <StatsSection />
       <FeaturedTutors />
       <LatestCourses />

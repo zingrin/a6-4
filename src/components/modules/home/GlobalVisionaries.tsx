@@ -10,53 +10,58 @@ export default function GlobalVisionaries() {
           {/* Top Left: Male Mentor */}
           <div className="aspect-square relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group">
             <Image
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvzfkQX_zJwIRJOTLzXl6T2lLPBiGFY_lEeUdQzTzvdcu7p5iJK2q9MKyq28ZipkrG8Cm759KgKat4Vb53CKk42-pF-gPPwqaQyd91DaR6zcQyiktj4LoH8rt_54lRrHXyzjwEidKKLoVOEbnNWioYZ27TNSb4DTeA7vi3POyX6so2LQXARk2hAar4s3estJakURPsw2DclGnuxcsHcfxhQMmpa8gzHSTLFe0hdjIlk8ZvyleH4nYEjgf0lMlQjM9hbqBRrWhNDes"
-              alt="Dr. Aris Miller"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-              priority
-            />
-          </div>
-          
-          {/* Top Right: Stats Card */}
-          <div className="aspect-square bg-primary rounded-3xl p-6 flex flex-col items-center justify-center text-white shadow-lg text-center">
-            <p className="text-4xl md:text-5xl font-black mb-1">20+</p>
-            <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest opacity-90">Partner Institutes</p>
-            <div className="mt-4 w-8 h-1 bg-white/30 rounded-full" />
+  src="/assets/mantor1.jpg"
+  alt="Emi Miller"
+  fill
+  className="object-cover"
+/>
           </div>
 
-          {/* Bottom Left: Quote Card */}
-          <div className="aspect-square bg-slate-900 rounded-3xl p-6 flex flex-col justify-between shadow-lg translate-y-4 md:translate-y-8">
+          {/* Top Right: Quote Card */}
+          <div className="aspect-square bg-slate-900 rounded-3xl p-6 flex flex-col justify-between shadow-lg">
             <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
               <span className="text-white text-xl font-serif">"</span>
             </div>
             <p className="text-white text-sm md:text-base font-medium leading-tight">
-              Bridging the gap between theory and global industry mastery.
+              Transforming ambition into real-world success through unparalleled
+              expert guidance.
             </p>
+          </div>
+
+          {/* Bottom Left: Stats Card */}
+          <div className="aspect-square bg-primary rounded-3xl p-6 flex flex-col items-center justify-center text-white shadow-lg text-center translate-y-4 md:translate-y-8">
+            <p className="text-4xl md:text-5xl font-black mb-1">40+</p>
+            <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest opacity-90">
+              Expert Tutors
+            </p>
+            <div className="mt-4 w-8 h-1 bg-white/30 rounded-full" />
           </div>
 
           {/* Bottom Right: Female Mentor */}
           <div className="aspect-square relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group translate-y-4 md:translate-y-8 border-4 border-white">
             <Image
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4jRc30zMs37L1DRAuXulHSt56qNVnEkwlXkChk2s-Lc2xuSNRqB64HaGeTBEbLUUMLQ4DHtLNiZliAOgvO1hABII0PEaWr8i-UoXElbyOh4tlTuwAdtlwImCXicjgSxsW1el_H1mbPT3ZWlFf-r4ZtlLEichysFCOjc0A1EmRJKwE-bsZU7IVmT_ycq-aiiJb5J7wFrWMawHAP11iRldaXciXEN7oZX0Skq_1hwuCMFg9hQP_qZx02otjJ-aRmp7qirkxqKeOi_o"
-              alt="Sarah Jenkins"
-              fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
-              priority
-            />
+  src="/assets/mantor.jpg"
+  alt="Emi Miller"
+  fill
+  className="object-cover"
+/>
           </div>
         </div>
 
         {/* Right Side: Content */}
         <div className="space-y-8">
           <div className="space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-              Master Classes with <br />
-              <span className="text-primary">Global Visionaries</span>
+            <span className="text-primary font-bold tracking-widest uppercase text-sm">
+              Expert Guidance
+            </span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">
+              Transform Your Future with{" "}
+              <span className="text-primary">Top-Tier Mentorship</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
-              Our mentors are not just teachers; they are industry veterans, 
-              award-winning designers, and pioneering researchers from around the globe.
+              Our mentors are not just teachers; they are industry veterans,
+              award-winning designers, and pioneering researchers from around
+              the globe.
             </p>
           </div>
 
@@ -67,8 +72,12 @@ export default function GlobalVisionaries() {
                 <ShieldCheck className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-slate-900 mb-1">Rigorous Vetting</h3>
-                <p className="text-muted-foreground">Only top 3% of applicants are selected to teach.</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-1">
+                  Rigorous Vetting
+                </h3>
+                <p className="text-muted-foreground">
+                  Only top 3% of applicants are selected to teach.
+                </p>
               </div>
             </div>
 
@@ -78,8 +87,12 @@ export default function GlobalVisionaries() {
                 <Clock className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-slate-900 mb-1">Global Availability</h3>
-                <p className="text-muted-foreground">Access world-class knowledge across 24 different timezones.</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-1">
+                  Global Availability
+                </h3>
+                <p className="text-muted-foreground">
+                  Access world-class knowledge across 24 different timezones.
+                </p>
               </div>
             </div>
           </div>

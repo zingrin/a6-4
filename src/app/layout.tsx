@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { EB_Garamond, Faustina, Geist, Geist_Mono, Lexend, Slabo_13px } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
-import { AIChatbot } from "@/components/modules/shared/AIChatbot";
 
 import LoganFive from "next/font/local";
 
@@ -36,10 +35,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${loganFive.variable} ${ebGaramond.variable} ${lexend.className}  antialiased`}
+        suppressHydrationWarning
       >
           {children}
           <Toaster richColors/>
-          <AIChatbot />
       </body>
     </html>
   );

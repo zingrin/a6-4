@@ -102,7 +102,7 @@ export default async function TutorDashboardOverview() {
             icon={BookOpen}
             label="Total Bookings"
             value={stats.totalBookings}
-            color="bg-blue-500"
+            color="bg-[#65f55b]"
           />
           <StatCard
             icon={CheckCircle}

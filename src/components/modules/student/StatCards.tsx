@@ -24,7 +24,7 @@ export default function StudentStatCards({ stats }: StudentStatCardsProps) {
       value: stats.totalBookings,
       icon: Clock,
       description: "1-on-1 sessions",
-      color: "text-blue-500",
+      color: "text-[#65f55b]",
     },
     {
       title: "Total Investment",

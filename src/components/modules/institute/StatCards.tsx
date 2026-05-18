@@ -17,7 +17,7 @@ export default function StatCards({ stats }: StatCardsProps) {
       value: stats.totalMentors,
       icon: Users,
       description: "Staff instructors",
-      color: "text-blue-500",
+      color: "text-[#65f55b]",
     },
     {
       title: "Active Courses",

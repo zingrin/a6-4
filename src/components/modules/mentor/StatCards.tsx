@@ -19,8 +19,8 @@ export default function MentorStatCards({ stats }: MentorStatCardsProps) {
       value: stats.totalCourses,
       description: "Active programs",
       icon: BookOpen,
-      color: "text-blue-500",
-      bg: "bg-blue-500/10",
+      color: "text-[#65f55b]",
+      bg: "bg-[#65f55b]/10",
     },
     {
       title: "Total Students",

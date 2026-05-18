@@ -14,7 +14,7 @@ export default async function AdminAnalytics() {
       value: data.totalUsers,
       icon: Users,
       description: 'Platform wide registrations',
-      color: 'text-blue-600'
+      color: 'text-[#65f55b]'
     },
     {
       title: 'Institutes',
