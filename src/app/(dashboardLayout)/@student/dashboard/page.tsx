@@ -10,20 +10,41 @@ import Link from 'next/link'
 import StudentDashboardCharts from '@/components/modules/student/DashboardCharts'
 import StudentStatCards from '@/components/modules/student/StatCards'
 
+const emptyStudentStats = {
+  totalBookings: 0,
+  upcomingBookings: [] as any[],
+  completedBookings: 0,
+  totalEnrolledCourses: 0,
+  totalSpent: 0,
+  totalReviews: 0,
+  serviceMix: [
+    { name: "Courses", value: 0 },
+    { name: "Tutoring", value: 0 },
+  ],
+  categoryDistribution: [] as { name: string; value: number }[],
+  spendingTrend: [] as { month: string; amount: number }[],
+  recentEnrollments: [] as any[],
+};
+
 export default async function StudentDashboard() {
   const [userRes, statsRes] = await Promise.all([
-    await userService.getSession(),
-    await userService.getStudentStats()
+    userService.getSession(),
+    userService.getStudentStats(),
   ])
 
-  const user = userRes.data.user;
-  const stats = statsRes.data.data;
+  const user = userRes.data?.user;
+  const stats = {
+    ...emptyStudentStats,
+    ...statsRes.data?.data,
+    recentEnrollments: statsRes.data?.data?.recentEnrollments ?? [],
+    upcomingBookings: statsRes.data?.data?.upcomingBookings ?? [],
+  };
 
   return (
     <div className="space-y-8 pb-10">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <DashPageHeader 
-          title={`Welcome back, ${user.name.split(' ')[0]}!`} 
+          title={`Welcome back, ${user?.name?.split(' ')[0] ?? 'Student'}!`} 
           description='Track your progress and manage your learning journey'
         />
         <div className="flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold border border-primary/20 animate-pulse">
@@ -34,7 +55,7 @@ export default async function StudentDashboard() {
 
       <StudentStatCards stats={stats} />
 
-      {stats && <StudentDashboardCharts stats={stats} />}
+      <StudentDashboardCharts stats={stats} />
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-12">
         {/* Recent Enrollments (8 Columns) */}

@@ -8,9 +8,10 @@ import { userService } from "@/services/user.service";
 
 export default async function CommonLayout({children} : {children : React.ReactNode}) {
 
-  const {data : categoryData} = await categoryService.getAllCategories();
+  const { data: categoryData } = await categoryService.getAllCategories();
+  const categories = Array.isArray(categoryData?.data) ? categoryData.data : [];
 
-  const menu = [ {title : "Categories", url : "#", items : categoryData?.data}, ...menuItems];
+  const menu = [{ title: "Categories", url: "#", items: categories }, ...menuItems];
 
   const {data : userData} = await userService.getSession();
 
