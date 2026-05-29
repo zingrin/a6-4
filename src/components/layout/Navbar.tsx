@@ -14,7 +14,12 @@ import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { UserRoles } from "@/types";
 import { cn } from "@/lib/utils";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Link from "next/link";
@@ -71,14 +76,23 @@ function CategoryLink({ item }: { item: Category }) {
 
   return (
     <div className="block rounded-md p-3 transition-colors hover:bg-muted">
-      <Link href={tutorsHref} className="text-sm font-semibold text-foreground hover:text-primary">
+      <Link
+        href={tutorsHref}
+        className="text-sm font-semibold text-foreground hover:text-primary"
+      >
         {item.name}
       </Link>
       <div className="mt-1.5 flex gap-3">
-        <Link href={tutorsHref} className="text-xs text-muted-foreground hover:text-primary">
+        <Link
+          href={tutorsHref}
+          className="text-xs text-muted-foreground hover:text-primary"
+        >
           Tutors
         </Link>
-        <Link href={coursesHref} className="text-xs text-muted-foreground hover:text-primary">
+        <Link
+          href={coursesHref}
+          className="text-xs text-muted-foreground hover:text-primary"
+        >
           Courses
         </Link>
       </div>
@@ -108,9 +122,14 @@ function CategoriesDropdown({ categories }: { categories: Category[] }) {
           <ChevronDown className="size-3.5 opacity-60" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="start" className="w-[min(100vw-2rem,520px)] p-2">
+      <DropdownMenuContent
+        align="start"
+        className="w-[min(100vw-2rem,520px)] p-2"
+      >
         {categories.length === 0 ? (
-          <p className="p-3 text-sm text-muted-foreground">No categories available.</p>
+          <p className="p-3 text-sm text-muted-foreground">
+            No categories available.
+          </p>
         ) : (
           <div className="grid max-h-[min(70vh,420px)] gap-1 overflow-y-auto sm:grid-cols-2">
             {categories.map((category) => (
@@ -147,9 +166,13 @@ function MobileNavItem({ item }: { item: MenuItem }) {
           </AccordionTrigger>
           <AccordionContent className="mt-2 space-y-1">
             {categories.length === 0 ? (
-              <p className="text-sm text-muted-foreground">No categories available.</p>
+              <p className="text-sm text-muted-foreground">
+                No categories available.
+              </p>
             ) : (
-              categories.map((category) => <CategoryLink key={category.id} item={category} />)
+              categories.map((category) => (
+                <CategoryLink key={category.id} item={category} />
+              ))
             )}
           </AccordionContent>
         </AccordionItem>
@@ -164,21 +187,22 @@ function MobileNavItem({ item }: { item: MenuItem }) {
   );
 }
 
-function UserMenu({
-  user,
-  onLogout,
-}: {
-  user: User;
-  onLogout: () => void;
-}) {
+function UserMenu({ user, onLogout }: { user: User; onLogout: () => void }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="relative h-10 w-10 rounded-full p-0">
           <Avatar className="h-10 w-10 border-2 border-primary/10 transition-transform hover:scale-105">
-            <AvatarImage src={user.image || undefined} alt={user.name || "avatar"} />
+            <AvatarImage
+              src={user.image || undefined}
+              alt={user.name || "avatar"}
+            />
             <AvatarFallback className="bg-primary/10 font-bold text-primary">
-              {user.name?.split(" ").map((n) => n[0]).join("").toUpperCase() || "U"}
+              {user.name
+                ?.split(" ")
+                .map((n) => n[0])
+                .join("")
+                .toUpperCase() || "U"}
             </AvatarFallback>
           </Avatar>
         </Button>
@@ -187,7 +211,9 @@ function UserMenu({
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-sm leading-none font-semibold">{user.name}</p>
-            <p className="text-xs leading-none text-muted-foreground">{user.email}</p>
+            <p className="text-xs leading-none text-muted-foreground">
+              {user.email}
+            </p>
             <p className="mt-1 text-[10px] leading-none font-bold tracking-tighter text-primary uppercase">
               {user.role}
             </p>
@@ -265,7 +291,11 @@ const Navbar = ({
         <nav className="hidden items-center justify-between lg:flex">
           <div className="flex items-center gap-16">
             <Link href={logo.url} className="mb-1.5 flex items-center gap-2">
-              <img src={logo.src} className="max-h-6 dark:invert" alt={logo.alt} />
+              <img
+                src={logo.src}
+                className="max-h-6 dark:invert"
+                alt={logo.alt}
+              />
               <span className="font-logan text-2xl font-semibold tracking-wider text-primary">
                 {logo.title}
               </span>
@@ -282,7 +312,11 @@ const Navbar = ({
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
             <Link href={logo.url} className="mb-1.5 flex items-center gap-2">
-              <img src={logo.src} className="max-h-6 dark:invert" alt={logo.alt} />
+              <img
+                src={logo.src}
+                className="max-h-6 dark:invert"
+                alt={logo.alt}
+              />
               <span className="font-logan text-2xl font-semibold tracking-wider text-primary">
                 {logo.title}
               </span>
@@ -305,17 +339,29 @@ const Navbar = ({
                       <div className="flex flex-col gap-4 rounded-xl bg-slate-50 p-2">
                         <div className="flex items-center gap-3">
                           <Avatar className="h-10 w-10">
-                            <AvatarImage src={user.image || undefined} alt={user.name || "avatar"} />
+                            <AvatarImage
+                              src={user.image || undefined}
+                              alt={user.name || "avatar"}
+                            />
                             <AvatarFallback>{user.name?.[0]}</AvatarFallback>
                           </Avatar>
                           <div>
                             <p className="text-sm font-bold">{user.name}</p>
-                            <p className="text-xs text-slate-500">{user.email}</p>
+                            <p className="text-xs text-slate-500">
+                              {user.email}
+                            </p>
                           </div>
                         </div>
                         <div className="grid grid-cols-2 gap-2">
-                          <Button asChild variant="outline" size="sm" className="justify-start">
-                            <Link href={getDashboardUrl(user.role)}>Dashboard</Link>
+                          <Button
+                            asChild
+                            variant="outline"
+                            size="sm"
+                            className="justify-start"
+                          >
+                            <Link href={getDashboardUrl(user.role)}>
+                              Dashboard
+                            </Link>
                           </Button>
                           <Button
                             onClick={handleLogout}
@@ -333,7 +379,9 @@ const Navbar = ({
                           <Link href={auth.login.url}>{auth.login.title}</Link>
                         </Button>
                         <Button asChild size="sm">
-                          <Link href={auth.signup.url}>{auth.signup.title}</Link>
+                          <Link href={auth.signup.url}>
+                            {auth.signup.title}
+                          </Link>
                         </Button>
                       </div>
                     )}
