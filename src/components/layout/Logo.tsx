@@ -18,9 +18,9 @@ export default function Logo({
       className={`flex items-center gap-2 mb-1.5 w-fit ${className || ""}`}
     >
       <Image
-        src="/skillbridge.svg"
-        width={24}
-        height={24}
+        src="/skillbridge.png"
+        width={100}
+        height={100}
         className={`max-h-6 w-auto dark:invert ${imgClassName || ""}`}
         alt="SkillBridge Logo"
       />
