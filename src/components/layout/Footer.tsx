@@ -21,7 +21,6 @@ export default async function Footer() {
     <footer className="bg-slate-900 text-slate-300">
       <div className="container mx-auto px-8 pt-20 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-          {/* Column 1: Branding */}
           <div className="space-y-6">
             <Logo
               className="mb-0"
@@ -61,7 +60,6 @@ export default async function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Platform Links */}
           <div className="space-y-6">
             <h4 className="text-white font-bold tracking-wider uppercase text-xs">
               Platform
@@ -158,7 +156,7 @@ export default async function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary mt-1 shrink-0" />
                 <span className="leading-relaxed">
-                  123 Education St, Innovation City, DX 4040
+                  456 Education St,Dhaka City, DX 5000
                 </span>
               </li>
             </ul>
