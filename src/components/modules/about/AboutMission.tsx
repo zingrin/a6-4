@@ -42,8 +42,9 @@ export default function AboutMission() {
             <span className="text-primary">driven by passion</span>
           </h2>
           <p className="text-lg text-slate-500 mt-4 leading-relaxed">
-            SkillBridge was founded by educators and technologists who believed the future of
-            learning is personal, flexible, and human.
+            We believe learning should be accessible, engaging, and
+            career-focused. SkillBridge helps individuals build in-demand skills
+            and unlock new opportunities through high-quality online education.
           </p>
         </div>
 
@@ -64,8 +65,12 @@ export default function AboutMission() {
                 {pillar.icon}
               </div>
 
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{pillar.title}</h3>
-              <p className="text-slate-500 text-sm leading-relaxed">{pillar.description}</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
+                {pillar.title}
+              </h3>
+              <p className="text-slate-500 text-sm leading-relaxed">
+                {pillar.description}
+              </p>
             </motion.div>
           ))}
         </div>
