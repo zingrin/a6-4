@@ -26,7 +26,7 @@ const pillars = [
 
 export default function AboutMission() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-10 bg-white">
       <div className="container mx-auto px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <motion.span

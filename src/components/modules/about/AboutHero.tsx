@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 export default function AboutHero() {
   return (
-    <section className="bg-[#392f5c] py-28">
+    <section className="bg-[#392f5c] py-20">
       <div className="container mx-auto px-8 max-w-3xl">
         <motion.span
           initial={{ opacity: 0 }}
@@ -22,8 +22,7 @@ export default function AboutHero() {
           className="text-white text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-7"
         >
           Our mission is to make education{" "}
-          <span className="text-[#b1fac6]">accessible</span>{" "}
-          to everyone.
+          <span className="text-[#b1fac6]">accessible</span> to everyone.
         </motion.h1>
 
         <motion.p
@@ -32,7 +31,8 @@ export default function AboutHero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-white/55 text-lg leading-relaxed"
         >
-         From one-on-one tutoring to professional courses, SkillBridge makes learning simple, engaging, and available from anywhere in the world.
+          From one-on-one tutoring to professional courses, SkillBridge makes
+          learning simple, engaging, and available from anywhere in the world.
         </motion.p>
       </div>
     </section>
