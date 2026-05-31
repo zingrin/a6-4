@@ -32,11 +32,12 @@ export async function Hero() {
 
         <div className="relative z-20 w-full container mx-auto px-8">
           <div className="max-w-2xl">
-            <h1 className="text-white text-5xl lg:text-6xl leading-tight mb-10">
-              Connect with Expert
+            <h1 className="text-white text-5xl lg:text-4xl leading-tight mb-10">
+              Bridge the Gap Between
               <br />
-              Tutors, Learn Anything
+              Knowledge and Success
             </h1>
+
             <div className="mb-6">
               <SearchBar />
             </div>
