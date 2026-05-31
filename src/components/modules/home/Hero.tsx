@@ -37,7 +37,11 @@ export async function Hero() {
               <br />
               Knowledge and Success
             </h1>
-
+            <p className="text-lg text-gray-300 max-w-xl mb-8">
+              Discover personalized learning experiences, connect with qualified
+              tutors, and achieve your academic and professional goals with
+              confidence.
+            </p>
             <div className="mb-6">
               <SearchBar />
             </div>
