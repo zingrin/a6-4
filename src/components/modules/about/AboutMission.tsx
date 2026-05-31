@@ -8,19 +8,19 @@ const pillars = [
     icon: <Target className="w-7 h-7" />,
     title: "Our Mission",
     description:
-      "To bridge the gap between learners and expert knowledge by providing a seamless, flexible, and high-quality tutoring ecosystem that adapts to every student's unique journey.",
+      "Our mission is to create meaningful learning experiences that inspire growth and confidence. We connect students with skilled tutors, provide flexible learning opportunities, and support every learner in achieving their academic and career goals.",
   },
   {
     icon: <Eye className="w-7 h-7" />,
     title: "Our Vision",
     description:
-      "A world where geography, background, or budget never limits anyone's access to the world's best educators and the skills that open doors.",
+      "We envision a future where quality education is accessible to everyone, regardless of location or circumstances. By leveraging technology and expert guidance, we aim to empower learners worldwide to unlock their full potential.",
   },
   {
     icon: <Heart className="w-7 h-7" />,
     title: "Our Values",
     description:
-      "We believe in quality over quantity, genuine human connection between tutor and student, and continuous improvement driven by community feedback.",
+      "We are guided by integrity, inclusivity, and a passion for lifelong learning. Building trust, fostering meaningful connections, and continuously improving the learning experience remain at the heart of everything we do.",
   },
 ];
 
