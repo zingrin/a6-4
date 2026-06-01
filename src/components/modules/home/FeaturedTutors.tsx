@@ -88,7 +88,7 @@ export default async function FeaturedTutors() {
                     <div className="flex items-center justify-between mb-4 pb-4 border-b">
                       <div className="flex items-center gap-1">
                         <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                        <span className="font-semibold text-gray-900">
+                        <span className="font-semibold text-gray-800">
                           {tutor.avgRating}
                         </span>
                         <span className="text-sm text-gray-500">
