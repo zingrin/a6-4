@@ -71,7 +71,7 @@ export default async function FeaturedTutors() {
 
                   <div className="p-6">
                     <div className="mb-4">
-                      <h3 className="text-xl font-bold text-gray-800 mb-1">
+                      <h3 className="text-xl font-bold text-gray-900 mb-1">
                         {tutor.user.name}
                       </h3>
                       <div className="flex items-center gap-2 text-sm text-gray-600">
