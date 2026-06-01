@@ -1,13 +1,13 @@
 import SectionHeader from "./SectionHeader";
-import { 
-  SiCoursera, 
-  SiUdemy, 
-  SiEdx, 
-  SiFreecodecamp, 
-  SiCodecademy, 
-  SiDuolingo, 
-  SiSkillshare, 
-  SiPluralsight 
+import {
+  SiCoursera,
+  SiUdemy,
+  SiEdx,
+  SiFreecodecamp,
+  SiCodecademy,
+  SiDuolingo,
+  SiSkillshare,
+  SiPluralsight,
 } from "react-icons/si";
 import { GiGraduateCap, GiRibbonMedal } from "react-icons/gi";
 import { FaGraduationCap, FaLinkedin, FaAward } from "react-icons/fa";
@@ -45,7 +45,7 @@ const partners = [
   },
   {
     name: "LinkedIn learning",
-    color: "#0077B5", 
+    color: "#0077B5",
     icon: <FaLinkedin size={32} />,
   },
   {
@@ -66,12 +66,12 @@ const partners = [
   {
     name: "MasterClass",
     color: "#000000",
-    icon: <FaAward size={32} />, 
+    icon: <FaAward size={32} />,
   },
   {
     name: "Alison",
     color: "#E91E63",
-    icon: <GiRibbonMedal size={32} />, 
+    icon: <GiRibbonMedal size={32} />,
   },
 ];
 
@@ -98,10 +98,10 @@ export default function TrustedPartners() {
           {allPartners.map((partner, i) => (
             <div
               key={i}
-              className="shrink-0 flex items-center gap-4 transition-all duration-500 cursor-default px-6 py-4 bg-white/70 backdrop-blur-md rounded-2xl border border-white/50 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] hover:bg-white/90 hover:-translate-y-1"
+              className="shrink-0 flex items-center gap-6 transition-all duration-500 cursor-default px-6 py-4 bg-white/70 backdrop-blur-md rounded-2xl border border-white/50 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] hover:bg-white/90 hover:-translate-y-1"
             >
-              <div 
-                className="flex items-center justify-center transition-transform duration-500 group-hover:scale-110 drop-shadow-sm" 
+              <div
+                className="flex items-center justify-center transition-transform duration-500 group-hover:scale-110 drop-shadow-sm"
                 style={{ color: partner.color }}
               >
                 {partner.icon}
