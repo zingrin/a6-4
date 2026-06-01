@@ -263,7 +263,7 @@ http://localhost:3000
 
 # Developer
 
-## Zingrin Moi Bawm
+Zingrin Moi Bawm
 
 Full Stack Developer
 Focused on building scalable and user-friendly web applications.
