@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
-import "./src/env"
+import "./src/env";
 
 const nextConfig: NextConfig = {
+  experimental: {
+    serverActions: {
+      bodySizeLimit: "10mb",
+    },
+  },
+
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
@@ -27,6 +33,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+
   async rewrites() {
     return [
       {

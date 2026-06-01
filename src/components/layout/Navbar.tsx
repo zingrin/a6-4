@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { ChevronDown, LayoutDashboard, LogOut, Menu } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -291,9 +291,11 @@ const Navbar = ({
         <nav className="hidden items-center justify-between lg:flex">
           <div className="flex items-center gap-16">
             <Link href={logo.url} className="mb-1.5 flex items-center gap-2">
-              <img
+              <Image
                 src={logo.src}
-                className="max-h-6 dark:invert"
+                width={24}
+                height={24}
+                className="dark:invert"
                 alt={logo.alt}
               />
               <span className="font-logan text-2xl font-semibold tracking-wider text-primary">
@@ -312,9 +314,11 @@ const Navbar = ({
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
             <Link href={logo.url} className="mb-1.5 flex items-center gap-2">
-              <img
+              <Image
                 src={logo.src}
-                className="max-h-6 dark:invert"
+                width={24}
+                height={24}
+                className="h-6 w-6 dark:invert"
                 alt={logo.alt}
               />
               <span className="font-logan text-2xl font-semibold tracking-wider text-primary">

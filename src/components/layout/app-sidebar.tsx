@@ -87,9 +87,16 @@ export function AppSidebar({
     <Sidebar {...props}>
       <SidebarHeader>
         <Link href="/" className="flex items-center gap-2 mb-1.5 p-1">
-          <Image
-            src="/skillbridge.svg"
+          {/* <Image
+            src="/skillbridge.png"
             className="w-6 max-h-6 invert"
+            alt="skillbridge logo"
+          /> */}
+          <Image
+            src="/skillbridge.png"
+            width={100}
+            height={100}
+            className="w-6 h-6 invert"
             alt="skillbridge logo"
           />
           <span

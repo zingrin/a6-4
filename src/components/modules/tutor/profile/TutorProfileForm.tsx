@@ -1,5 +1,4 @@
 "use client";
-
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -128,51 +127,54 @@ export function TutorProfileForm({
           }}
         >
           <FieldGroup>
-            <form.Field
-              name="bio"
-              children={(field) => {
+            <form.Field name="bio">
+              {(field) => {
                 const isInvalid =
                   field.state.meta.isTouched && !field.state.meta.isValid;
+
                 return (
                   <Field data-invalid={isInvalid}>
                     <FieldLabel htmlFor={field.name}>Bio</FieldLabel>
+
                     <Textarea
                       id={field.name}
                       value={field.state.value}
                       onChange={(e) => field.handleChange(e.target.value)}
                       placeholder="Tell students about your experience"
                     />
+
                     {isInvalid && (
                       <FieldError errors={field.state.meta.errors} />
                     )}
                   </Field>
                 );
               }}
-            />
-            <form.Field
-              name="hourlyRate"
-              children={(field) => {
+            </form.Field>
+            <form.Field name="hourlyRate">
+              {(field) => {
                 const isInvalid =
                   field.state.meta.isTouched && !field.state.meta.isValid;
+
                 return (
                   <Field data-invalid={isInvalid}>
                     <FieldLabel htmlFor={field.name}>Hourly Rate</FieldLabel>
+
                     <Input
                       id={field.name}
-                      value={field.state.value}
                       type="number"
+                      value={field.state.value}
                       onChange={(e) =>
                         field.handleChange(Number(e.target.value))
                       }
-                      placeholder="e.g., $15/hour"
                     />
+
                     {isInvalid && (
                       <FieldError errors={field.state.meta.errors} />
                     )}
                   </Field>
                 );
               }}
-            />
+            </form.Field>
           </FieldGroup>
         </form>
 
@@ -238,7 +240,7 @@ export function TutorProfileForm({
                   className="hover:bg-background rounded-sm p-0.5 transition-colors"
                   aria-label={`Remove ${subject.name}`}
                 >
-                  <X size={13}/>
+                  <X size={13} />
                 </button>
               </div>
             ))}
