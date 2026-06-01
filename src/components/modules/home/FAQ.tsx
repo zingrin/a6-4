@@ -5,40 +5,48 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import SectionHeader from "./SectionHeader";
-
 const faqs = [
   {
-    question: "How do I find the right tutor for me?",
+    question: "How do I choose the best tutor for my learning goals?",
     answer:
-      "Browse our tutor directory and filter by subject, rating, availability, and hourly rate. Each tutor has a detailed profile with their bio, reviews, and available time slots so you can make an informed choice before booking.",
+      "Finding the right tutor is easy with SkillBridge. Browse tutor profiles, compare ratings, teaching experience, subjects, availability, and hourly rates. Detailed tutor bios and student reviews help you confidently select the tutor that matches your learning style and goals.",
   },
   {
-    question: "How does booking a session work?",
+    question: "What is the process for booking a tutoring session?",
     answer:
-      "Once you've found a tutor you like, pick an available time slot on their profile page. Complete the secure checkout and you're all set — you'll receive a confirmation and the session details right away.",
+      "Simply select your preferred tutor, choose an available time slot, and confirm your booking. Once payment is completed, you'll instantly receive a booking confirmation along with all session details in your dashboard.",
   },
   {
-    question: "What if I need to cancel or reschedule?",
+    question: "Can I cancel or reschedule a booked session?",
     answer:
-      "You can manage your bookings from your student dashboard. Cancellations made within the policy window are fully refunded. Reach out to support if you need help with a last-minute change.",
+      "Yes. You can easily manage your bookings from your student dashboard. Depending on the cancellation policy, eligible bookings may qualify for a full or partial refund. Rescheduling options are also available for most sessions.",
   },
   {
-    question: "Are the tutors verified?",
+    question: "Are SkillBridge tutors verified and qualified?",
     answer:
-      "Yes. Every tutor on SkillBridge goes through a review process before their profile is published. We look at subject expertise, teaching experience, and community feedback to maintain a high-quality roster.",
+      "Absolutely. Every tutor undergoes a screening and verification process before joining the platform. We review their qualifications, subject expertise, teaching experience, and profile information to ensure a high-quality learning experience.",
   },
   {
-    question: "Can I enrol in courses as well as book 1-on-1 sessions?",
+    question: "Does SkillBridge offer both courses and private tutoring?",
     answer:
-      "Absolutely. SkillBridge offers both self-paced courses created by our partner institutes and live 1-on-1 sessions with individual tutors — so you can learn in whichever format suits you best.",
+      "Yes. In addition to one-on-one tutoring sessions, SkillBridge provides access to curated learning courses from trusted educational partners, allowing you to learn at your own pace whenever it suits you.",
   },
   {
-    question: "How are payments handled?",
+    question: "How are payments processed and secured?",
     answer:
-      "All payments are processed securely via Stripe. Your card details are never stored on our servers. Refunds for eligible cancellations are returned directly to your original payment method.",
+      "All transactions are securely processed through trusted payment gateways such as Stripe. Your sensitive payment information is encrypted and never stored on our servers, ensuring a safe and reliable checkout experience.",
+  },
+  {
+    question: "Can I leave feedback after a tutoring session?",
+    answer:
+      "Yes. After completing a session, students can rate their experience and leave reviews for tutors. This helps maintain transparency and allows future learners to make informed decisions.",
+  },
+  {
+    question: "What subjects are available on SkillBridge?",
+    answer:
+      "SkillBridge offers a wide range of subjects including Mathematics, Science, Programming, Languages, Business Studies, Test Preparation, and many more. New subjects and expert tutors are added regularly.",
   },
 ];
-
 export default function FAQ() {
   return (
     <section className="container mx-auto px-8 py-16">
