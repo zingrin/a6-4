@@ -9,7 +9,7 @@ import {
 import { User } from "@/types";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { MoreHorizontal, Mail, ExternalLink, ShieldCheck } from "lucide-react";
+import { MoreHorizontal, Mail, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -55,15 +55,18 @@ export default function ModeratorTable({ moderators }: ModeratorTableProps) {
                 </TableCell>
                 <TableCell>{moderator.email}</TableCell>
                 <TableCell>
-                  <Badge variant={moderator.status === "ACTIVE" ? "default" : "secondary"}>
+                  <Badge
+                    variant={
+                      moderator.status === "ACTIVE" ? "default" : "secondary"
+                    }
+                  >
                     {moderator.status}
                   </Badge>
                 </TableCell>
                 <TableCell className="text-muted-foreground text-sm">
-                  {moderator.createdAt 
+                  {moderator.createdAt
                     ? new Date(moderator.createdAt).toLocaleDateString()
-                    : "Unknown"
-                  }
+                    : "Unknown"}
                 </TableCell>
                 <TableCell className="text-right">
                   <DropdownMenu>
@@ -78,7 +81,8 @@ export default function ModeratorTable({ moderators }: ModeratorTableProps) {
                         <Mail className="mr-2 h-4 w-4" /> Contact
                       </DropdownMenuItem>
                       <DropdownMenuItem className="cursor-pointer">
-                        <ShieldCheck className="mr-2 h-4 w-4" /> Manage Permissions
+                        <ShieldCheck className="mr-2 h-4 w-4" /> Manage
+                        Permissions
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
