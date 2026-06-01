@@ -22,11 +22,7 @@ export default async function Footer() {
       <div className="container mx-auto px-8 pt-20 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           <div className="space-y-6">
-            <Logo
-              className="mb-0"
-              imgClassName="brightness-0 invert h-10 w-auto"
-              textClassName="text-white"
-            />
+            <Logo className="mb-0" imgClassName="h-10 w-auto invert" textClassName="text-white" />
             <p className="text-slate-400 text-sm leading-relaxed max-max-w-[280px]">
               SkillBridge is on a mission to democratize expert learning by
               connecting passionate learners with world-class tutors and

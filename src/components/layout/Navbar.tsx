@@ -21,7 +21,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet";
 import Link from "next/link";
 import { Category, User } from "@/types";
 
@@ -242,7 +242,7 @@ function UserMenu({ user, onLogout }: { user: User; onLogout: () => void }) {
 const Navbar = ({
   logo = {
     url: "/",
-    src: "/skillbridge.svg",
+    src: "/skillbridge.png",
     alt: "logo",
     title: "SkillBridge",
   },
@@ -331,7 +331,9 @@ const Navbar = ({
                   <Menu className="size-4" />
                 </Button>
               </SheetTrigger>
-              <SheetContent className="overflow-y-auto">
+              <SheetContent className="overflow-y-auto" aria-describedby="mobile-nav-desc">
+                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+                <SheetDescription id="mobile-nav-desc" className="sr-only">Mobile navigation and account actions</SheetDescription>
                 <div className="flex flex-col gap-6 p-4">
                   <div className="flex flex-col gap-4">
                     {menu.map((item) => (

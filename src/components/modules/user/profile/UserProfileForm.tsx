@@ -1,11 +1,10 @@
 "use client";
 
-// import { updateProfile } from "@/actions/user.action"; // Assume you'll create this
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -19,6 +18,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { useForm } from "@tanstack/react-form";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 import { z } from "zod";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { User } from "@/types";
@@ -30,7 +30,15 @@ const profileSchema = z.object({
   phone: z.string().min(10, "Phone number must be at least 10 digits"),
 });
 
-export function UserProfileForm({user}:  {user : Partial<User>}) {
+export function UserProfileForm({ user }: { user: Partial<User> }) {
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    return () => {
+      if (previewUrl) URL.revokeObjectURL(previewUrl);
+    };
+  }, [previewUrl]);
 
   const form = useForm({
     defaultValues: {
@@ -49,7 +57,7 @@ export function UserProfileForm({user}:  {user : Partial<User>}) {
         formData.append("name", value.name);
         if (value.phone) formData.append("phone", value.phone);
         if (value.image && value.image instanceof File) {
-            formData.append("image", value.image);
+          formData.append("image", value.image);
         }
 
         const res = await updateProfileAction(formData);
@@ -61,8 +69,22 @@ export function UserProfileForm({user}:  {user : Partial<User>}) {
 
         toast.success(res.data.message || "Profile updated successfully", { id: toastId });
 
+        // If API returns the saved image URL, use it to update the preview so it doesn't disappear
+        const returnedImage =
+          res?.data?.data?.image || res?.data?.image || res?.data?.user?.image || null;
+
+        if (returnedImage) {
+          setPreviewUrl(returnedImage as string);
+        }
+
+        // Refresh server data so other server-rendered parts update
+        try {
+          router.refresh();
+        } catch (e) {
+          // ignore if refresh isn't available in this environment
+        }
       } catch (err) {
-        console.log(err)
+        console.log(err);
         toast.error("Failed to update profile", { id: toastId });
       }
     },
@@ -77,10 +99,8 @@ export function UserProfileForm({user}:  {user : Partial<User>}) {
         {/* Profile Image Preview */}
         <div className="flex items-center gap-4 pb-4 border-b">
           <Avatar className="h-20 w-20">
-            <AvatarImage src={user.image || ""} />
-            <AvatarFallback className="text-xl">
-              {user.name?.[0]}
-            </AvatarFallback>
+            <AvatarImage src={previewUrl ?? user.image ?? undefined} />
+            <AvatarFallback className="text-xl">{user.name?.[0]}</AvatarFallback>
           </Avatar>
           <div>
             <h2 className="text-lg font-medium">{user.name}</h2>
@@ -103,20 +123,12 @@ export function UserProfileForm({user}:  {user : Partial<User>}) {
             <form.Field
               name="name"
               children={(field) => {
-                const isInvalid =
-                  field.state.meta.isTouched && !field.state.meta.isValid;
+                const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
                 return (
                   <Field data-invalid={isInvalid}>
                     <FieldLabel htmlFor={field.name}>Full Name</FieldLabel>
-                    <Input
-                      id={field.name}
-                      value={field.state.value}
-                      onChange={(e) => field.handleChange(e.target.value)}
-                      placeholder="Your Name"
-                    />
-                    {isInvalid && (
-                      <FieldError errors={field.state.meta.errors} />
-                    )}
+                    <Input id={field.name} value={field.state.value} onChange={(e) => field.handleChange(e.target.value)} placeholder="Your Name" />
+                    {isInvalid && <FieldError errors={field.state.meta.errors} />}
                   </Field>
                 );
               }}
@@ -125,21 +137,12 @@ export function UserProfileForm({user}:  {user : Partial<User>}) {
             <form.Field
               name="phone"
               children={(field) => {
-                const isInvalid =
-                  field.state.meta.isTouched && !field.state.meta.isValid;
+                const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
                 return (
                   <Field data-invalid={isInvalid}>
                     <FieldLabel htmlFor={field.name}>Phone</FieldLabel>
-                    <Input
-                      id={field.name}
-                      value={field.state.value ?? ""}
-                      type="tel"
-                      onChange={(e) => field.handleChange(e.target.value)}
-                      placeholder="Your phone"
-                    />
-                    {isInvalid && (
-                      <FieldError errors={field.state.meta.errors} />
-                    )}
+                    <Input id={field.name} value={field.state.value ?? ""} type="tel" onChange={(e) => field.handleChange(e.target.value)} placeholder="Your phone" />
+                    {isInvalid && <FieldError errors={field.state.meta.errors} />}
                   </Field>
                 );
               }}
@@ -149,22 +152,26 @@ export function UserProfileForm({user}:  {user : Partial<User>}) {
             <form.Field
               name="image"
               children={(field) => {
-                const isInvalid =
-                  field.state.meta.isTouched && !field.state.meta.isValid;
+                const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
                 return (
                   <Field data-invalid={isInvalid}>
-                    <FieldLabel htmlFor={field.name}>
-                      Profile Picture
-                    </FieldLabel>
+                    <FieldLabel htmlFor={field.name}>Profile Picture</FieldLabel>
                     <Input
                       id={field.name}
                       type="file"
                       accept="image/*"
-                      onChange={(e) => field.handleChange(e.target.files?.[0] || undefined)}
+                      onChange={(e) => {
+                        const file = e.target.files?.[0] || undefined;
+                        field.handleChange(file);
+                        if (file) {
+                          const url = URL.createObjectURL(file);
+                          setPreviewUrl(url);
+                        } else {
+                          setPreviewUrl(null);
+                        }
+                      }}
                     />
-                    {isInvalid && (
-                      <FieldError errors={field.state.meta.errors} />
-                    )}
+                    {isInvalid && <FieldError errors={field.state.meta.errors} />}
                   </Field>
                 );
               }}

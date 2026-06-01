@@ -27,12 +27,16 @@ function Avatar({
 
 function AvatarImage({
   className,
+  src,
   ...props
-}: React.ComponentProps<typeof AvatarPrimitive.Image>) {
+}: React.ComponentProps<typeof AvatarPrimitive.Image> & { src?: string | null }) {
+  const imageSrc = src === "" ? undefined : src;
+
   return (
     <AvatarPrimitive.Image
       data-slot="avatar-image"
       className={cn("aspect-square size-full object-cover", className)}
+      src={imageSrc as any}
       {...props}
     />
   )
