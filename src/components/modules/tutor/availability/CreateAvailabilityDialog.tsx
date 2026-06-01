@@ -45,9 +45,9 @@ export function CreateAvailabilityDialog() {
     console.log("Current formData:", formData);
 
     if (!formData.day || !formData.startTime || !formData.endTime) {
-      console.log("day:", formData.day);
-      console.log("startTime:", formData.startTime);
-      console.log("endTime:", formData.endTime);
+      // console.log("day:", formData.day);
+      // console.log("startTime:", formData.startTime);
+      // console.log("endTime:", formData.endTime);
 
       console.error("Please fill in all fields");
       return;
