@@ -2,12 +2,6 @@ import type { NextConfig } from "next";
 import "./src/env";
 
 const nextConfig: NextConfig = {
-  experimental: {
-    serverActions: {
-      bodySizeLimit: "10mb",
-    },
-  },
-
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
@@ -23,17 +17,8 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "lh3.googleusercontent.com",
       },
-      {
-        protocol: "http",
-        hostname: "googleusercontent.com",
-      },
-      {
-        protocol: "https",
-        hostname: "googleusercontent.com",
-      },
     ],
   },
-
   async rewrites() {
     return [
       {
