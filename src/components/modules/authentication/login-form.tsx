@@ -9,18 +9,17 @@ import {
   FieldError,
   FieldGroup,
   FieldLabel,
-  FieldSeparator,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { authClient } from "@/lib/auth-client";
 import { useForm } from "@tanstack/react-form";
-import z from "zod";
+import * as z from "zod";
 import { toast } from "sonner";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
-  email: z.email(),
+  email: z.string().email("Invalid email address"),
   password: z.string().min(8, "Minimum length is 8"),
 });
 
@@ -39,28 +38,33 @@ export function LoginForm({
       onSubmit: formSchema,
     },
     onSubmit: async ({ value }) => {
-      const toastId = toast.loading("Logging In");
+      const toastId = toast.loading("Logging In...");
 
       try {
-        const { data, error } = await authClient.signIn.email(value);
+        const { data, error } = await authClient.signIn.email({
+          email: value.email,
+          password: value.password,
+        });
 
-        if (error) {
-          toast.error(error.message, { id: toastId });
+        if (error || !data?.user) {
+          toast.error(error?.message || "Login failed", { id: toastId });
           return;
         }
-        if (data.user) {
-          router.push(`/dashboard`);
-          toast.success("User logged in successfully", { id: toastId });
-        }
+
+        toast.success("User logged in successfully", { id: toastId });
+
+        router.push("/dashboard");
       } catch (error) {
-        toast.error("Something went wrong. Please try again.", { id: toastId });
+        console.error(error);
+        toast.error("Something went wrong. Please try again.", {
+          id: toastId,
+        });
       }
     },
   });
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
-
       <Card className="overflow-hidden p-0">
         <CardContent className="grid p-0 md:grid-cols-2">
           <form
@@ -79,11 +83,13 @@ export function LoginForm({
               </div>
 
               <FieldGroup>
+                {/* EMAIL */}
                 <form.Field
                   name="email"
                   children={(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid;
+
                     return (
                       <Field data-invalid={isInvalid}>
                         <FieldLabel htmlFor={field.name}>Email</FieldLabel>
@@ -103,11 +109,13 @@ export function LoginForm({
                   }}
                 />
 
+                {/* PASSWORD */}
                 <form.Field
                   name="password"
                   children={(field) => {
                     const isInvalid =
                       field.state.meta.isTouched && !field.state.meta.isValid;
+
                     return (
                       <Field data-invalid={isInvalid}>
                         <FieldLabel htmlFor={field.name}>Password</FieldLabel>
@@ -128,23 +136,18 @@ export function LoginForm({
                 />
               </FieldGroup>
 
-              <Button type="submit" className="cursor-pointer">
+              <Button type="submit" className="cursor-pointer w-full">
                 Login
               </Button>
 
               <FieldDescription className="text-center">
                 Don&apos;t have an account?{" "}
-                <Link href="/register">Sign up</Link>
+                <Link href="/register" className="text-primary">
+                  Sign up
+                </Link>
               </FieldDescription>
             </FieldGroup>
           </form>
-          <div className="bg-muted relative hidden md:block">
-            <img
-              src="https://images.unsplash.com/photo-1616017640739-44ce2bfd9b4e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Image"
-              className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
-            />
-          </div>
         </CardContent>
       </Card>
     </div>

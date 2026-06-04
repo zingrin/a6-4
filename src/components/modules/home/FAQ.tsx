@@ -5,40 +5,38 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import SectionHeader from "./SectionHeader";
-
 const faqs = [
   {
-    question: "How do I find the right tutor for me?",
+    question: "How can I improve my learning speed on SkillBridge?",
     answer:
-      "Browse our tutor directory and filter by subject, rating, availability, and hourly rate. Each tutor has a detailed profile with their bio, reviews, and available time slots so you can make an informed choice before booking.",
+      "Focus on consistent short sessions instead of long study hours. Use tutor guidance, practice regularly, and follow a structured learning path designed by experts to improve faster.",
   },
   {
-    question: "How does booking a session work?",
+    question: "Can I switch tutors if I’m not satisfied?",
     answer:
-      "Once you've found a tutor you like, pick an available time slot on their profile page. Complete the secure checkout and you're all set — you'll receive a confirmation and the session details right away.",
+      "Yes, you can switch tutors anytime. We recommend checking multiple profiles, reviews, and trial sessions to find the best match for your learning style.",
   },
   {
-    question: "What if I need to cancel or reschedule?",
+    question: "Do I need any special software to join sessions?",
     answer:
-      "You can manage your bookings from your student dashboard. Cancellations made within the policy window are fully refunded. Reach out to support if you need help with a last-minute change.",
+      "No special software is required. Most sessions run directly in your browser or via common tools like Zoom or Google Meet depending on the tutor’s preference.",
   },
   {
-    question: "Are the tutors verified?",
+    question: "Is there any free trial available?",
     answer:
-      "Yes. Every tutor on SkillBridge goes through a review process before their profile is published. We look at subject expertise, teaching experience, and community feedback to maintain a high-quality roster.",
+      "Some tutors offer free intro sessions so you can evaluate their teaching style before booking paid classes. Availability depends on the tutor.",
   },
   {
-    question: "Can I enrol in courses as well as book 1-on-1 sessions?",
+    question: "How do I track my learning progress?",
     answer:
-      "Absolutely. SkillBridge offers both self-paced courses created by our partner institutes and live 1-on-1 sessions with individual tutors — so you can learn in whichever format suits you best.",
+      "Your dashboard shows completed sessions, upcoming classes, and learning history. Some tutors also provide progress notes after each session.",
   },
   {
-    question: "How are payments handled?",
+    question: "Can I learn multiple subjects at the same time?",
     answer:
-      "All payments are processed securely via Stripe. Your card details are never stored on our servers. Refunds for eligible cancellations are returned directly to your original payment method.",
+      "Yes, you can enroll in multiple subjects simultaneously. You can book different tutors for different topics based on your schedule.",
   },
 ];
-
 export default function FAQ() {
   return (
     <section className="container mx-auto px-8 py-16">

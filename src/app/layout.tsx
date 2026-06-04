@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
-import { EB_Garamond, Faustina, Geist, Geist_Mono, Lexend, Slabo_13px } from "next/font/google";
+import {
+  EB_Garamond,
+  Faustina,
+  Geist,
+  Geist_Mono,
+  Lexend,
+  Slabo_13px,
+} from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { AIChatbot } from "@/components/modules/shared/AIChatbot";
@@ -7,9 +14,9 @@ import { AIChatbot } from "@/components/modules/shared/AIChatbot";
 import LoganFive from "next/font/local";
 
 const loganFive = LoganFive({
-    src: "../../public/fonts/LoganFiveW00Bold.ttf",
-    variable : "--font-logan"
-})
+  src: "../../public/fonts/LoganFiveW00Bold.ttf",
+  variable: "--font-logan",
+});
 
 const ebGaramond = EB_Garamond({
   variable: "--font-eb-garamond",
@@ -17,10 +24,9 @@ const ebGaramond = EB_Garamond({
 });
 
 const lexend = Lexend({
-    variable: "--font-lexend",
-  subsets : ["latin"]
-})
-
+  variable: "--font-lexend",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "SkillBridge",
@@ -33,13 +39,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning={true}>
       <body
+        suppressHydrationWarning
         className={`${loganFive.variable} ${ebGaramond.variable} ${lexend.className}  antialiased`}
       >
-          {children}
-          <Toaster richColors/>
-          <AIChatbot />
+        {children}
+        <Toaster richColors />
+        <AIChatbot />
       </body>
     </html>
   );

@@ -4,7 +4,13 @@ import { motion, useInView, animate } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { Users, GraduationCap, BookOpenCheck, Globe } from "lucide-react";
 
-const StatCounter = ({ value, suffix = "+" }: { value: number; suffix?: string }) => {
+const StatCounter = ({
+  value,
+  suffix = "+",
+}: {
+  value: number;
+  suffix?: string;
+}) => {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -22,21 +28,42 @@ const StatCounter = ({ value, suffix = "+" }: { value: number; suffix?: string }
 
   return (
     <span ref={ref} className="text-4xl md:text-5xl font-extrabold text-white">
-      {count.toLocaleString()}{suffix}
+      {count.toLocaleString()}
+      {suffix}
     </span>
   );
 };
 
 const stats = [
-  { icon: <Users className="w-7 h-7" />, value: 500, label: "Expert Tutors", suffix: "+" },
-  { icon: <BookOpenCheck className="w-7 h-7" />, value: 10000, label: "Sessions Completed", suffix: "+" },
-  { icon: <GraduationCap className="w-7 h-7" />, value: 25000, label: "Students Enrolled", suffix: "+" },
-  { icon: <Globe className="w-7 h-7" />, value: 40, label: "Countries Reached", suffix: "+" },
+  {
+    icon: <Users className="w-7 h-7" />,
+    value: 500,
+    label: "Expert Tutors",
+    suffix: "+",
+  },
+  {
+    icon: <BookOpenCheck className="w-7 h-7" />,
+    value: 10000,
+    label: "Sessions Completed",
+    suffix: "+",
+  },
+  {
+    icon: <GraduationCap className="w-7 h-7" />,
+    value: 25000,
+    label: "Students Enrolled",
+    suffix: "+",
+  },
+  {
+    icon: <Globe className="w-7 h-7" />,
+    value: 40,
+    label: "Countries Reached",
+    suffix: "+",
+  },
 ];
 
 export default function AboutStats() {
   return (
-    <section className="py-20 bg-[#013545] relative overflow-hidden">
+    <section className="py-20 bg-[#95b835] relative overflow-hidden">
       {/* Decorative radial */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#088395/20_0%,_transparent_70%)]" />
 
@@ -46,7 +73,7 @@ export default function AboutStats() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-teal-300 font-bold tracking-widest uppercase text-sm"
+            className="text-green-800 font-bold tracking-widest uppercase text-sm"
           >
             By The Numbers
           </motion.span>

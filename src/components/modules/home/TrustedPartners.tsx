@@ -1,13 +1,13 @@
 import SectionHeader from "./SectionHeader";
-import { 
-  SiCoursera, 
-  SiUdemy, 
-  SiEdx, 
-  SiFreecodecamp, 
-  SiCodecademy, 
-  SiDuolingo, 
-  SiSkillshare, 
-  SiPluralsight 
+import {
+  SiCoursera,
+  SiUdemy,
+  SiEdx,
+  SiFreecodecamp,
+  SiCodecademy,
+  SiDuolingo,
+  SiSkillshare,
+  SiPluralsight,
 } from "react-icons/si";
 import { GiGraduateCap, GiRibbonMedal } from "react-icons/gi";
 import { FaGraduationCap, FaLinkedin, FaAward } from "react-icons/fa";
@@ -66,12 +66,12 @@ const partners = [
   {
     name: "MasterClass",
     color: "#000000",
-    icon: <FaAward size={32} />, 
+    icon: <FaAward size={32} />,
   },
   {
     name: "Alison",
     color: "#E91E63",
-    icon: <GiRibbonMedal size={32} />, 
+    icon: <GiRibbonMedal size={32} />,
   },
 ];
 
@@ -99,10 +99,10 @@ export default function TrustedPartners() {
           {allPartners.map((partner, i) => (
             <div
               key={i}
-              className="shrink-0 flex items-center gap-4 grayscale hover:grayscale-0 transition-all duration-500 cursor-default px-6 py-3 bg-white/50 backdrop-blur-sm rounded-xl border border-transparent hover:border-slate-200 hover:shadow-sm"
+              className="shrink-0 flex items-center gap-4 transition-all duration-500 cursor-default px-6 py-3 bg-white/50 backdrop-blur-sm rounded-xl border border-transparent hover:border-slate-200 hover:shadow-sm"
             >
-              <div 
-                className="flex items-center justify-center transition-transform duration-300 group-hover:scale-110" 
+              <div
+                className="flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
                 style={{ color: partner.color }}
               >
                 {partner.icon}

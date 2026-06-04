@@ -1,178 +1,126 @@
-"use client";
+export const dynamic = "force-dynamic";
 
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  PointElement,
-  LineElement,
-  ArcElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler,
-} from "chart.js";
-import { Line, Doughnut } from "react-chartjs-2";
+import DashPageHeader from "@/components/layout/DashPageHeader";
+import { userService } from "@/services/user.service";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
+import StudentDashboardCharts from "@/components/modules/student/DashboardCharts";
+import StudentStatCards from "@/components/modules/student/StatCards";
 
-// Register ChartJS components
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  PointElement,
-  LineElement,
-  ArcElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-);
+export default async function StudentDashboard() {
+  const [userRes, statsRes] = await Promise.all([
+    userService.getSession(),
+    userService.getStudentStats(),
+  ]);
 
-interface DashboardChartsProps {
-  stats: {
-    serviceMix: { name: string; value: number }[];
-    categoryDistribution: { name: string; value: number }[];
-    spendingTrend: { month: string; amount: number }[];
-  };
-}
+  // user safe
+  const user = userRes?.data?.user;
 
-export default function StudentDashboardCharts({ stats }: DashboardChartsProps) {
-  const { spendingTrend, serviceMix, categoryDistribution } = stats;
-
-  // Spending Trend Data
-  const trendData = {
-    labels: spendingTrend.map((t) => t.month),
-    datasets: [
-      {
-        fill: true,
-        label: "Spending ($)",
-        data: spendingTrend.map((t) => t.amount),
-        borderColor: "rgb(99, 102, 241)",
-        backgroundColor: "rgba(99, 102, 241, 0.1)",
-        tension: 0.4,
-        pointRadius: 4,
-        pointBackgroundColor: "rgb(99, 102, 241)",
-      },
-    ],
+  // stats safe default (IMPORTANT)
+  const stats = statsRes?.data?.data ?? {
+    recentEnrollments: [],
+    upcomingBookings: [],
+    spendingTrend: [],
   };
 
-  // Learning Mix Data (Courses vs Tutoring)
-  const mixData = {
-    labels: serviceMix.map((s) => s.name),
-    datasets: [
-      {
-        data: serviceMix.map((s) => s.value),
-        backgroundColor: [
-          "rgba(99, 102, 241, 0.8)",
-          "rgba(168, 85, 247, 0.8)",
-        ],
-        borderWidth: 0,
-        hoverOffset: 4,
-      },
-    ],
-  };
-
-  // Category Distribution Data
-  const categoryData = {
-    labels: categoryDistribution.map((c) => c.name),
-    datasets: [
-      {
-        data: categoryDistribution.map((c) => c.value),
-        backgroundColor: [
-          "rgba(34, 197, 94, 0.8)",
-          "rgba(59, 130, 246, 0.8)",
-          "rgba(249, 115, 22, 0.8)",
-          "rgba(236, 72, 153, 0.8)",
-          "rgba(244, 63, 94, 0.8)",
-        ],
-        borderWidth: 0,
-        hoverOffset: 4,
-      },
-    ],
-  };
-
-  const commonOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        display: false,
-      },
-    },
-  };
-
-  const donutOptions = {
-    ...commonOptions,
-    cutout: "70%",
-    plugins: {
-      legend: {
-        display: true,
-        position: "bottom" as const,
-        labels: {
-          usePointStyle: true,
-          padding: 20,
-          font: {
-            size: 11,
-          },
-        },
-      },
-    },
-  };
+  const firstName = user?.name?.split(" ")?.[0] ?? "Student";
 
   return (
-    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-12">
-      {/* Spending Trend */}
-      <Card className="lg:col-span-8 overflow-hidden border-none shadow-md bg-card/50 backdrop-blur-sm">
-        <CardHeader>
-          <CardTitle className="text-base font-semibold">Learning Investment</CardTitle>
-        </CardHeader>
-        <CardContent className="h-[300px]">
-          <Line
-            data={trendData}
-            options={{
-              ...commonOptions,
-              scales: {
-                y: {
-                  beginAtZero: true,
-                  grid: {
-                    display: true,
-                    color: "rgba(0,0,0,0.05)",
-                  },
-                },
-                x: {
-                  grid: {
-                    display: false,
-                  },
-                },
-              },
-            }}
-          />
-        </CardContent>
-      </Card>
+    <div className="space-y-8 pb-10">
+      {/* header */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <DashPageHeader
+          title={`Welcome back, ${firstName}!`}
+          description="Track your progress and manage your learning journey"
+        />
+      </div>
 
-      {/* Service Mix */}
-      <Card className="lg:col-span-4 overflow-hidden border-none shadow-md bg-card/50 backdrop-blur-sm">
-        <CardHeader>
-          <CardTitle className="text-base font-semibold">Service Distribution</CardTitle>
-        </CardHeader>
-        <CardContent className="h-[300px] flex items-center justify-center">
-          <Doughnut data={mixData} options={donutOptions} />
-        </CardContent>
-      </Card>
+      {/* stat cards */}
+      <StudentStatCards stats={stats} />
 
-      {/* Category Distribution */}
-      <Card className="lg:col-span-12 overflow-hidden border-none shadow-md bg-card/50 backdrop-blur-sm">
-        <CardHeader>
-          <CardTitle className="text-base font-semibold">Interests by Category</CardTitle>
-        </CardHeader>
-        <CardContent className="h-[300px] flex items-center justify-center">
-            <div className="w-full max-w-md h-full">
-               <Doughnut data={categoryData} options={donutOptions} />
+      {/* charts (only if data exists) */}
+      {stats?.spendingTrend?.length > 0 && (
+        <StudentDashboardCharts stats={stats} />
+      )}
+
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-12">
+        {/* recent enrollments */}
+        <Card className="lg:col-span-8">
+          <CardHeader>
+            <CardTitle>Recent Enrollments</CardTitle>
+          </CardHeader>
+
+          <CardContent>
+            {/* empty state */}
+            {(stats?.recentEnrollments?.length ?? 0) === 0 ? (
+              <div className="p-10 text-center border border-dashed rounded-xl">
+                <h3 className="font-semibold">No enrollments yet</h3>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Start learning by joining a course
+                </p>
+
+                <Link href="/courses">
+                  <button className="mt-4 px-4 py-2 bg-black text-white rounded-lg text-sm">
+                    Browse Courses
+                  </button>
+                </Link>
+              </div>
+            ) : (
+              <div className="space-y-3">
+                {stats?.recentEnrollments?.map((enrollment: any) => (
+                  <div
+                    key={enrollment.id}
+                    className="flex items-center justify-between p-4 border rounded-xl"
+                  >
+                    {/* course info */}
+                    <div>
+                      <p className="font-semibold text-sm">
+                        {enrollment.course?.title}
+                      </p>
+
+                      <p className="text-xs text-muted-foreground">
+                        {enrollment.course?.institute?.name}
+                      </p>
+                    </div>
+
+                    {/* action */}
+                    <Link
+                      href="/dashboard/courses"
+                      className="text-xs font-bold text-blue-600"
+                    >
+                      Continue
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+        {/* right panel */}
+        <Card className="lg:col-span-4">
+          <CardHeader>
+            <CardTitle>Accelerator</CardTitle>
+          </CardHeader>
+
+          <CardContent>
+            <div className="p-4 bg-gradient-to-br from-indigo-600 to-purple-700 text-white rounded-xl">
+              <h4 className="font-bold">Power Up</h4>
+
+              <p className="text-xs opacity-80 mt-2">
+                Book mentor sessions and improve faster
+              </p>
+
+              <Link
+                href="/tutors"
+                className="block mt-3 bg-white text-indigo-700 text-center py-2 rounded-lg text-xs font-bold"
+              >
+                Book Mentor
+              </Link>
             </div>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }
