@@ -4,20 +4,13 @@ import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export default function CourseCarousel({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function CourseCarousel({ children }: { children: React.ReactNode }) {
   const trackRef = useRef<HTMLDivElement>(null);
 
   const scroll = (dir: "left" | "right") => {
     if (!trackRef.current) return;
     const cardWidth = trackRef.current.querySelector("div")?.offsetWidth ?? 320;
-    trackRef.current.scrollBy({
-      left: dir === "right" ? cardWidth + 32 : -(cardWidth + 32),
-      behavior: "smooth",
-    });
+    trackRef.current.scrollBy({ left: dir === "right" ? cardWidth + 32 : -(cardWidth + 32), behavior: "smooth" });
   };
 
   return (

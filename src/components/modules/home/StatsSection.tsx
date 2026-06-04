@@ -11,13 +11,7 @@ interface StatItemProps {
   suffix?: string;
 }
 
-const StatCounter = ({
-  value,
-  suffix = "+",
-}: {
-  value: number;
-  suffix?: string;
-}) => {
+const StatCounter = ({ value, suffix = "+" }: { value: number; suffix?: string }) => {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -34,12 +28,8 @@ const StatCounter = ({
   }, [isInView, value]);
 
   return (
-    <span
-      ref={ref}
-      className="text-2xl md:text-3xl font-extrabold text-slate-900"
-    >
-      {count.toLocaleString()}
-      {suffix}
+    <span ref={ref} className="text-2xl md:text-3xl font-extrabold text-slate-900">
+      {count.toLocaleString()}{suffix}
     </span>
   );
 };

@@ -28,26 +28,27 @@ export interface UsersTableProps {
   users: User[];
 }
 
+
 export default function UsersTable({ users }: UsersTableProps) {
-  const handleStatusChange = async (status: UserStatus, userId: string) => {
-    const toastId = toast.loading("Updating user status...");
 
-    try {
-      const res = await updateUserStatusAction(status, userId);
+    const handleStatusChange = async (status : UserStatus, userId : string) => {
+       const toastId = toast.loading("Updating user status...");
 
-      if (res?.error) {
-        toast.error(res.error.message, { id: toastId });
-        return;
+      try {
+        const res = await updateUserStatusAction(status, userId);
+
+        if (res?.error) {
+          toast.error(res.error.message, { id: toastId });
+          return;
+        }
+
+        toast.success(res.data.message || "User status updated successfully", { id: toastId });
+
+      } catch (err) {
+        console.log(err)
+        toast.error("Failed to update status", { id: toastId });
       }
-
-      toast.success(res.data.message || "User status updated successfully", {
-        id: toastId,
-      });
-    } catch (err) {
-      console.log(err);
-      toast.error("Failed to update status", { id: toastId });
     }
-  };
 
   if (!users || users.length === 0) {
     return (
@@ -63,18 +64,33 @@ export default function UsersTable({ users }: UsersTableProps) {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-70 pl-4">User</TableHead>
-            <TableHead>Email</TableHead>
-            <TableHead>Phone</TableHead>
-            <TableHead>Role</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Joined</TableHead>
+            <TableHead className="w-70 pl-4">
+              User
+            </TableHead>
+            <TableHead >
+              Email
+            </TableHead>
+            <TableHead>
+              Phone
+            </TableHead>
+            <TableHead>
+              Role
+            </TableHead>
+            <TableHead>
+              Status
+            </TableHead>
+            <TableHead>
+              Joined
+            </TableHead>
           </TableRow>
         </TableHeader>
 
         <TableBody>
           {users.map((user, index) => (
-            <TableRow key={user.id}>
+            <TableRow
+              key={user.id}
+              
+            >
               <TableCell className="pl-4">
                 <div className="flex items-center gap-3">
                   <Avatar className="h-8 w-8">
@@ -123,14 +139,11 @@ export default function UsersTable({ users }: UsersTableProps) {
               </TableCell>
 
               <TableCell>
-                <Select
-                  value={user.status}
-                  onValueChange={(value) =>
-                    handleStatusChange(value as UserStatus, user.id)
-                  }
-                >
+                <Select value={user.status} onValueChange={(value) => handleStatusChange(value as UserStatus, user.id)}>
                   <SelectTrigger className="w-27.5 text-sm border-slate-200 focus:ring-0">
-                    <SelectValue>{user.status}</SelectValue>
+                    <SelectValue>
+                     {user.status}
+                    </SelectValue>
                   </SelectTrigger>
                   <SelectContent>
                     {USER_STATUS.map((option) => (

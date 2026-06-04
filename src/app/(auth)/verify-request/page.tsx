@@ -14,10 +14,10 @@ import {
 export default async function VerifyRequestPage({
   searchParams,
 }: {
-  searchParams: Promise<{ email: string }>;
+  searchParams: Promise<{email : string}>;
 }) {
   // Replace with dynamic logic if needed
-  const { email } = await searchParams;
+  const {email} = await searchParams;
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-slate-50 p-4">
@@ -32,7 +32,7 @@ export default async function VerifyRequestPage({
             <span className="font-medium text-slate-900">{email}</span>
           </CardDescription>
         </CardHeader>
-
+        
         <CardContent className="grid gap-4">
           <Button className="w-full" asChild>
             <a href="https://mail.google.com" target="_blank" rel="noreferrer">

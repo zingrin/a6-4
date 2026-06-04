@@ -27,7 +27,7 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  Filler,
+  Filler
 );
 
 interface AdminChartsProps {
@@ -52,7 +52,7 @@ export default function AdminDashboardCharts({ data }: AdminChartsProps) {
         borderColor: "rgb(59, 130, 246)",
         backgroundColor: "rgba(59, 130, 246, 0.1)",
         tension: 0.4,
-        yAxisID: "y",
+        yAxisID: 'y',
       },
       {
         label: "New User Signups",
@@ -60,7 +60,7 @@ export default function AdminDashboardCharts({ data }: AdminChartsProps) {
         borderColor: "rgb(34, 197, 94)",
         backgroundColor: "rgba(34, 197, 94, 0.1)",
         tension: 0.4,
-        yAxisID: "y1",
+        yAxisID: 'y1',
       },
     ],
   };
@@ -120,17 +120,17 @@ export default function AdminDashboardCharts({ data }: AdminChartsProps) {
     ...options,
     scales: {
       y: {
-        type: "linear" as const,
+        type: 'linear' as const,
         display: true,
-        position: "left" as const,
-        title: { display: true, text: "Revenue ($)" },
+        position: 'left' as const,
+        title: { display: true, text: 'Revenue ($)' },
         beginAtZero: true,
       },
       y1: {
-        type: "linear" as const,
+        type: 'linear' as const,
         display: true,
-        position: "right" as const,
-        title: { display: true, text: "User Signups" },
+        position: 'right' as const,
+        title: { display: true, text: 'User Signups' },
         beginAtZero: true,
         grid: { drawOnChartArea: false },
       },
@@ -147,9 +147,7 @@ export default function AdminDashboardCharts({ data }: AdminChartsProps) {
       {/* Platform Trends */}
       <Card className="lg:col-span-8 border-none shadow-md bg-card/50 backdrop-blur-sm overflow-hidden">
         <CardHeader>
-          <CardTitle className="text-base font-semibold">
-            Platform Performance Trend
-          </CardTitle>
+          <CardTitle className="text-base font-semibold">Platform Performance Trend</CardTitle>
         </CardHeader>
         <CardContent className="h-[400px]">
           <Line data={trendData} options={lineOptions} />
@@ -159,9 +157,7 @@ export default function AdminDashboardCharts({ data }: AdminChartsProps) {
       {/* User Mix */}
       <Card className="lg:col-span-4 border-none shadow-md bg-card/50 backdrop-blur-sm overflow-hidden">
         <CardHeader>
-          <CardTitle className="text-base font-semibold">
-            User Role Distribution
-          </CardTitle>
+          <CardTitle className="text-base font-semibold">User Role Distribution</CardTitle>
         </CardHeader>
         <CardContent className="h-[400px] flex items-center justify-center">
           <Doughnut data={roleData} options={donutOptions} />
@@ -171,20 +167,18 @@ export default function AdminDashboardCharts({ data }: AdminChartsProps) {
       {/* Booking Health */}
       <Card className="lg:col-span-12 border-none shadow-md bg-card/50 backdrop-blur-sm overflow-hidden">
         <CardHeader>
-          <CardTitle className="text-base font-semibold">
-            Global Booking Status Overview
-          </CardTitle>
+          <CardTitle className="text-base font-semibold">Global Booking Status Overview</CardTitle>
         </CardHeader>
         <CardContent className="h-[350px]">
-          <Bar
-            data={bookingData}
-            options={{
-              ...options,
-              scales: {
-                y: { beginAtZero: true },
-              },
-            }}
-          />
+             <Bar 
+                data={bookingData} 
+                options={{
+                    ...options,
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }} 
+            />
         </CardContent>
       </Card>
     </div>

@@ -1,6 +1,8 @@
+
 import { Category } from ".";
 import { Review } from "./review.type";
 import { Availability, TutorSubject, User } from "./user.type";
+
 
 export interface TutorForModal {
   id: string;

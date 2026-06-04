@@ -29,7 +29,7 @@ export default async function CoursesPage({
     categoryService.getAllCategories(),
   ]);
 
-  console.log(coursesRes);
+  console.log(coursesRes)
 
   const courses = coursesRes?.data?.data?.data || [];
   const pagination = coursesRes?.data?.data?.pagination || {
@@ -50,9 +50,7 @@ export default async function CoursesPage({
         {/* Right Content */}
         <div className="flex-1">
           <div className="mb-6">
-            <h1 className="text-2xl font-bold text-foreground">
-              Available Courses
-            </h1>
+            <h1 className="text-2xl font-bold text-foreground">Available Courses</h1>
             <p className="text-muted-foreground text-sm">
               Found {pagination.total} course{pagination.total !== 1 ? "s" : ""}
             </p>

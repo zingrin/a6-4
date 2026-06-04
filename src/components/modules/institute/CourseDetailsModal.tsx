@@ -10,15 +10,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Course } from "@/types";
-import {
-  Calendar,
-  DollarSign,
-  Users,
-  BookOpen,
-  Layers,
-  Clock,
-  Tag,
-} from "lucide-react";
+import { Calendar, DollarSign, Users, BookOpen, Layers, Clock, Tag } from "lucide-react";
 
 interface CourseDetailsModalProps {
   course: Course;
@@ -26,31 +18,21 @@ interface CourseDetailsModalProps {
   onOpenChange: (open: boolean) => void;
 }
 
-const statusVariant = (
-  status?: string,
-): "default" | "secondary" | "destructive" | "outline" => {
+const statusVariant = (status?: string): "default" | "secondary" | "destructive" | "outline" => {
   switch (status) {
-    case "PUBLISHED":
-      return "default";
-    case "DRAFT":
-      return "secondary";
-    case "ARCHIVED":
-      return "destructive";
-    default:
-      return "outline";
+    case "PUBLISHED": return "default";
+    case "DRAFT": return "secondary";
+    case "ARCHIVED": return "destructive";
+    default: return "outline";
   }
 };
 
 const levelLabel = (level: string) => {
   switch (level) {
-    case "BEGINNER":
-      return "Beginner";
-    case "INTERMEDIATE":
-      return "Intermediate";
-    case "ADVANCED":
-      return "Advanced";
-    default:
-      return level;
+    case "BEGINNER": return "Beginner";
+    case "INTERMEDIATE": return "Intermediate";
+    case "ADVANCED": return "Advanced";
+    default: return level;
   }
 };
 
@@ -67,10 +49,7 @@ export default function CourseDetailsModal({
             <DialogTitle className="text-xl font-bold leading-tight">
               {course.title}
             </DialogTitle>
-            <Badge
-              variant={course.isPublished ? "default" : "secondary"}
-              className="shrink-0 mt-0.5"
-            >
+            <Badge variant={course.isPublished ? "default" : "secondary"} className="shrink-0 mt-0.5">
               {course.isPublished ? "PUBLISHED" : "DRAFT"}
             </Badge>
           </div>
@@ -96,9 +75,7 @@ export default function CourseDetailsModal({
               <span className="text-[11px] text-muted-foreground flex items-center gap-1 font-semibold uppercase tracking-wider">
                 <DollarSign className="h-3 w-3" /> Price
               </span>
-              <span className="text-xl font-bold text-primary">
-                ${course.price}
-              </span>
+              <span className="text-xl font-bold text-primary">${course.price}</span>
             </div>
             <div className="p-3 border rounded-lg flex flex-col gap-0.5">
               <span className="text-[11px] text-muted-foreground flex items-center gap-1 font-semibold uppercase tracking-wider">
@@ -145,8 +122,7 @@ export default function CourseDetailsModal({
           {/* Mentors */}
           <div className="space-y-2">
             <h4 className="text-sm font-semibold flex items-center gap-2">
-              <Users className="h-4 w-4 text-muted-foreground" /> Assigned
-              Mentors
+              <Users className="h-4 w-4 text-muted-foreground" /> Assigned Mentors
             </h4>
             {course.mentors && course.mentors.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -157,14 +133,10 @@ export default function CourseDetailsModal({
                   >
                     <Avatar className="h-9 w-9 ring-2 ring-background shrink-0">
                       <AvatarImage src={mentor.user.image || undefined} />
-                      <AvatarFallback>
-                        {mentor.user.name.charAt(0).toUpperCase()}
-                      </AvatarFallback>
+                      <AvatarFallback>{mentor.user.name.charAt(0).toUpperCase()}</AvatarFallback>
                     </Avatar>
                     <div className="flex flex-col min-w-0">
-                      <span className="text-sm font-bold truncate">
-                        {mentor.user.name}
-                      </span>
+                      <span className="text-sm font-bold truncate">{mentor.user.name}</span>
                       <span className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">
                         Instructor
                       </span>

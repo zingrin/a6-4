@@ -10,7 +10,7 @@ export interface FullReview {
   tutorId: string;
   student: User;
   tutor: TutorProfile;
-}
+};
 
 export interface Review {
   id: string;
@@ -21,8 +21,9 @@ export interface Review {
   createdAt: string;
 }
 
+
 export interface LeaveReviewPayload {
-  bookingId: string;
-  rating: string;
-  review: string;
+  bookingId : string; 
+  rating : string;
+  review : string;
 }

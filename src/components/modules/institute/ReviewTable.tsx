@@ -41,35 +41,26 @@ export default function ReviewTable({ reviews }: ReviewTableProps) {
                 <TableCell className="flex items-center gap-3">
                   <Avatar className="h-8 w-8">
                     <AvatarImage src={review.student.image || undefined} />
-                    <AvatarFallback>
-                      {review.student.name.charAt(0)}
-                    </AvatarFallback>
+                    <AvatarFallback>{review.student.name.charAt(0)}</AvatarFallback>
                   </Avatar>
                   <span className="font-medium">{review.student.name}</span>
                 </TableCell>
                 <TableCell>
-                  <div className="flex items-center gap-2">
-                    <Avatar className="h-6 w-6">
-                      <AvatarImage src={review.tutor.user.image || undefined} />
-                      <AvatarFallback>
-                        {review.tutor.user.name.charAt(0)}
-                      </AvatarFallback>
-                    </Avatar>
-                    <span>{review.tutor.user.name}</span>
-                  </div>
+                    <div className="flex items-center gap-2">
+                        <Avatar className="h-6 w-6">
+                            <AvatarImage src={review.tutor.user.image || undefined} />
+                            <AvatarFallback>{review.tutor.user.name.charAt(0)}</AvatarFallback>
+                        </Avatar>
+                        <span>{review.tutor.user.name}</span>
+                    </div>
                 </TableCell>
                 <TableCell>
                   <div className="flex items-center gap-1 text-yellow-500">
                     <Star className="h-4 w-4 fill-current" />
-                    <span className="font-bold">
-                      {Number(review.rating).toFixed(1)}
-                    </span>
+                    <span className="font-bold">{Number(review.rating).toFixed(1)}</span>
                   </div>
                 </TableCell>
-                <TableCell
-                  className="max-w-[300px] truncate"
-                  title={review.review}
-                >
+                <TableCell className="max-w-[300px] truncate" title={review.review}>
                   {review.review}
                 </TableCell>
                 <TableCell className="text-right text-muted-foreground">

@@ -106,18 +106,16 @@ export default function CreateCourseModal({
       fd.append("level", form.level);
       fd.append("isPublished", String(form.status === "PUBLISHED"));
       if (form.duration.trim()) fd.append("duration", form.duration.trim());
-      if (form.categoryId) fd.append("categoryId", form.categoryId);
+      if (form.categoryId)      fd.append("categoryId", form.categoryId);
       form.mentorIds.forEach((id) => fd.append("mentorIds", id));
-      if (thumbnailFile) fd.append("thumbnail", thumbnailFile);
+      if (thumbnailFile)        fd.append("thumbnail", thumbnailFile);
 
       const res = await createCourseAction(fd);
 
       if (!res?.data?.success) {
         toast.error(
-          res?.data?.message ||
-            res?.error?.message ||
-            "Failed to create course.",
-          { id: toastId },
+          res?.data?.message || res?.error?.message || "Failed to create course.",
+          { id: toastId }
         );
         return;
       }
@@ -133,13 +131,7 @@ export default function CreateCourseModal({
   };
 
   return (
-    <Dialog
-      open={open}
-      onOpenChange={(v) => {
-        setOpen(v);
-        if (!v) resetForm();
-      }}
-    >
+    <Dialog open={open} onOpenChange={(v) => { setOpen(v); if (!v) resetForm(); }}>
       <DialogTrigger asChild>
         <Button className="flex items-center gap-2">
           <Plus className="h-4 w-4" />
@@ -162,9 +154,7 @@ export default function CreateCourseModal({
               id="create-title"
               placeholder="e.g. Introduction to Web Development"
               value={form.title}
-              onChange={(e) =>
-                setForm((f) => ({ ...f, title: e.target.value }))
-              }
+              onChange={(e) => setForm((f) => ({ ...f, title: e.target.value }))}
               required
             />
           </div>
@@ -176,9 +166,7 @@ export default function CreateCourseModal({
               id="create-description"
               placeholder="Describe what students will learn in this course (min 10 characters)..."
               value={form.description}
-              onChange={(e) =>
-                setForm((f) => ({ ...f, description: e.target.value }))
-              }
+              onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))}
               className="w-full min-h-[90px] rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               required
             />
@@ -195,9 +183,7 @@ export default function CreateCourseModal({
                 step="0.01"
                 placeholder="e.g. 49.99"
                 value={form.price}
-                onChange={(e) =>
-                  setForm((f) => ({ ...f, price: e.target.value }))
-                }
+                onChange={(e) => setForm((f) => ({ ...f, price: e.target.value }))}
                 required
               />
             </div>
@@ -226,9 +212,9 @@ export default function CreateCourseModal({
               <Label htmlFor="create-level">Level *</Label>
               <Select
                 value={form.level}
-                onValueChange={(
-                  val: "BEGINNER" | "INTERMEDIATE" | "ADVANCED",
-                ) => setForm((f) => ({ ...f, level: val }))}
+                onValueChange={(val: "BEGINNER" | "INTERMEDIATE" | "ADVANCED") =>
+                  setForm((f) => ({ ...f, level: val }))
+                }
               >
                 <SelectTrigger id="create-level">
                   <SelectValue />
@@ -245,10 +231,7 @@ export default function CreateCourseModal({
               <Select
                 value={form.categoryId || "none"}
                 onValueChange={(val) =>
-                  setForm((f) => ({
-                    ...f,
-                    categoryId: val === "none" ? "" : val,
-                  }))
+                  setForm((f) => ({ ...f, categoryId: val === "none" ? "" : val }))
                 }
               >
                 <SelectTrigger id="create-category">
@@ -273,9 +256,7 @@ export default function CreateCourseModal({
               id="create-duration"
               placeholder="e.g. 4 Weeks"
               value={form.duration}
-              onChange={(e) =>
-                setForm((f) => ({ ...f, duration: e.target.value }))
-              }
+              onChange={(e) => setForm((f) => ({ ...f, duration: e.target.value }))}
             />
           </div>
 
@@ -305,12 +286,8 @@ export default function CreateCourseModal({
                 className="flex flex-col items-center justify-center w-full h-36 rounded-md border-2 border-dashed border-input hover:border-primary/50 bg-muted/30 hover:bg-muted/50 transition cursor-pointer gap-2"
               >
                 <ImagePlus className="h-8 w-8 text-muted-foreground" />
-                <span className="text-sm text-muted-foreground">
-                  Click to upload thumbnail
-                </span>
-                <span className="text-xs text-muted-foreground">
-                  JPG, PNG, WebP, SVG
-                </span>
+                <span className="text-sm text-muted-foreground">Click to upload thumbnail</span>
+                <span className="text-xs text-muted-foreground">JPG, PNG, WebP, SVG</span>
               </button>
             )}
             <input
@@ -351,10 +328,7 @@ export default function CreateCourseModal({
             <Button
               type="button"
               variant="outline"
-              onClick={() => {
-                setOpen(false);
-                resetForm();
-              }}
+              onClick={() => { setOpen(false); resetForm(); }}
               disabled={loading}
             >
               Cancel

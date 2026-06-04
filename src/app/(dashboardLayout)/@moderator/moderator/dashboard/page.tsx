@@ -41,9 +41,7 @@ export default async function ModeratorDashboard() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{usersData?.total ?? "—"}</div>
-            <p className="text-xs text-muted-foreground">
-              Registered platform accounts
-            </p>
+            <p className="text-xs text-muted-foreground">Registered platform accounts</p>
           </CardContent>
         </Card>
         <Card>

@@ -31,11 +31,7 @@ interface CourseTableProps {
   categories: Category[];
 }
 
-export default function CourseTable({
-  courses,
-  mentors,
-  categories,
-}: CourseTableProps) {
+export default function CourseTable({ courses, mentors, categories }: CourseTableProps) {
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [isViewOpen, setIsViewOpen] = useState(false);
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -89,30 +85,19 @@ export default function CourseTable({
                   {course.mentors && course.mentors.length > 0 ? (
                     <div className="flex -space-x-2">
                       {course.mentors.slice(0, 3).map((mentor) => (
-                        <Avatar
-                          key={mentor.id}
-                          className="h-6 w-6 border-2 border-background"
-                          title={mentor.user.name}
-                        >
+                        <Avatar key={mentor.id} className="h-6 w-6 border-2 border-background" title={mentor.user.name}>
                           <AvatarImage src={mentor.user.image || undefined} />
-                          <AvatarFallback>
-                            {mentor.user.name.charAt(0)}
-                          </AvatarFallback>
+                          <AvatarFallback>{mentor.user.name.charAt(0)}</AvatarFallback>
                         </Avatar>
                       ))}
                       {course.mentors.length > 3 && (
-                        <div
-                          className="flex items-center justify-center h-6 w-6 rounded-full border-2 border-background bg-muted text-[10px] font-medium z-10"
-                          title={`${course.mentors.length - 3} more`}
-                        >
+                        <div className="flex items-center justify-center h-6 w-6 rounded-full border-2 border-background bg-muted text-[10px] font-medium z-10" title={`${course.mentors.length - 3} more`}>
                           +{course.mentors.length - 3}
                         </div>
                       )}
                     </div>
                   ) : (
-                    <span className="text-muted-foreground text-xs italic">
-                      Unassigned
-                    </span>
+                    <span className="text-muted-foreground text-xs italic">Unassigned</span>
                   )}
                 </TableCell>
                 <TableCell>
@@ -121,9 +106,7 @@ export default function CourseTable({
                       {course.category.name}
                     </Badge>
                   ) : (
-                    <span className="text-muted-foreground text-xs italic">
-                      Uncategorized
-                    </span>
+                    <span className="text-muted-foreground text-xs italic">Uncategorized</span>
                   )}
                 </TableCell>
                 <TableCell>${course.price}</TableCell>
@@ -144,19 +127,19 @@ export default function CourseTable({
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                       <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                      <DropdownMenuItem
+                      <DropdownMenuItem 
                         className="cursor-pointer"
                         onClick={() => handleAction(course, "view")}
                       >
                         <Eye className="mr-2 h-4 w-4" /> View Details
                       </DropdownMenuItem>
-                      <DropdownMenuItem
+                      <DropdownMenuItem 
                         className="cursor-pointer"
                         onClick={() => handleAction(course, "edit")}
                       >
                         <Edit className="mr-2 h-4 w-4" /> Edit Course
                       </DropdownMenuItem>
-                      <DropdownMenuItem
+                      <DropdownMenuItem 
                         className="cursor-pointer text-destructive focus:text-destructive focus:bg-destructive/10"
                         onClick={() => handleAction(course, "delete")}
                       >

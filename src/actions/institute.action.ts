@@ -1,4 +1,4 @@
-"use server";
+"use server"
 
 import { instituteService } from "@/services/institute.service";
 import { revalidatePath } from "next/cache";

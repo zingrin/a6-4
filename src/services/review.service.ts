@@ -5,12 +5,12 @@ import { cookies } from "next/headers";
 const API_URL = env.API_URL;
 
 export const reviewService = {
-  getAllReviews: async () => {
+  getAllReviews : async () => {
     try {
       const cookieStore = await cookies();
 
       const res = await fetch(`${API_URL}/api/reviews`, {
-        method: "GET",
+        method : "GET",
         headers: {
           Cookie: cookieStore.toString(),
         },
@@ -30,17 +30,17 @@ export const reviewService = {
       };
     }
   },
-  createReview: async (reviewData: LeaveReviewPayload) => {
+  createReview : async (reviewData : LeaveReviewPayload) => {
     try {
       const cookieStore = await cookies();
 
       const res = await fetch(`${API_URL}/api/reviews/create`, {
-        method: "POST",
+        method : "POST",
         headers: {
           Cookie: cookieStore.toString(),
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(reviewData),
+        body : JSON.stringify(reviewData)
       });
 
       const data = await res.json();

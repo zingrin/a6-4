@@ -1,25 +1,29 @@
-export type * from "./routes.type";
-export type * from "./user.type";
-export * from "./availability.type";
-export * from "./booking.type";
-export * from "./tutor.type";
-export * from "./review.type";
-export * from "./course.type";
-export * from "./institute.type";
+
+
+export type * from "./routes.type"
+export type * from "./user.type"
+export * from "./availability.type"
+export * from "./booking.type"
+export * from "./tutor.type"
+export * from "./review.type"
+export * from "./course.type"
+export * from "./institute.type"
+
 
 export interface Mentor {
   id: string;
   user: {
-    name: string;
-    image: string | null;
+      name: string;
+      image: string | null;
   };
 }
+
 
 export interface Subject {
   id: string;
   name: string;
   categoryId: string;
-  createdAt: string;
+  createdAt: string; 
 }
 
 export interface Category {
@@ -36,13 +40,14 @@ export enum UserRoles {
   TUTOR = "TUTOR",
   INSTITUTE = "INSTITUTE",
   MENTOR = "MENTOR",
-  MODERATOR = "MODERATOR",
+  MODERATOR = "MODERATOR"
 }
 
 export enum UserStatus {
-  ACTIVE = "ACTIVE",
-  BANNED = "BANNED",
+    ACTIVE = "ACTIVE",
+    BANNED = "BANNED"
 }
+
 
 export interface TutorOverviewData {
   profile: {
@@ -89,3 +94,4 @@ export interface TutorOverviewData {
     }[];
   };
 }
+

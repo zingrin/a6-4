@@ -1,27 +1,28 @@
-import { Category, Subject, UserRoles, UserStatus } from ".";
+import { Category, Subject, UserRoles, UserStatus } from "."
 
 export interface User {
-  id: string;
-  name: string;
-  email: string;
-  emailVerified?: boolean;
-  image?: string | null;
-  phone?: string | null;
-  createdAt?: Date | string;
-  updatedAt?: Date | string;
-  role: UserRoles;
-  status?: UserStatus;
-  tutor?: TutorProfile;
+  id: string
+  name: string
+  email: string
+  emailVerified?: boolean
+  image?: string | null
+  phone?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  role: UserRoles
+  status?: UserStatus
+  tutor?: TutorProfile
 }
 
 export interface UserProfileFormProps {
-  name: string;
-  email: string;
-  image: string;
-  phone: string;
-  role: string;
-  status: string;
+    name: string;
+    email: string;
+    image: string;
+    phone: string;
+    role: string;
+    status: string;
 }
+
 
 export interface ServiceOptions {
   cache?: RequestCache;
@@ -29,12 +30,13 @@ export interface ServiceOptions {
 }
 
 export interface ListUserPaginationProps {
-  limit?: number;
-  page?: number;
-  total?: number;
-  totalPages?: number;
-  role?: string;
+    limit?: number;
+    page?: number;
+    total?: number;
+    totalPages?: number;
+    role?: string;
 }
+
 
 export interface TutorFilterParams {
   search?: string | null;
@@ -49,17 +51,12 @@ export interface TutorFilterParams {
   sortBy?: string;
 }
 
+
+
 export interface Availability {
   id: string;
   tutorId: string;
-  day:
-    | "MONDAY"
-    | "TUESDAY"
-    | "WEDNESDAY"
-    | "THURSDAY"
-    | "FRIDAY"
-    | "SATURDAY"
-    | "SUNDAY";
+  day: "MONDAY" | "TUESDAY" | "WEDNESDAY" | "THURSDAY" | "FRIDAY" | "SATURDAY" | "SUNDAY";
   startTime: string;
   endTime: string;
   status: "AVAILABLE" | "BOOKED";
@@ -75,20 +72,20 @@ export interface TutorProfile {
   avgRating: string;
   totalReviews: number;
   createdAt: string;
-  user: User;
-  availability: Availability[];
-  category?: Category;
-  subjects?: TutorSubject[];
-  relatedTutors?: TutorProfile[];
+  user : User;
+  availability : Availability[];
+  category ?: Category;
+  subjects ?: TutorSubject[];
+  relatedTutors ?: TutorProfile[];
   _count: {
     reviews: number;
   };
 }
 
 export interface TutorSubject {
-  subjectId: string;
-  tutorId: string;
-  subject: Subject;
+  subjectId : string;
+  tutorId : string;
+  subject : Subject;
 }
 
 export interface TutorProfileDashboard {
@@ -101,6 +98,6 @@ export interface TutorProfileDashboard {
   avgRating: string;
   totalReviews: number;
   createdAt: string;
-  category?: Category;
-  subjects: TutorSubject[];
+  category ?: Category;
+  subjects : TutorSubject[];
 }

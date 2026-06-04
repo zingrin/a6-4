@@ -25,31 +25,29 @@ import Link from "next/link";
 import { Eye } from "lucide-react";
 import { updateFetureTutorAction } from "@/actions/admin.action";
 
-export default function FeaturedTutorsTable({
-  tutors,
-}: {
-  tutors: TutorProfile[];
-}) {
-  const handleStatusChange = async (isFeatured: string, tutorId: string) => {
-    const toastId = toast.loading("Updating featured tutor...");
 
-    try {
-      const payload = isFeatured === "true" ? true : false;
-      const res = await updateFetureTutorAction(payload, tutorId);
+export default function FeaturedTutorsTable({ tutors }: { tutors : TutorProfile[]}) {
 
-      if (res?.error) {
-        toast.error(res.error.message, { id: toastId });
-        return;
+
+    const handleStatusChange = async (isFeatured : string, tutorId : string) => {
+       const toastId = toast.loading("Updating featured tutor...");
+
+      try {
+        const payload = isFeatured === "true" ? true  : false;
+        const res = await updateFetureTutorAction(payload, tutorId);
+
+        if (res?.error) {
+          toast.error(res.error.message, { id: toastId });
+          return;
+        }
+
+        toast.success(res.data.message || "Tutor featured updated successfully", { id: toastId });
+
+      } catch (err) {
+        console.log(err)
+        toast.error("Failed to update status", { id: toastId });
       }
-
-      toast.success(res.data.message || "Tutor featured updated successfully", {
-        id: toastId,
-      });
-    } catch (err) {
-      console.log(err);
-      toast.error("Failed to update status", { id: toastId });
     }
-  };
 
   if (!tutors || tutors.length === 0) {
     return (
@@ -65,26 +63,38 @@ export default function FeaturedTutorsTable({
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-70 pl-4">Tutor</TableHead>
-            <TableHead>Phone</TableHead>
-            <TableHead>Category</TableHead>
-            <TableHead>Email</TableHead>
-            <TableHead>Featured</TableHead>
-            <TableHead>Action</TableHead>
+            <TableHead className="w-70 pl-4">
+              Tutor
+            </TableHead>
+            <TableHead >
+              Phone
+            </TableHead>
+            <TableHead>
+              Category
+            </TableHead>
+            <TableHead>
+              Email
+            </TableHead>
+            <TableHead>
+              Featured
+            </TableHead>
+            <TableHead>
+              Action
+            </TableHead>
           </TableRow>
         </TableHeader>
 
         <TableBody>
           {tutors.map((tutor) => (
-            <TableRow key={tutor.id}>
+            <TableRow
+              key={tutor.id}
+              
+            >
               <TableCell className="pl-4">
                 <div className="flex items-center gap-3">
                   <Avatar className="h-8 w-8">
                     {tutor.user.image && (
-                      <AvatarImage
-                        src={tutor.user.image}
-                        alt={tutor.user.name}
-                      />
+                      <AvatarImage src={tutor.user.image} alt={tutor.user.name} />
                     )}
                     <AvatarFallback className="bg-slate-100 text-slate-600 text-xs font-semibold">
                       {getInitials(tutor.user.name)}
@@ -128,23 +138,15 @@ export default function FeaturedTutorsTable({
               </TableCell>
 
               <TableCell>
-                <Select
-                  value={tutor.isFeatured ? "true" : "false"}
-                  onValueChange={(value) =>
-                    handleStatusChange(value as string, tutor.id)
-                  }
-                >
+                <Select value={tutor.isFeatured ? "true" : "false"} onValueChange={(value) => handleStatusChange(value as string, tutor.id)}>
                   <SelectTrigger className="w-27.5 text-sm border-slate-200 focus:ring-0">
                     <SelectValue>
-                      {tutor.isFeatured ? "TRUE" : "FALSE"}
+                     {tutor.isFeatured ? "TRUE" : "FALSE"}
                     </SelectValue>
                   </SelectTrigger>
                   <SelectContent>
                     {["TRUE", "FALSE"].map((option) => (
-                      <SelectItem
-                        key={option}
-                        value={option.toLocaleLowerCase()}
-                      >
+                      <SelectItem key={option} value={option.toLocaleLowerCase()}>
                         {option}
                       </SelectItem>
                     ))}
@@ -154,7 +156,7 @@ export default function FeaturedTutorsTable({
 
               <TableCell>
                 <Link href={`/tutors/${tutor.id}`}>
-                  <Eye />
+                <Eye />
                 </Link>
               </TableCell>
             </TableRow>

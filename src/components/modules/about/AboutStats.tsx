@@ -4,13 +4,7 @@ import { motion, useInView, animate } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { Users, GraduationCap, BookOpenCheck, Globe } from "lucide-react";
 
-const StatCounter = ({
-  value,
-  suffix = "+",
-}: {
-  value: number;
-  suffix?: string;
-}) => {
+const StatCounter = ({ value, suffix = "+" }: { value: number; suffix?: string }) => {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -28,37 +22,16 @@ const StatCounter = ({
 
   return (
     <span ref={ref} className="text-4xl md:text-5xl font-extrabold text-white">
-      {count.toLocaleString()}
-      {suffix}
+      {count.toLocaleString()}{suffix}
     </span>
   );
 };
 
 const stats = [
-  {
-    icon: <Users className="w-7 h-7" />,
-    value: 500,
-    label: "Expert Tutors",
-    suffix: "+",
-  },
-  {
-    icon: <BookOpenCheck className="w-7 h-7" />,
-    value: 10000,
-    label: "Sessions Completed",
-    suffix: "+",
-  },
-  {
-    icon: <GraduationCap className="w-7 h-7" />,
-    value: 25000,
-    label: "Students Enrolled",
-    suffix: "+",
-  },
-  {
-    icon: <Globe className="w-7 h-7" />,
-    value: 40,
-    label: "Countries Reached",
-    suffix: "+",
-  },
+  { icon: <Users className="w-7 h-7" />, value: 500, label: "Expert Tutors", suffix: "+" },
+  { icon: <BookOpenCheck className="w-7 h-7" />, value: 10000, label: "Sessions Completed", suffix: "+" },
+  { icon: <GraduationCap className="w-7 h-7" />, value: 25000, label: "Students Enrolled", suffix: "+" },
+  { icon: <Globe className="w-7 h-7" />, value: 40, label: "Countries Reached", suffix: "+" },
 ];
 
 export default function AboutStats() {

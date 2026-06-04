@@ -1,6 +1,6 @@
-import { redirect } from "next/navigation";
-import React from "react";
+import { redirect } from 'next/navigation'
+import React from 'react'
 
 export default function AdminDashboard() {
-  return redirect("/admin/analytics");
+  return  redirect('/admin/analytics')
 }

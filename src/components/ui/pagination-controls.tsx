@@ -18,20 +18,22 @@ interface PaginationControlsProps {
   };
 }
 
-export default function PaginationControls({ meta }: PaginationControlsProps) {
-  const { limit, page, total, totalPages } = meta;
+export default function PaginationControls({meta} : PaginationControlsProps) {
 
-  const searchParams = useSearchParams();
-  const router = useRouter();
+    const {limit, page, total, totalPages} = meta;
 
-  const navigateToPage = (page: number) => {
-    const params = new URLSearchParams(searchParams.toString());
-    params.set("page", `${page}`);
-    router.push(`?${params.toString()}`);
-  };
+    const searchParams = useSearchParams();
+    const router = useRouter();
+    
+    
+    const navigateToPage = (page : number) => {
+        const params = new URLSearchParams(searchParams.toString())
+        params.set("page", `${page}`)
+        router.push(`?${params.toString()}`)
+    }
 
-  const start = limit * (page - 1);
-  const end = Math.min(limit * page, total);
+    const start = limit * (page-1);
+    const end = Math.min(limit * page, total);
 
   return (
     <div className="flex items-center justify-between px-2 py-4 border-t mt-4">

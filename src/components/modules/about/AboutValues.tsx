@@ -50,9 +50,8 @@ export default function AboutValues() {
               <span className="text-primary">everything we do</span>
             </h2>
             <p className="text-slate-500 mt-5 leading-relaxed">
-              These aren&apos;t just words on a wall — they&apos;re the
-              standards we hold ourselves to in every decision, every feature,
-              and every interaction.
+              These aren&apos;t just words on a wall — they&apos;re the standards we hold ourselves
+              to in every decision, every feature, and every interaction.
             </p>
           </div>
 
@@ -70,9 +69,7 @@ export default function AboutValues() {
                 <div className="w-12 h-12 bg-white rounded-xl shadow-sm border border-slate-100 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white group-hover:shadow-lg group-hover:shadow-primary/30 transition-all duration-300">
                   {val.icon}
                 </div>
-                <h4 className="text-lg font-bold text-slate-900">
-                  {val.title}
-                </h4>
+                <h4 className="text-lg font-bold text-slate-900">{val.title}</h4>
                 <p className="text-sm text-slate-500 leading-relaxed font-medium">
                   {val.description}
                 </p>

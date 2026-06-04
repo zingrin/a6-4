@@ -13,6 +13,7 @@ import StatsSection from "@/components/modules/home/StatsSection";
 import WhyChooseUs from "@/components/modules/home/WhyChooseUs";
 
 export default async function Home() {
+
   return (
     <div>
       <Hero />
@@ -29,3 +30,4 @@ export default async function Home() {
     </div>
   );
 }
+

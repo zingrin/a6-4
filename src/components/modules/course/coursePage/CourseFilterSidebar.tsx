@@ -22,23 +22,15 @@ interface CourseFilterSidebarProps {
 
 const LEVELS = ["BEGINNER", "INTERMEDIATE", "ADVANCED"] as const;
 
-export default function CourseFilterSidebar({
-  categories,
-}: CourseFilterSidebarProps) {
+export default function CourseFilterSidebar({ categories }: CourseFilterSidebarProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
 
-  const [searchTerm, setSearchTerm] = useState(
-    searchParams.get("search") || "",
-  );
-  const [maxPrice, setMaxPrice] = useState(
-    Number(searchParams.get("maxPrice")) || 500,
-  );
+  const [searchTerm, setSearchTerm] = useState(searchParams.get("search") || "");
+  const [maxPrice, setMaxPrice] = useState(Number(searchParams.get("maxPrice")) || 500);
 
-  const updateFilters = (
-    updates: Record<string, string | number | boolean | null>,
-  ) => {
+  const updateFilters = (updates: Record<string, string | number | boolean | null>) => {
     const params = new URLSearchParams(searchParams.toString());
     params.set("page", "1");
 
@@ -62,7 +54,7 @@ export default function CourseFilterSidebar({
       }
     }, 500);
     return () => clearTimeout(delay);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTerm]);
 
   const selectedCategoryId = searchParams.get("categoryId");

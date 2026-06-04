@@ -42,15 +42,12 @@ export default async function Reviews() {
           <TableBody>
             {data.length === 0 ? (
               <TableRow>
-                <TableCell
-                  colSpan={4}
-                  className="py-12 text-center text-gray-400"
-                >
+                <TableCell colSpan={4} className="py-12 text-center text-gray-400">
                   No reviews yet. Your first review will appear here.
                 </TableCell>
               </TableRow>
             ) : (
-              data.data.map((review: FullReview) => (
+              data.data.map((review : FullReview) => (
                 <TableRow key={review.id}>
                   <TableCell>
                     <div className="flex items-center gap-3">

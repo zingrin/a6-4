@@ -51,14 +51,11 @@ export function InstituteProfileForm({ institute }: { institute: any }) {
       try {
         const formData = new FormData();
         formData.append("name", value.name);
-        if (value.description)
-          formData.append("description", value.description);
-        if (value.contactEmail)
-          formData.append("contactEmail", value.contactEmail);
+        if (value.description) formData.append("description", value.description);
+        if (value.contactEmail) formData.append("contactEmail", value.contactEmail);
         if (value.website) formData.append("website", value.website);
-        if (value.establishedYear)
-          formData.append("establishedYear", value.establishedYear.toString());
-
+        if (value.establishedYear) formData.append("establishedYear", value.establishedYear.toString());
+        
         if (value.logoUrl && value.logoUrl instanceof File) {
           formData.append("image", value.logoUrl); // Note: backend uses uploadProfilePhoto which expects "image" field
         }
@@ -66,16 +63,11 @@ export function InstituteProfileForm({ institute }: { institute: any }) {
         const res = await updateInstituteProfileAction(formData);
 
         if (res?.error) {
-          toast.error(res.error.message || "Failed to update profile", {
-            id: toastId,
-          });
+          toast.error(res.error.message || "Failed to update profile", { id: toastId });
           return;
         }
 
-        toast.success(
-          res.data.message || "Institute profile updated successfully",
-          { id: toastId },
-        );
+        toast.success(res.data.message || "Institute profile updated successfully", { id: toastId });
       } catch (err) {
         console.log(err);
         toast.error("Failed to update profile", { id: toastId });
@@ -159,9 +151,7 @@ export function InstituteProfileForm({ institute }: { institute: any }) {
                     field.state.meta.isTouched && !field.state.meta.isValid;
                   return (
                     <Field data-invalid={isInvalid}>
-                      <FieldLabel htmlFor={field.name}>
-                        Contact Email
-                      </FieldLabel>
+                      <FieldLabel htmlFor={field.name}>Contact Email</FieldLabel>
                       <Input
                         id={field.name}
                         value={field.state.value}
@@ -184,16 +174,12 @@ export function InstituteProfileForm({ institute }: { institute: any }) {
                     field.state.meta.isTouched && !field.state.meta.isValid;
                   return (
                     <Field data-invalid={isInvalid}>
-                      <FieldLabel htmlFor={field.name}>
-                        Established Year
-                      </FieldLabel>
+                      <FieldLabel htmlFor={field.name}>Established Year</FieldLabel>
                       <Input
                         id={field.name}
                         value={field.state.value || ""}
                         type="number"
-                        onChange={(e) =>
-                          field.handleChange(Number(e.target.value))
-                        }
+                        onChange={(e) => field.handleChange(Number(e.target.value))}
                         placeholder="e.g. 1990"
                       />
                       {isInvalid && (
@@ -239,9 +225,7 @@ export function InstituteProfileForm({ institute }: { institute: any }) {
                       id={field.name}
                       type="file"
                       accept="image/*"
-                      onChange={(e) =>
-                        field.handleChange(e.target.files?.[0] || undefined)
-                      }
+                      onChange={(e) => field.handleChange(e.target.files?.[0] || undefined)}
                     />
                     {isInvalid && (
                       <FieldError errors={field.state.meta.errors} />
@@ -254,11 +238,7 @@ export function InstituteProfileForm({ institute }: { institute: any }) {
         </form>
       </CardContent>
       <CardFooter>
-        <Button
-          form="institute-profile-form"
-          type="submit"
-          className="ml-auto cursor-pointer"
-        >
+        <Button form="institute-profile-form" type="submit" className="ml-auto cursor-pointer">
           Save Changes
         </Button>
       </CardFooter>

@@ -28,7 +28,7 @@ export function AcceptInviteForm({
 }: React.ComponentProps<"form">) {
   const router = useRouter();
   const searchParams = useSearchParams();
-
+  
   const token = searchParams.get("token") || "";
   const initialEmail = searchParams.get("email") || "";
   const initialName = searchParams.get("name") || "";
@@ -60,21 +60,18 @@ export function AcceptInviteForm({
 
       setLoading(true);
       const toastId = toast.loading("Setting up account...");
-
+      
       try {
-        const { data, error } = await authClient.signUp.email(
-          {
-            email: value.email,
-            password: value.password,
-            name: value.name,
-            role: role,
-          } as any,
-          {
-            headers: {
-              "x-invite-token": token,
-            },
-          },
-        );
+        const { data, error } = await authClient.signUp.email({
+          email: value.email,
+          password: value.password,
+          name: value.name,
+          role: role,
+        } as any, {
+          headers: {
+            "x-invite-token": token
+          }
+        });
 
         if (error) {
           toast.error(error.message, { id: toastId });
@@ -98,10 +95,7 @@ export function AcceptInviteForm({
     return (
       <div className="text-center p-6 border rounded-lg bg-destructive/10 text-destructive">
         <h2 className="text-lg font-semibold">Invalid Invitation</h2>
-        <p className="text-sm mt-2">
-          This invitation link appears to be invalid or broken. Please request a
-          new invite.
-        </p>
+        <p className="text-sm mt-2">This invitation link appears to be invalid or broken. Please request a new invite.</p>
       </div>
     );
   }
@@ -119,18 +113,14 @@ export function AcceptInviteForm({
         <div className="flex flex-col items-center gap-1 text-center mb-4">
           <h1 className="text-2xl font-bold">Accept Invitation</h1>
           <p className="text-muted-foreground text-sm text-balance">
-            Complete your profile to join as a{" "}
-            <span className="font-semibold capitalize">
-              {role.toLowerCase()}
-            </span>
+            Complete your profile to join as a <span className="font-semibold capitalize">{role.toLowerCase()}</span>
           </p>
         </div>
 
         <form.Field
           name="name"
           children={(field) => {
-            const isInvalid =
-              field.state.meta.isTouched && !field.state.meta.isValid;
+            const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
             return (
               <Field data-invalid={isInvalid}>
                 <FieldLabel htmlFor={field.name}>Name</FieldLabel>
@@ -151,7 +141,7 @@ export function AcceptInviteForm({
         <form.Field
           name="email"
           children={(field) => {
-            // Usually we disable email editing to prevent mismatch,
+            // Usually we disable email editing to prevent mismatch, 
             // but the invite acts on the email used in parameter. Let's make it read-only.
             return (
               <Field>
@@ -172,8 +162,7 @@ export function AcceptInviteForm({
         <form.Field
           name="password"
           children={(field) => {
-            const isInvalid =
-              field.state.meta.isTouched && !field.state.meta.isValid;
+            const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
             return (
               <Field data-invalid={isInvalid}>
                 <FieldLabel htmlFor={field.name}>Password</FieldLabel>

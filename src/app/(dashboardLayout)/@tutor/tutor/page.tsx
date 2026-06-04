@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { redirect } from 'next/navigation'
 
 export default function TutorPage() {
-  return redirect("/tutor/dashboard");
+  return  redirect('/tutor/dashboard')
 }

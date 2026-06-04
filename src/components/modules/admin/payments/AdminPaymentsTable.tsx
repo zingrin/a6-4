@@ -34,9 +34,7 @@ export default function AdminPaymentsTable({
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [searchTerm, setSearchTerm] = useState(
-    searchParams.get("search") || "",
-  );
+  const [searchTerm, setSearchTerm] = useState(searchParams.get("search") || "");
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -76,12 +74,9 @@ export default function AdminPaymentsTable({
           />
         </form>
         <div className="flex items-center gap-2">
-          <Badge
-            variant="outline"
-            className="px-3 py-1 font-bold bg-indigo-50 text-indigo-600 border-indigo-100"
-          >
-            Total: {pagination.total}
-          </Badge>
+            <Badge variant="outline" className="px-3 py-1 font-bold bg-indigo-50 text-indigo-600 border-indigo-100">
+                Total: {pagination.total}
+            </Badge>
         </div>
       </div>
 
@@ -89,20 +84,12 @@ export default function AdminPaymentsTable({
         <Table>
           <TableHeader className="bg-slate-50/50">
             <TableRow>
-              <TableHead className="font-bold text-slate-700">
-                Date & ID
-              </TableHead>
-              <TableHead className="font-bold text-slate-700">
-                Student
-              </TableHead>
+              <TableHead className="font-bold text-slate-700">Date & ID</TableHead>
+              <TableHead className="font-bold text-slate-700">Student</TableHead>
               <TableHead className="font-bold text-slate-700">Type</TableHead>
               <TableHead className="font-bold text-slate-700">Item</TableHead>
-              <TableHead className="font-bold text-slate-700 text-right">
-                Amount
-              </TableHead>
-              <TableHead className="font-bold text-slate-700 text-center">
-                Status
-              </TableHead>
+              <TableHead className="font-bold text-slate-700 text-right">Amount</TableHead>
+              <TableHead className="font-bold text-slate-700 text-center">Status</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -111,18 +98,13 @@ export default function AdminPaymentsTable({
                 <TableCell colSpan={6} className="h-64 text-center">
                   <div className="flex flex-col items-center justify-center space-y-3 opacity-40">
                     <DollarSign className="h-12 w-12" />
-                    <p className="text-lg font-medium tracking-tight">
-                      No transactions found
-                    </p>
+                    <p className="text-lg font-medium tracking-tight">No transactions found</p>
                   </div>
                 </TableCell>
               </TableRow>
             ) : (
               payments.map((payment) => (
-                <TableRow
-                  key={payment.id}
-                  className="hover:bg-slate-50/50 transition-colors group"
-                >
+                <TableRow key={payment.id} className="hover:bg-slate-50/50 transition-colors group">
                   <TableCell>
                     <div className="flex flex-col">
                       <span className="text-sm font-bold tracking-tight">
@@ -136,12 +118,7 @@ export default function AdminPaymentsTable({
                   <TableCell>
                     <div className="flex items-center gap-3">
                       <Avatar className="h-8 w-8 rounded-lg shadow-sm">
-                        {payment.student.image && (
-                          <AvatarImage
-                            src={payment.student.image}
-                            alt={payment.student.name}
-                          />
-                        )}
+                        {payment.student.image && <AvatarImage src={payment.student.image} alt={payment.student.name} />}
                         <AvatarFallback className="bg-slate-100 text-slate-600 text-[10px] font-bold">
                           {payment.student.name[0]}
                         </AvatarFallback>
@@ -175,9 +152,9 @@ export default function AdminPaymentsTable({
                           : payment.courseEnrollment?.course?.title}
                       </span>
                       {payment.booking && (
-                        <span className="text-[10px] text-slate-400 font-medium">
-                          with {payment.booking.tutor.user.name}
-                        </span>
+                         <span className="text-[10px] text-slate-400 font-medium">
+                            with {payment.booking.tutor.user.name}
+                         </span>
                       )}
                     </div>
                   </TableCell>
@@ -190,9 +167,7 @@ export default function AdminPaymentsTable({
                     </div>
                   </TableCell>
                   <TableCell className="text-center">
-                    <Badge
-                      className={`${getStatusColor(payment.status)} font-black text-[10px] px-2 py-0.5 rounded-full uppercase tracking-tighter`}
-                    >
+                    <Badge className={`${getStatusColor(payment.status)} font-black text-[10px] px-2 py-0.5 rounded-full uppercase tracking-tighter`}>
                       {payment.status}
                     </Badge>
                   </TableCell>
@@ -204,7 +179,9 @@ export default function AdminPaymentsTable({
       </div>
 
       <div className="flex justify-center pt-4">
-        <PaginationControls meta={pagination} />
+        <PaginationControls
+          meta={pagination}
+        />
       </div>
     </div>
   );

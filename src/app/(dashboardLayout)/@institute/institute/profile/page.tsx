@@ -1,8 +1,8 @@
-import DashPageHeader from "@/components/layout/DashPageHeader";
-import { InstituteProfileForm } from "@/components/modules/institute/profile/InstituteProfileForm";
-import { UserProfileForm } from "@/components/modules/user/profile/UserProfileForm";
-import { userService } from "@/services/user.service";
-import { User } from "@/types";
+import DashPageHeader from '@/components/layout/DashPageHeader';
+import { InstituteProfileForm } from '@/components/modules/institute/profile/InstituteProfileForm';
+import { UserProfileForm } from '@/components/modules/user/profile/UserProfileForm';
+import { userService } from '@/services/user.service';
+import { User } from '@/types';
 
 export default async function InstituteProfile() {
   const { data } = await userService.getProfile();
@@ -11,15 +11,12 @@ export default async function InstituteProfile() {
 
   return (
     <div>
-      <DashPageHeader
-        title="Institute Settings"
-        description="Manage your institute profile and account preferences."
-      />
+      <DashPageHeader title='Institute Settings' description='Manage your institute profile and account preferences.'/>
 
       <div className="flex flex-col gap-10 mt-8">
         <UserProfileForm user={user} />
         <InstituteProfileForm institute={institute} />
       </div>
     </div>
-  );
+  )
 }

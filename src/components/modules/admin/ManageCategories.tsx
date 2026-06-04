@@ -117,6 +117,7 @@ export default function ManageCategories({ data }: { data: Category[] }) {
         toast.error("Failed to create category", { id: toastId });
       }
     }
+    
   }
 
   async function handleCategoryDelete(id: string) {
@@ -198,6 +199,7 @@ export default function ManageCategories({ data }: { data: Category[] }) {
         toast.error("Failed to create subject", { id: toastId });
       }
     }
+    
   }
 
   async function handleSubjectDelete(id: string) {
@@ -288,13 +290,13 @@ export default function ManageCategories({ data }: { data: Category[] }) {
                             </Button>
                           </DialogClose>
                           <DialogClose asChild>
-                            <Button
-                              type="button"
-                              variant="destructive"
-                              onClick={() => handleCategoryDelete(category.id)}
-                            >
-                              Confirm Delete
-                            </Button>
+                          <Button
+                            type="button"
+                            variant="destructive"
+                            onClick={() => handleCategoryDelete(category.id)}
+                          >
+                            Confirm Delete
+                          </Button>
                           </DialogClose>
                         </DialogFooter>
                       </DialogContent>
@@ -364,13 +366,13 @@ export default function ManageCategories({ data }: { data: Category[] }) {
                             </Button>
                           </DialogClose>
                           <DialogClose asChild>
-                            <Button
-                              type="button"
-                              variant="destructive"
-                              onClick={() => handleSubjectDelete(sub.id)}
-                            >
-                              Confirm Delete
-                            </Button>
+                          <Button
+                            type="button"
+                            variant="destructive"
+                            onClick={() => handleSubjectDelete(sub.id)}
+                          >
+                            Confirm Delete
+                          </Button>
                           </DialogClose>
                         </DialogFooter>
                       </DialogContent>

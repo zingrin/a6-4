@@ -1,14 +1,7 @@
 "use client";
 
-import {
-  Book,
-  Menu,
-  Sunset,
-  Trees,
-  Zap,
-  LayoutDashboard,
-  LogOut,
-} from "lucide-react";
+
+import { Book, Menu, Sunset, Trees, Zap, LayoutDashboard, LogOut } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -24,12 +17,7 @@ import { UserRoles } from "@/types";
 
 import { cn } from "@/lib/utils";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -61,6 +49,7 @@ interface MenuItem {
   items?: any;
 }
 
+
 interface NavbarProps {
   className?: string;
   logo?: {
@@ -88,6 +77,7 @@ interface NavbarProps {
   user?: User;
 }
 
+
 const Navbar = ({
   logo = {
     url: "/",
@@ -104,7 +94,7 @@ const Navbar = ({
       title: "Categories",
       url: "/about",
     },
-    {
+     {
       title: "Products",
       url: "#",
       items: [
@@ -135,6 +125,7 @@ const Navbar = ({
         },
       ],
     },
+    
   ],
   auth = {
     login: { title: "Login", url: "/login" },
@@ -144,6 +135,7 @@ const Navbar = ({
   user,
   className,
 }: NavbarProps) => {
+
   const router = useRouter();
 
   const handleLogout = async () => {
@@ -177,16 +169,9 @@ const Navbar = ({
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="relative h-10 w-10 rounded-full p-0">
           <Avatar className="h-10 w-10 border-2 border-primary/10 transition-transform hover:scale-105">
-            <AvatarImage
-              src={user?.image || undefined}
-              alt={user?.name || "avatar"}
-            />
+            <AvatarImage src={user?.image || undefined} alt={user?.name || "avatar"} />
             <AvatarFallback className="bg-primary/10 text-primary font-bold">
-              {user.name
-                ?.split(" ")
-                .map((n) => n[0])
-                .join("")
-                .toUpperCase() || "U"}
+              {user.name?.split(" ").map((n) => n[0]).join("").toUpperCase() || "U"}
             </AvatarFallback>
           </Avatar>
         </Button>
@@ -195,12 +180,8 @@ const Navbar = ({
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-semibold leading-none">{user.name}</p>
-            <p className="text-xs leading-none text-muted-foreground">
-              {user.email}
-            </p>
-            <p className="text-[10px] leading-none text-primary uppercase font-bold tracking-tighter mt-1">
-              {user.role}
-            </p>
+            <p className="text-xs leading-none text-muted-foreground">{user.email}</p>
+            <p className="text-[10px] leading-none text-primary uppercase font-bold tracking-tighter mt-1">{user.role}</p>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
@@ -211,16 +192,14 @@ const Navbar = ({
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem
-          onClick={handleLogout}
-          className="text-destructive focus:bg-destructive/10 cursor-pointer"
-        >
+        <DropdownMenuItem onClick={handleLogout} className="text-destructive focus:bg-destructive/10 cursor-pointer">
           <LogOut className="mr-2 h-4 w-4" />
           <span>Log out</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
+
 
   return (
     <section className={cn("py-4 bg-background z-50 border-b", className)}>
@@ -235,9 +214,7 @@ const Navbar = ({
                 className="max-h-6 dark:invert"
                 alt={logo.alt}
               />
-              <span
-                className={`text-2xl text-primary tracking-wider font-semibold font-logan`}
-              >
+              <span className={`text-2xl text-primary tracking-wider font-semibold font-logan`}>
                 {logo.title}
               </span>
             </Link>
@@ -250,18 +227,18 @@ const Navbar = ({
             </div>
           </div>
           <div className="flex items-center gap-4">
-            {user ? (
-              <UserMenu user={user} />
-            ) : (
+            {
+              user ? 
+              <UserMenu user={user} /> : 
               <div className="flex gap-2">
-                <Button asChild variant="outline" size="sm">
+               <Button asChild variant="outline" size="sm">
                   <Link href={auth.login.url}>{auth.login.title}</Link>
                 </Button>
                 <Button asChild size="sm">
                   <Link href={auth.signup.url}>{auth.signup.title}</Link>
                 </Button>
-              </div>
-            )}
+              </div> 
+            }
           </div>
         </nav>
 
@@ -275,9 +252,7 @@ const Navbar = ({
                 className="max-h-6 dark:invert"
                 alt={logo.alt}
               />
-              <span
-                className={`text-2xl text-primary tracking-wider font-semibold font-logan`}
-              >
+              <span className={`text-2xl text-primary tracking-wider font-semibold font-logan`}>
                 {logo.title}
               </span>
             </Link>
@@ -298,58 +273,41 @@ const Navbar = ({
                   </Accordion>
 
                   <div className="flex flex-col gap-2 mt-4">
-                    {user ? (
+                    {
+                      user ? 
                       <div className="flex flex-col gap-4 p-2 bg-slate-50 rounded-xl">
                         <div className="flex items-center gap-3">
-                          <Avatar className="h-10 w-10">
-                            <AvatarImage
-                              src={user?.image || undefined}
-                              alt={user?.name || "avatar"}
-                            />
+                           <Avatar className="h-10 w-10">
+                            <AvatarImage src={user?.image || undefined} alt={user?.name || "avatar"} />
                             <AvatarFallback>{user.name?.[0]}</AvatarFallback>
                           </Avatar>
                           <div>
                             <p className="text-sm font-bold">{user.name}</p>
-                            <p className="text-xs text-slate-500">
-                              {user.email}
-                            </p>
+                            <p className="text-xs text-slate-500">{user.email}</p>
                           </div>
                         </div>
                         <div className="grid grid-cols-2 gap-2">
-                          <Button
-                            asChild
-                            variant="outline"
-                            size="sm"
-                            className="justify-start"
-                          >
-                            <Link href={getDashboardUrl(user.role)}>
-                              Dashboard
-                            </Link>
+                          <Button asChild variant="outline" size="sm" className="justify-start">
+                            <Link href={getDashboardUrl(user.role)}>Dashboard</Link>
                           </Button>
-                          <Button
-                            onClick={handleLogout}
-                            variant="destructive"
-                            size="sm"
-                            className="justify-start"
-                          >
+                          <Button onClick={handleLogout} variant="destructive" size="sm" className="justify-start">
                             Log out
                           </Button>
                         </div>
-                      </div>
-                    ) : (
+                      </div> : 
                       <div className="flex flex-col gap-2">
                         <Button asChild variant="outline" size="sm">
-                          <Link href={auth.login.url}>{auth.login.title}</Link>
-                        </Button>
-                        <Button asChild size="sm">
-                          <Link href={auth.signup.url}>
-                            {auth.signup.title}
-                          </Link>
-                        </Button>
-                      </div>
-                    )}
-                  </div>
+                            <Link href={auth.login.url}>{auth.login.title}</Link>
+                          </Button>
+                          <Button asChild size="sm">
+                            <Link href={auth.signup.url}>{auth.signup.title}</Link>
+                          </Button>
+                      </div> 
+                    }
                 </div>
+
+                </div>
+
               </SheetContent>
             </Sheet>
           </div>
@@ -359,13 +317,14 @@ const Navbar = ({
   );
 };
 
+
 const renderMenuItem = (item: MenuItem) => {
   if (item.items && item.title === "Categories") {
     return (
       <NavigationMenuItem key={item.title}>
         <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
         <NavigationMenuContent className="bg-popover text-popover-foreground">
-          {item.items.map((subItem: Category) => (
+          {item.items.map((subItem : Category) => (
             <NavigationMenuLink asChild key={subItem.id} className="w-80">
               <CategoryLink item={subItem} />
             </NavigationMenuLink>
@@ -403,14 +362,15 @@ const renderMenuItem = (item: MenuItem) => {
 };
 
 const renderMobileMenuItem = (item: MenuItem) => {
-  if (item.items && item.title === "Categories") {
+
+    if (item.items && item.title === "Categories") {
     return (
       <AccordionItem key={item.title} value={item.title} className="border-b-0">
         <AccordionTrigger className="text-md py-0 font-semibold hover:no-underline">
           {item.title}
         </AccordionTrigger>
         <AccordionContent className="mt-2">
-          {item.items.map((subItem: Category) => (
+          {item.items.map((subItem : Category) => (
             <CategoryLink key={subItem.id} item={subItem} />
           ))}
         </AccordionContent>
@@ -461,30 +421,20 @@ const SubMenuLink = ({ item }: { item: MenuItem }) => {
 
 const CategoryLink = ({ item }: { item: Category }) => {
   return (
-    <div className="flex min-w-80 flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none">
+    <div
+      className="flex min-w-80 flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none"
+    >
       <div>
-        <Link
-          href={`/tutors?categoryId=${item.id}`}
-          className="text-sm text-secondary-foreground font-semibold hover:text-primary"
-        >
-          {item.name}
-        </Link>
+        <Link href={`/tutors?categoryId=${item.id}`} className="text-sm text-secondary-foreground font-semibold hover:text-primary">{item.name}</Link>
         {item.subjects.length > 0 && (
           <div className="flex flex-col items-start gap-0.5 mt-1 ml-2">
-            {item.subjects.map((subject) => (
-              <Link
-                href={`/tutors?categoryId=${item.id}&subjectId=${subject.id}`}
-                key={subject.id}
-                className="text-sm leading-snug text-muted-foreground hover:text-primary"
-              >
-                {subject.name}
-              </Link>
-            ))}
+            {item.subjects.map((subject) => <Link href={`/tutors?categoryId=${item.id}&subjectId=${subject.id}`} key={subject.id} className="text-sm leading-snug text-muted-foreground hover:text-primary">{subject.name}</Link>)}
           </div>
         )}
       </div>
     </div>
   );
 };
+
 
 export { Navbar };

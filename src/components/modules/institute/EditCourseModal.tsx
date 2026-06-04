@@ -38,10 +38,7 @@ const buildFormFromCourse = (course: Course) => ({
   description: course.description,
   price: course.price.toString(),
   status: (course.isPublished ? "PUBLISHED" : "DRAFT") as "DRAFT" | "PUBLISHED",
-  level: (course.level ?? "BEGINNER") as
-    | "BEGINNER"
-    | "INTERMEDIATE"
-    | "ADVANCED",
+  level: (course.level ?? "BEGINNER") as "BEGINNER" | "INTERMEDIATE" | "ADVANCED",
   duration: course.duration ?? "",
   categoryId: course.categoryId ?? "",
   mentorIds: course.mentors?.map((m) => m.id) ?? [],
@@ -58,7 +55,7 @@ export default function EditCourseModal({
   const [form, setForm] = useState(() => buildFormFromCourse(course));
   const [thumbnailFile, setThumbnailFile] = useState<File | null>(null);
   const [thumbnailPreview, setThumbnailPreview] = useState<string | null>(
-    course.thumbnailUrl ?? null,
+    course.thumbnailUrl ?? null
   );
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -119,9 +116,9 @@ export default function EditCourseModal({
       fd.append("level", form.level);
       fd.append("isPublished", String(form.status === "PUBLISHED"));
       if (form.duration.trim()) fd.append("duration", form.duration.trim());
-      if (form.categoryId) fd.append("categoryId", form.categoryId);
+      if (form.categoryId)      fd.append("categoryId", form.categoryId);
       form.mentorIds.forEach((id) => fd.append("mentorIds", id));
-      if (thumbnailFile) fd.append("thumbnail", thumbnailFile);
+      if (thumbnailFile)        fd.append("thumbnail", thumbnailFile);
       // If the user cleared the thumbnail and there's no new file, we could signal removal.
       // For now we leave thumbnailUrl unchanged on the server if no new file is uploaded.
 
@@ -129,10 +126,8 @@ export default function EditCourseModal({
 
       if (!res?.data?.success) {
         toast.error(
-          res?.data?.message ||
-            res?.error?.message ||
-            "Failed to update course.",
-          { id: toastId },
+          res?.data?.message || res?.error?.message || "Failed to update course.",
+          { id: toastId }
         );
         return;
       }
@@ -164,9 +159,7 @@ export default function EditCourseModal({
               id="edit-title"
               placeholder="e.g. Introduction to Web Development"
               value={form.title}
-              onChange={(e) =>
-                setForm((f) => ({ ...f, title: e.target.value }))
-              }
+              onChange={(e) => setForm((f) => ({ ...f, title: e.target.value }))}
               required
             />
           </div>
@@ -178,9 +171,7 @@ export default function EditCourseModal({
               id="edit-description"
               placeholder="Describe what students will learn (min 10 characters)..."
               value={form.description}
-              onChange={(e) =>
-                setForm((f) => ({ ...f, description: e.target.value }))
-              }
+              onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))}
               className="w-full min-h-[90px] rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               required
             />
@@ -197,9 +188,7 @@ export default function EditCourseModal({
                 step="0.01"
                 placeholder="e.g. 49.99"
                 value={form.price}
-                onChange={(e) =>
-                  setForm((f) => ({ ...f, price: e.target.value }))
-                }
+                onChange={(e) => setForm((f) => ({ ...f, price: e.target.value }))}
                 required
               />
             </div>
@@ -228,9 +217,9 @@ export default function EditCourseModal({
               <Label htmlFor="edit-level">Level *</Label>
               <Select
                 value={form.level}
-                onValueChange={(
-                  val: "BEGINNER" | "INTERMEDIATE" | "ADVANCED",
-                ) => setForm((f) => ({ ...f, level: val }))}
+                onValueChange={(val: "BEGINNER" | "INTERMEDIATE" | "ADVANCED") =>
+                  setForm((f) => ({ ...f, level: val }))
+                }
               >
                 <SelectTrigger id="edit-level">
                   <SelectValue />
@@ -247,10 +236,7 @@ export default function EditCourseModal({
               <Select
                 value={form.categoryId || "none"}
                 onValueChange={(val) =>
-                  setForm((f) => ({
-                    ...f,
-                    categoryId: val === "none" ? "" : val,
-                  }))
+                  setForm((f) => ({ ...f, categoryId: val === "none" ? "" : val }))
                 }
               >
                 <SelectTrigger id="edit-category">
@@ -275,9 +261,7 @@ export default function EditCourseModal({
               id="edit-duration"
               placeholder="e.g. 4 Weeks"
               value={form.duration}
-              onChange={(e) =>
-                setForm((f) => ({ ...f, duration: e.target.value }))
-              }
+              onChange={(e) => setForm((f) => ({ ...f, duration: e.target.value }))}
             />
           </div>
 
@@ -307,12 +291,8 @@ export default function EditCourseModal({
                 className="flex flex-col items-center justify-center w-full h-36 rounded-md border-2 border-dashed border-input hover:border-primary/50 bg-muted/30 hover:bg-muted/50 transition cursor-pointer gap-2"
               >
                 <ImagePlus className="h-8 w-8 text-muted-foreground" />
-                <span className="text-sm text-muted-foreground">
-                  Click to upload thumbnail
-                </span>
-                <span className="text-xs text-muted-foreground">
-                  JPG, PNG, WebP, SVG
-                </span>
+                <span className="text-sm text-muted-foreground">Click to upload thumbnail</span>
+                <span className="text-xs text-muted-foreground">JPG, PNG, WebP, SVG</span>
               </button>
             )}
             <input
@@ -325,8 +305,7 @@ export default function EditCourseModal({
             />
             {thumbnailFile && (
               <p className="text-xs text-muted-foreground">
-                New file selected:{" "}
-                <span className="font-medium">{thumbnailFile.name}</span>
+                New file selected: <span className="font-medium">{thumbnailFile.name}</span>
               </p>
             )}
           </div>

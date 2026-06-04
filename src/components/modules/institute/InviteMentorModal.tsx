@@ -36,10 +36,7 @@ export default function InviteMentorModal() {
       const res = await inviteMentorAction(form.email, form.name);
 
       if (res?.error || !res?.data?.success) {
-        const message =
-          res?.error?.message ||
-          res?.data?.message ||
-          "Failed to send invitation.";
+        const message = res?.error?.message || res?.data?.message || "Failed to send invitation.";
         toast.error(message, { id: toastId });
         return;
       }
@@ -66,8 +63,8 @@ export default function InviteMentorModal() {
         <DialogHeader>
           <DialogTitle>Invite a Mentor</DialogTitle>
           <DialogDescription>
-            Send an email invitation to a mentor. They will receive a link to
-            join your institute.
+            Send an email invitation to a mentor. They will receive a link to join
+            your institute.
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4 py-2">
@@ -88,9 +85,7 @@ export default function InviteMentorModal() {
               type="email"
               placeholder="e.g. jane@example.com"
               value={form.email}
-              onChange={(e) =>
-                setForm((f) => ({ ...f, email: e.target.value }))
-              }
+              onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
               required
             />
           </div>

@@ -6,10 +6,7 @@ import ModeratorTable from "@/components/modules/admin/ModeratorTable";
 import InviteModeratorModal from "@/components/modules/admin/InviteModeratorModal";
 
 export default async function ModeratorManagementPage() {
-  const { data, error } = await userService.listUsers({
-    role: "MODERATOR",
-    limit: 50,
-  });
+  const { data, error } = await userService.listUsers({ role: "MODERATOR", limit: 50 });
 
   // Response shape: { success, data: { data: User[], pagination: {...} } }
   const moderators = Array.isArray(data?.data?.data) ? data.data.data : [];

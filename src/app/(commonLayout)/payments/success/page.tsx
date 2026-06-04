@@ -1,12 +1,5 @@
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 
@@ -33,20 +26,16 @@ export default async function PaymentSuccessPage({
             <CheckCircle2 className="h-10 w-10 text-green-600 dark:text-green-500" />
           </div>
           <div className="space-y-1">
-            <CardTitle className="text-2xl font-bold text-green-700 dark:text-green-500">
-              Payment Successful!
-            </CardTitle>
+            <CardTitle className="text-2xl font-bold text-green-700 dark:text-green-500">Payment Successful!</CardTitle>
             <CardDescription className="text-base font-medium">
-              Thank you for your purchase. Your payment has been processed
-              successfully.
+              Thank you for your purchase. Your payment has been processed successfully.
             </CardDescription>
           </div>
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground pb-8">
           <p>
-            You will receive a confirmation email shortly with your receipt and
-            further instructions. You can now access your course or view your
-            upcoming session.
+            You will receive a confirmation email shortly with your receipt and further instructions. 
+            You can now access your course or view your upcoming session.
           </p>
         </CardContent>
         <CardFooter className="flex flex-col gap-3 sm:flex-row">

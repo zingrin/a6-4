@@ -30,18 +30,23 @@ export const availabilityService = {
     }
   },
 
-  createAvailability: async function (data: Partial<AvailabilityData>) {
+    createAvailability: async function (
+    data: Partial<AvailabilityData>,
+  ) {
     try {
       const cookieStore = await cookies();
 
-      const res = await fetch(`${API_URL}/api/availability/create`, {
-        method: "POST",
-        headers: {
-          Cookie: cookieStore.toString(),
-          "Content-Type": "application/json",
+      const res = await fetch(
+        `${API_URL}/api/availability/create`,
+        {
+          method: "POST",
+          headers: {
+            Cookie: cookieStore.toString(),
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
         },
-        body: JSON.stringify(data),
-      });
+      );
 
       const resData = await res.json();
 

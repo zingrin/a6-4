@@ -2,39 +2,29 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
-import {
-  UserCheck,
-  Briefcase,
-  Calendar,
-  Target,
-  CheckCircle2,
-} from "lucide-react";
+import { UserCheck, Briefcase, Calendar, Target, CheckCircle2 } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 
 const features = [
   {
     icon: <UserCheck className="w-6 h-6" />,
     title: "Personalized Learning",
-    description:
-      "Tailored study paths designed around your unique goals and pace.",
+    description: "Tailored study paths designed around your unique goals and pace.",
   },
   {
     icon: <Briefcase className="w-6 h-6" />,
     title: "Expert Mentorship",
-    description:
-      "Learn directly from the world's top 3% industry professionals.",
+    description: "Learn directly from the world's top 3% industry professionals.",
   },
   {
     icon: <Calendar className="w-6 h-6" />,
     title: "Flexible Scheduling",
-    description:
-      "Book sessions that fit your life, across any global timezone.",
+    description: "Book sessions that fit your life, across any global timezone.",
   },
   {
     icon: <Target className="w-6 h-6" />,
     title: "Career Centric",
-    description:
-      "Practical skills and networks that lead directly to job growth.",
+    description: "Practical skills and networks that lead directly to job growth.",
   },
 ];
 
@@ -44,7 +34,7 @@ export default function WhyChooseUs() {
       <div className="container mx-auto px-8">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           {/* Left Side: Visual */}
-          <motion.div
+          <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -66,7 +56,7 @@ export default function WhyChooseUs() {
           {/* Right Side: Content */}
           <div className="lg:w-1/2 space-y-10">
             <div className="space-y-4">
-              <motion.span
+              <motion.span 
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
@@ -79,9 +69,9 @@ export default function WhyChooseUs() {
                 <span className="text-primary">Unmatched Excellence</span>
               </h2>
               <p className="text-lg text-slate-600 max-w-xl leading-relaxed">
-                We've built more than just a platform; we've created an
-                ecosystem where your potential is the only limit. Here's why
-                standard education simply doesn't compare.
+                We've built more than just a platform; we've created an ecosystem 
+                where your potential is the only limit. Here's why standard education 
+                simply doesn't compare.
               </p>
             </div>
 
@@ -99,9 +89,7 @@ export default function WhyChooseUs() {
                     {feature.icon}
                   </div>
                   <div>
-                    <h4 className="text-lg font-bold text-slate-900 mb-2">
-                      {feature.title}
-                    </h4>
+                    <h4 className="text-lg font-bold text-slate-900 mb-2">{feature.title}</h4>
                     <p className="text-sm text-slate-500 leading-relaxed font-medium">
                       {feature.description}
                     </p>

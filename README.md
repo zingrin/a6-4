@@ -1,269 +1,248 @@
-# SkillBridge Frontend
+# SkillBridge Frontend 
 
-**Role-Based Tutor Booking Platform**
+**Role-Based Tutor Booking Platform UI**
 
-SkillBridge Frontend is a modern tutor booking platform built with **Next.js**, designed to provide a seamless experience for **students, tutors, and admins** through dedicated dashboards and protected role-based features.
+## Project Overview
 
-The platform allows users to browse tutors, manage tutoring sessions, handle bookings, and monitor platform activities with a clean and responsive UI.
+SkillBridge Frontend is the client-side application for the SkillBridge tutor booking platform.
+It provides a role-based dashboard experience for **students, tutors, and admins**, along with public pages for browsing tutors and viewing profiles.
 
----
+The frontend handles:
 
-## Public Features
-
-- Browse available tutors
-- Search & filter tutors by category or subject
-- View tutor profiles and details
-- User registration & login
-- Email verification system
-
----
-
-## Student Features
-
-- Book tutoring sessions
-- View booking history
-- Manage personal profile
-- Leave tutor reviews
-- Access student dashboard
+* User authentication & email verification
+* Role-based navigation
+* Protected routes
+* Tutor browsing and booking UI
+* Admin management dashboards
 
 ---
 
-## Tutor Features
+## Tech Stack
 
-- Create and update tutor profile
-- Manage teaching availability
-- View booked sessions
-- Manage subjects and expertise
-- Access tutor dashboard
-
----
-
-## Admin Features
-
-- Manage platform users
-- Manage tutor categories & subjects
-- Monitor all bookings
-- Feature top tutors
-- View platform analytics
+* **Next.js**
+* **React**
+* **TypeScript**
+* **Tailwind CSS**
+* **Shadcn/ui**
+* **Lucide Icons**
+* **REST API integration with backend**
 
 ---
 
-# Tech Stack
+## User Roles
 
-- **Next.js**
-- **React**
-- **TypeScript**
-- **Tailwind CSS**
-- **Shadcn/ui**
-- **Lucide React**
-- **REST API Integration**
+The frontend supports three user roles:
 
----
+| Role    | Description                                       |
+| ------- | ------------------------------------------------- |
+| Student | Books tutoring sessions and manages bookings      |
+| Tutor   | Manages profile, availability, and sessions       |
+| Admin   | Manages platform users, categories, and analytics |
 
-# User Roles
-
-| Role    | Description                                                |
-| ------- | ---------------------------------------------------------- |
-| Student | Books tutors and manages sessions                          |
-| Tutor   | Manages profile, availability, and tutoring sessions       |
-| Admin   | Controls users, analytics, bookings, and platform settings |
-
-Each role has its own protected dashboard and navigation system.
+Each role sees a **different dashboard and navigation menu**.
 
 ---
-
-# Routes
 
 ## Public Routes
 
-| Route           | Description        |
-| --------------- | ------------------ |
-| `/`             | Home page          |
-| `/tutors`       | Browse tutors      |
-| `/tutors/[id]`  | Tutor details      |
-| `/login`        | Login page         |
-| `/register`     | Registration page  |
-| `/verify-email` | Email verification |
+| Route            | Description        |
+| ---------------- | ------------------ |
+| /                | Home page          |
+| /tutors          | Browse tutors      |
+| /tutors/:tutorId | Tutor details page |
+| /login           | Login              |
+| /register        | Registration       |
+| /verify-email    | Email verification |
 
 ---
 
-## Student Dashboard
+## Student Dashboard Routes
 
-| Route                 | Description        |
-| --------------------- | ------------------ |
-| `/dashboard`          | Student dashboard  |
-| `/dashboard/profile`  | Student profile    |
-| `/dashboard/bookings` | Booking management |
+Accessible only when logged in as **Student**:
 
----
-
-## Tutor Dashboard
-
-| Route                 | Description             |
-| --------------------- | ----------------------- |
-| `/tutor/dashboard`    | Tutor dashboard         |
-| `/tutor/profile`      | Tutor profile           |
-| `/tutor/availability` | Availability management |
+| Route               | Description       |
+| ------------------- | ----------------- |
+| /dashboard          | Student dashboard |
+| /dashboard/profile  | Manage profile    |
+| /dashboard/bookings | View bookings     |
 
 ---
 
-## Admin Dashboard
+## Tutor Dashboard Routes
 
-| Route               | Description           |
-| ------------------- | --------------------- |
-| `/admin/analytics`  | Platform analytics    |
-| `/admin/users`      | User management       |
-| `/admin/bookings`   | Booking management    |
-| `/admin/categories` | Categories & subjects |
-| `/admin/featured`   | Featured tutors       |
+Accessible only when logged in as **Tutor**:
 
----
-
-# Authentication & Authorization
-
-## Authentication
-
-- Email & password authentication
-- Session-based login system
-- Email verification before dashboard access
-
-## Authorization
-
-Role-based route protection ensures users only access permitted pages.
-
-### Examples
-
-- Students cannot access admin routes
-- Tutors cannot access student dashboard routes
-- Admins cannot access tutor/student dashboards
+| Route               | Description              |
+| ------------------- | ------------------------ |
+| /tutor/dashboard    | Tutor dashboard          |
+| /tutor/profile      | Tutor profile management |
+| /tutor/availability | Availability management  |
 
 ---
 
-# Role-Based Navigation
+## Admin Dashboard Routes
 
-Navigation menus are dynamically rendered based on authenticated user roles.
+Accessible only when logged in as **Admin**:
 
-## Student Navigation
-
-- Dashboard
-- My Profile
-- My Bookings
-
-## Tutor Navigation
-
-- Dashboard
-- Profile
-- Availability
-
-## Admin Navigation
-
-- Analytics
-- Users
-- Bookings
-- Categories
-- Featured Tutors
+| Route             | Description                   |
+| ----------------- | ----------------------------- |
+| /admin/analytics  | Platform analytics            |
+| /admin/users      | User management               |
+| /admin/bookings   | All bookings                  |
+| /admin/categories | Category & subject management |
+| /admin/featured   | Featured tutors               |
 
 ---
 
-# UI & UX
+## Authentication & Authorization
 
-- Fully responsive design
-- Clean dashboard layouts
-- Dynamic sidebar navigation
-- Protected routes
-- Modern UI using Shadcn/ui
-- Mobile-friendly experience
+### Authentication
+
+* Email & password login
+* Session-based authentication
+* Email verification required before accessing dashboards
+
+### Authorization
+
+* Role-based access control implemented on frontend
+* Users are redirected if they try to access unauthorized routes
+
+Example:
+
+* Student cannot access `/admin/*`
+* Tutor cannot access `/dashboard/*`
+* Admin cannot access student or tutor dashboards
 
 ---
 
-# Installation & Setup
+## Role-Based Navigation
 
-Clone the repository:
+Navigation menus are rendered dynamically based on role.
+
+### Student Navigation
+
+* Dashboard
+* My Profile
+* My Bookings
+
+### Tutor Navigation
+
+* Dashboard
+* Profile
+* Availability
+
+### Admin Navigation
+
+* Analytics
+* User Management
+* All Bookings
+* Categories & Subjects
+* Featured Tutors
+
+---
+
+## Features
+
+### Public
+
+* View tutors
+* Search and filter tutors
+* View tutor profiles
+
+### Student
+
+* Book sessions
+* View booking history
+* Manage profile
+* Leave reviews
+
+### Tutor
+
+* Create and update profile
+* Manage availability
+* View sessions and reviews
+
+### Admin
+
+* Manage users
+* Manage categories & subjects
+* View platform analytics
+* Feature tutors
+
+---
+
+## UI Behavior
+
+* Responsive layout
+* Role-based sidebar navigation
+* Protected routes
+* Server-side session validation
+* Clean dashboard layout for all roles
+
+---
+
+## Installation & Setup
 
 ```bash
 git clone <your-frontend-repo-url>
-```
-
-Navigate to the project:
-
-```bash
 cd skillbridge-frontend
-```
-
-Install dependencies:
-
-```bash
 npm install
 ```
 
-Create a `.env.local` file:
+Create `.env.local`:
 
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:5000/api
 ```
 
-Run the development server:
+Run development server:
 
 ```bash
 npm run dev
 ```
 
-Application URL:
+App will run on:
 
-```bash
+```
 http://localhost:3000
 ```
 
 ---
 
-# Application Flow
+##  Application Flow
 
-## Student Workflow
+### Student Flow
 
-1. Register account
-2. Verify email
-3. Browse tutors
-4. View tutor details
-5. Book tutoring sessions
-6. Manage bookings
-7. Leave reviews
+1. Register and verify email
+2. Browse tutors
+3. View tutor profile
+4. Book session
+5. Manage bookings
+6. Leave review
 
----
+### Tutor Flow
 
-## Tutor Workflow
+1. Register and verify email
+2. Create tutor profile
+3. Set availability
+4. View sessions
+5. Manage subjects
 
-1. Register account
-2. Verify email
-3. Create tutor profile
-4. Set availability
-5. Manage tutoring sessions
-6. Update subjects & expertise
-
----
-
-## Admin Workflow
+### Admin Flow
 
 1. Login as admin
 2. Manage users
-3. Manage categories & subjects
-4. Monitor platform bookings
+3. Manage categories
+4. Monitor bookings
 5. Feature tutors
-6. Analyze platform activity
+
 
 ---
 
-# Project Goals
+## 👨‍💻 Author
 
-- Build a scalable role-based learning platform
-- Provide secure authentication and authorization
-- Create a responsive and user-friendly dashboard experience
-- Improve tutor discovery and booking management
-
----
-
-# Developer
-
-Zingrin Moi Bawm
-
+**Ahsanul Haque**
 Full Stack Developer
-Focused on building scalable and user-friendly web applications.
+`www.ahsanul.dev`
+
+---

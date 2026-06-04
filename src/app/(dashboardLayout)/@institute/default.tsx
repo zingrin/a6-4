@@ -1,4 +1,2 @@
-import React from "react";
-export default function InstituteDefault() {
-  return null;
-}
+import React from 'react'
+export default function InstituteDefault() { return null }

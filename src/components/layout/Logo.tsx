@@ -6,16 +6,9 @@ interface LogoProps {
   textClassName?: string;
 }
 
-export default function Logo({
-  className,
-  imgClassName,
-  textClassName,
-}: LogoProps) {
+export default function Logo({ className, imgClassName, textClassName }: LogoProps) {
   return (
-    <Link
-      href="/"
-      className={`flex items-center gap-2 mb-1.5 w-fit ${className || ""}`}
-    >
+    <Link href="/" className={`flex items-center gap-2 mb-1.5 w-fit ${className || ""}`}>
       <img
         src="/skillbridge.svg"
         className={`max-h-6 dark:invert ${imgClassName || ""}`}

@@ -14,9 +14,9 @@ export const bookingService = {
           Cookie: cookieStore.toString(),
         },
         cache: "no-store",
-        next: {
-          tags: ["all-bookings"],
-        },
+        next : {
+            tags : ["all-bookings"]
+        }
       });
 
       const data = await res.json();
@@ -29,7 +29,7 @@ export const bookingService = {
       };
     }
   },
-  getBookingById: async (bookingId: string) => {
+  getBookingById: async (bookingId : string) => {
     try {
       const cookieStore = await cookies();
 
@@ -38,9 +38,9 @@ export const bookingService = {
           Cookie: cookieStore.toString(),
         },
         cache: "no-store",
-        next: {
-          tags: ["booking"],
-        },
+        next : {
+          tags : ["booking"]
+        }
       });
 
       const data = await res.json();
@@ -53,17 +53,17 @@ export const bookingService = {
       };
     }
   },
-  updateBooking: async (status: BookingStatus, bookingId: string) => {
+  updateBooking : async (status : BookingStatus, bookingId : string) => {
     try {
       const cookieStore = await cookies();
 
       const res = await fetch(`${API_URL}/api/bookings/update/${bookingId}`, {
-        method: "PUT",
+        method : "PUT",
         headers: {
           Cookie: cookieStore.toString(),
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ status }),
+        body : JSON.stringify({status})
       });
 
       const data = await res.json();
@@ -80,17 +80,17 @@ export const bookingService = {
       };
     }
   },
-  createBooking: async (bookingData: CreateBookingPayload) => {
+  createBooking : async (bookingData : CreateBookingPayload) => {
     try {
       const cookieStore = await cookies();
 
       const res = await fetch(`${API_URL}/api/bookings/create/`, {
-        method: "POST",
+        method : "POST",
         headers: {
           Cookie: cookieStore.toString(),
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(bookingData),
+        body : JSON.stringify(bookingData)
       });
 
       const data = await res.json();

@@ -1,13 +1,14 @@
 import type { Route } from "@/types";
-import {
-  User,
-  LayoutDashboard,
-  CalendarCheck,
-  Clock,
+import { 
+  User, 
+  LayoutDashboard, 
+  CalendarCheck, 
+  Clock, 
   Settings,
   Star,
-  CreditCard,
+  CreditCard
 } from "lucide-react";
+
 
 export const tutorRoutes: Route[] = [
   {

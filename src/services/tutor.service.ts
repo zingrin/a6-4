@@ -1,12 +1,9 @@
 import { env } from "@/env";
-import {
-  ServiceOptions,
-  TutorFilterParams,
-  TutorProfileDashboard,
-} from "@/types";
+import { ServiceOptions, TutorFilterParams, TutorProfileDashboard } from "@/types";
 import { cookies } from "next/headers";
 
 const API_URL = env.API_URL;
+
 
 export const tutorService = {
   getAllTutors: async (params: TutorFilterParams, options?: ServiceOptions) => {
@@ -104,13 +101,14 @@ export const tutorService = {
   },
   getTutorOverview: async function () {
     try {
+
       const cookieStore = await cookies();
 
       const res = await fetch(`${API_URL}/api/tutors/overview`, {
         headers: {
           Cookie: cookieStore.toString(),
           "Content-Type": "application/json",
-        },
+        }
       });
 
       const data = await res.json();
@@ -137,13 +135,13 @@ export const tutorService = {
         },
         body: JSON.stringify({ isFeatured }),
       });
-
-      const data = await res.json();
+      
+     const data = await res.json();
 
       return { data, error: null };
     } catch (error) {
       console.log(error);
       return { data: null, error: { message: "Something went wrong" } };
     }
-  },
+  }
 };

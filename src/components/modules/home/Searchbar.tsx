@@ -41,6 +41,9 @@
 //   );
 // }
 
+
+
+
 "use client";
 
 import { useState } from "react";
@@ -72,7 +75,7 @@ export function SearchBar() {
           onChange={(e) => setSearchQuery(e.target.value)}
           className="flex-1 h-12 px-6 text-base border-0 focus-visible:ring-0 focus-visible:ring-offset-0 placeholder:text-gray-400"
         />
-
+        
         <Button
           type="submit"
           className="h-12 px-8 bg-primary rounded-none w-12"

@@ -21,7 +21,7 @@ export const userService = {
         headers: {
           Cookie: cookieStore.toString(),
         },
-        cache: "no-store",
+        cache: "no-store"
       });
 
       const session = await res.json();
@@ -165,7 +165,7 @@ export const userService = {
         headers: {
           Cookie: cookieStore.toString(),
           "Content-Type": "application/json",
-        },
+        }
       });
       const data = await res.json();
 
@@ -175,7 +175,7 @@ export const userService = {
       return { data: null, error: { message: "Something went wrong" } };
     }
   },
-
+  
   inviteModerator: async function (email: string, name: string) {
     try {
       const cookieStore = await cookies();

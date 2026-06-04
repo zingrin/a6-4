@@ -1,7 +1,13 @@
+
 export const dynamic = "force-dynamic";
 
 import Link from "next/link";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Progress } from "@/components/ui/progress";
@@ -23,34 +29,22 @@ import DashPageHeader from "@/components/layout/DashPageHeader";
 import { userService } from "@/services/user.service";
 
 export default async function TutorDashboardOverview() {
-  const [tutorRes, userRes] = await Promise.all([
-    tutorService.getTutorOverview(),
-    userService.getSession(),
-  ]);
 
-  const {
-    profile,
-    stats,
-    upcomingBookings,
-    recentReviews,
-    availability,
-  }: TutorOverviewData = tutorRes.data.data;
+  const [tutorRes, userRes] = await Promise.all([
+      tutorService.getTutorOverview(),
+      userService.getSession()
+    ]);
+
+  const { profile, stats, upcomingBookings, recentReviews, availability } : TutorOverviewData = tutorRes.data.data;
   const userData = userRes.data.user;
 
-  const completionRate =
-    stats.totalBookings > 0
-      ? Math.round((stats.completedBookings / stats.totalBookings) * 100)
-      : 0;
+  const completionRate = stats.totalBookings > 0 ? Math.round((stats.completedBookings / stats.totalBookings) * 100) : 0;
 
   return (
     <div className="min-h-screen bg-background">
       <div className="max-w-6xl mx-auto space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <DashPageHeader
-            title={`Hello ${userData.name.split(" ")[0]}!`}
-            description="Welcome back, here's what's happening"
-            className="mb-0"
-          />
+          <DashPageHeader title={`Hello ${userData.name.split(" ")[0]}!`} description="Welcome back, here's what's happening" className="mb-0"/>
 
           {profile.isFeatured && (
             <Badge
@@ -66,7 +60,8 @@ export default async function TutorDashboardOverview() {
           <CardContent className="pt-5 pb-5 px-5">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <div className="flex items-center gap-4 flex-1">
-                <div className="flex items-center gap-3"></div>
+                <div className="flex items-center gap-3">
+                </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
                     {profile.category && (
@@ -199,14 +194,7 @@ export default async function TutorDashboardOverview() {
                     </div>
                     <div className="text-right">
                       <p className="text-sm font-semibold">${booking.price}</p>
-                      <Badge
-                        variant={
-                          booking.status === "CONFIRMED"
-                            ? "secondary"
-                            : "outline"
-                        }
-                        className="text-xs"
-                      >
+                      <Badge variant={booking.status === "CONFIRMED" ? "secondary" : "outline"} className="text-xs">
                         {booking.status}
                       </Badge>
                     </div>
@@ -223,11 +211,11 @@ export default async function TutorDashboardOverview() {
                   Recent Reviews
                 </CardTitle>
                 <Link
-                  href="/tutor/reviews"
-                  className="text-xs text-muted-foreground hover:text-foreground flex items-center gap-0.5 transition-colors"
-                >
-                  See All <ArrowRight className="w-3 h-3" />
-                </Link>
+                href="/tutor/reviews"
+                className="text-xs text-muted-foreground hover:text-foreground flex items-center gap-0.5 transition-colors"
+              >
+                See All <ArrowRight className="w-3 h-3" />
+              </Link>
               </div>
             </CardHeader>
             <CardContent className="px-5 pb-5 flex-1 flex flex-col gap-3">

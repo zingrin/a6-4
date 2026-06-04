@@ -47,24 +47,15 @@ export default function StatCards({ stats }: StatCardsProps) {
       {statItems.map((item, index) => {
         const Icon = item.icon;
         return (
-          <Card
-            key={index}
-            className="overflow-hidden border-none shadow-md bg-card/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300"
-          >
+          <Card key={index} className="overflow-hidden border-none shadow-md bg-card/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-semibold tracking-tight uppercase text-muted-foreground">
-                {item.title}
-              </CardTitle>
-              <div
-                className={`p-2 rounded-lg bg-background shadow-sm ${item.color}`}
-              >
+              <CardTitle className="text-sm font-semibold tracking-tight uppercase text-muted-foreground">{item.title}</CardTitle>
+              <div className={`p-2 rounded-lg bg-background shadow-sm ${item.color}`}>
                 <Icon className="h-4 w-4" />
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold tracking-tight">
-                {item.value}
-              </div>
+              <div className="text-2xl font-bold tracking-tight">{item.value}</div>
               <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1 opacity-80">
                 {item.description}
               </p>

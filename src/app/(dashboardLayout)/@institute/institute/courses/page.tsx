@@ -14,14 +14,10 @@ export default async function CourseManagementPage() {
   const courses = Array.isArray(data?.data?.data) ? data.data.data : [];
 
   const mentorsRes = await instituteService.listMentors({});
-  const mentors = Array.isArray(mentorsRes.data?.data?.data)
-    ? mentorsRes.data.data.data
-    : [];
+  const mentors = Array.isArray(mentorsRes.data?.data?.data) ? mentorsRes.data.data.data : [];
 
   const categoriesRes = await categoryService.getAllCategories();
-  const categories = Array.isArray(categoriesRes.data?.data)
-    ? categoriesRes.data.data
-    : [];
+  const categories = Array.isArray(categoriesRes.data?.data) ? categoriesRes.data.data : [];
 
   return (
     <div className="space-y-6">
@@ -33,11 +29,7 @@ export default async function CourseManagementPage() {
         <CreateCourseModal mentors={mentors} categories={categories} />
       </div>
 
-      <CourseTable
-        courses={courses}
-        mentors={mentors}
-        categories={categories}
-      />
+      <CourseTable courses={courses} mentors={mentors} categories={categories} />
     </div>
   );
 }

@@ -16,7 +16,7 @@ export default async function TutorsPage({
   const filters = await searchParams;
 
   const [tutorsRes, categoriesRes, userRes] = await Promise.all([
-    tutorService.getAllTutors({ ...filters }, { cache: "no-store" }),
+    tutorService.getAllTutors({ ...filters }, {cache : "no-store"}),
     categoryService.getAllCategories(),
     userService.getSession(),
   ]);
@@ -49,11 +49,7 @@ export default async function TutorsPage({
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {tutorsRes?.data?.data?.map((tutor: TutorProfile) => (
-              <TutorCard
-                key={tutor.id}
-                tutor={tutor}
-                user={userRes.data?.user}
-              />
+              <TutorCard key={tutor.id} tutor={tutor} user={userRes.data?.user}/>
             ))}
 
             {tutorsRes?.data?.data?.length === 0 && (

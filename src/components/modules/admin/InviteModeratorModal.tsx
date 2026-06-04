@@ -36,10 +36,7 @@ export default function InviteModeratorModal() {
       const res = await inviteModeratorAction(form.email, form.name);
 
       if (res?.error || !res?.data?.success) {
-        const message =
-          res?.error?.message ||
-          res?.data?.message ||
-          "Failed to send invitation.";
+        const message = res?.error?.message || res?.data?.message || "Failed to send invitation.";
         toast.error(message, { id: toastId });
         return;
       }
@@ -66,8 +63,7 @@ export default function InviteModeratorModal() {
         <DialogHeader>
           <DialogTitle>Invite a Moderator</DialogTitle>
           <DialogDescription>
-            Send an email invitation to a new platform moderator. They will
-            receive a link to join and set up their account.
+            Send an email invitation to a new platform moderator. They will receive a link to join and set up their account.
           </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4 py-2">
@@ -88,9 +84,7 @@ export default function InviteModeratorModal() {
               type="email"
               placeholder="e.g. jane@example.com"
               value={form.email}
-              onChange={(e) =>
-                setForm((f) => ({ ...f, email: e.target.value }))
-              }
+              onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
               required
             />
           </div>

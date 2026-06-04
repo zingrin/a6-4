@@ -19,8 +19,8 @@ export interface Course {
   mentors?: {
     id: string;
     user: {
-      name: string;
-      image: string | null;
+        name: string;
+        image: string | null;
     };
     expertise?: string | null;
   }[];

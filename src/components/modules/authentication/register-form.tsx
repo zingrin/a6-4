@@ -39,6 +39,7 @@ export function RegisterForm({
   className,
   ...props
 }: React.ComponentProps<"form">) {
+
   const router = useRouter();
 
   const form = useForm({
@@ -54,7 +55,7 @@ export function RegisterForm({
     onSubmit: async ({ value }) => {
       const toastId = toast.loading("Creating user");
       try {
-        const { data, error } = await authClient.signUp.email({ ...value });
+        const { data, error } = await authClient.signUp.email({...value});
 
         if (error) {
           toast.error(error.message, { id: toastId });
@@ -63,11 +64,13 @@ export function RegisterForm({
 
         if (data.user) {
           router.push(`/login`);
-          toast.success("User created successfully", { id: toastId });
+        toast.success("User created successfully", { id: toastId });
+        
+
         }
       } catch (error) {
         toast.error("Something went wrong. Please try again.", { id: toastId });
-        console.log(error);
+        console.log(error)
       }
     },
   });
@@ -194,9 +197,7 @@ export function RegisterForm({
         />
       </FieldGroup>
 
-      <Button type="submit" className="cursor-pointer">
-        Register
-      </Button>
+      <Button type="submit" className="cursor-pointer">Register</Button>
       {/* <Button onClick={() => handleGoogleLogin()} variant="outline" type="button">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path

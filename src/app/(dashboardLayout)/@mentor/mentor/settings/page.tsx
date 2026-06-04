@@ -13,9 +13,7 @@ export default async function MentorSettingsPage() {
   if (error || !profile) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <p className="text-muted-foreground">
-          Unable to fetch profile settings. Please check your connection.
-        </p>
+        <p className="text-muted-foreground">Unable to fetch profile settings. Please check your connection.</p>
       </div>
     );
   }

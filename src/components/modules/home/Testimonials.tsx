@@ -78,10 +78,7 @@ export default function Testimonials() {
 
       <CourseCarousel>
         {testimonials.map((t, i) => (
-          <div
-            key={i}
-            className="shrink-0 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.4rem)]"
-          >
+          <div key={i} className="shrink-0 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.4rem)]">
             <Card className="border shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 h-full">
               <CardContent className="p-6 flex flex-col gap-4 h-full">
                 {/* Stars */}
@@ -101,9 +98,7 @@ export default function Testimonials() {
                     </AvatarFallback>
                   </Avatar>
                   <div>
-                    <p className="text-sm font-semibold text-gray-900">
-                      {t.name}
-                    </p>
+                    <p className="text-sm font-semibold text-gray-900">{t.name}</p>
                     <p className="text-xs text-muted-foreground">{t.role}</p>
                   </div>
                 </div>

@@ -1,3 +1,4 @@
+
 export interface AvailabilityData {
   id: string;
   day: string;
@@ -13,5 +14,5 @@ export interface AvailabilityCardProps {
 
 export enum AvailabilityStatus {
   BOOKED = "BOOKED",
-  AVAILABLE = "AVAILABLE",
+  AVAILABLE = "AVAILABLE"
 }

@@ -1,10 +1,5 @@
 import { Subject } from ".";
-import {
-  Availability,
-  TutorProfile,
-  TutorProfileDashboard,
-  User,
-} from "./user.type";
+import { Availability, TutorProfile, TutorProfileDashboard, User } from "./user.type";
 
 export interface Booking {
   availabilityId: string | null;
@@ -12,13 +7,13 @@ export interface Booking {
   createdAt: string;
   id: string;
   price: number;
-  status: BookingStatus;
+  status: BookingStatus
   student: User;
-  availability: Availability;
+  availability : Availability;
   studentId: string;
   tutorId: string;
-  tutor?: TutorProfile;
-}
+  tutor ?: TutorProfile
+};
 
 export interface AdminBooking {
   availabilityId: string | null;
@@ -26,13 +21,14 @@ export interface AdminBooking {
   createdAt: string;
   id: string;
   price: number;
-  status: BookingStatus;
+  status: BookingStatus
   student: User;
-  availability: Availability;
+  availability : Availability;
   studentId: string;
   tutorId: string;
-  tutor?: TutorProfile;
-}
+  tutor ?: TutorProfile
+};
+
 
 export interface BookingDetail {
   id: string;
@@ -44,10 +40,10 @@ export interface BookingDetail {
   price: number;
   createdAt: string;
   completedAt: string | null;
-  student: User;
-  tutor: TutorProfile;
-  availability: Availability | null;
-  review: {
+  student : User,
+  tutor : TutorProfile,
+  availability : Availability | null,
+  review : {
     id: string;
     bookingId: string;
     studentId: string;
@@ -56,18 +52,18 @@ export interface BookingDetail {
     review: string;
     createdAt: string;
   } | null;
-  subject?: Subject;
+  subject ?: Subject
 }
 
 export enum BookingStatus {
   PENDING = "PENDING",
   CONFIRMED = "CONFIRMED",
   COMPLETED = "COMPLETED",
-  CANCELLED = "CANCELLED",
+  CANCELLED = "CANCELLED"
 }
 
 export interface CreateBookingPayload {
-  tutorId: string;
-  availabilityId: string;
-  subjectId: string;
+  tutorId : string; 
+  availabilityId : string;
+  subjectId : string;
 }

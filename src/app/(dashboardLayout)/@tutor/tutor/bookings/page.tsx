@@ -1,17 +1,14 @@
-import DashPageHeader from "@/components/layout/DashPageHeader";
-import { BookingsTable } from "@/components/modules/tutor/bookings/BookingsTable";
-import { bookingService } from "@/services/booking.service";
-import { Booking } from "@/types";
+import DashPageHeader from '@/components/layout/DashPageHeader';
+import { BookingsTable } from '@/components/modules/tutor/bookings/BookingsTable';
+import { bookingService } from '@/services/booking.service';
+import { Booking } from '@/types';
 
 export default async function TutorBookings() {
   const { data } = await bookingService.getAllBookings();
 
   return (
     <div className="">
-      <DashPageHeader
-        title="My Bookings"
-        description="View and manage all your bookings"
-      />
+      <DashPageHeader title='My Bookings' description='View and manage all your bookings'/>
 
       {data?.data?.length > 0 ? (
         <BookingsTable bookings={data.data as Booking[]} />

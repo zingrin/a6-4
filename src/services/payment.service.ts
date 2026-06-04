@@ -116,17 +116,14 @@ const getTutorPayments = async () => {
     const data = await res.json();
     return { data, error: null };
   } catch (error: any) {
-    return {
-      data: null,
-      error: { message: error?.message || "Failed to load tutor payments" },
-    };
+    return { data: null, error: { message: error?.message || "Failed to load tutor payments" } };
   }
 };
 
 const listAllPayments = async (params?: any) => {
   try {
     const url = new URL(`${API_URL}/api/payments`);
-
+    
     if (params) {
       Object.entries(params).forEach(([key, value]) => {
         if (value !== undefined && value !== null && value !== "") {
@@ -147,10 +144,7 @@ const listAllPayments = async (params?: any) => {
     const data = await res.json();
     return { data, error: null };
   } catch (error: any) {
-    return {
-      data: null,
-      error: { message: error?.message || "Failed to load admin payments" },
-    };
+    return { data: null, error: { message: error?.message || "Failed to load admin payments" } };
   }
 };
 

@@ -37,9 +37,7 @@ export default function DeleteCourseDialog({
         toast.success("Course deleted successfully", { id: toastId });
         onOpenChange(false);
       } else {
-        toast.error(res.error?.message || "Failed to delete course", {
-          id: toastId,
-        });
+        toast.error(res.error?.message || "Failed to delete course", { id: toastId });
       }
     } catch (error) {
       toast.error("Something went wrong", { id: toastId });
@@ -54,11 +52,7 @@ export default function DeleteCourseDialog({
         <DialogHeader>
           <DialogTitle>Delete Course</DialogTitle>
           <DialogDescription>
-            Are you sure you want to delete{" "}
-            <span className="font-semibold text-foreground">
-              "{courseTitle}"
-            </span>
-            ? This action cannot be undone.
+            Are you sure you want to delete <span className="font-semibold text-foreground">"{courseTitle}"</span>? This action cannot be undone.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="gap-2 sm:gap-0">

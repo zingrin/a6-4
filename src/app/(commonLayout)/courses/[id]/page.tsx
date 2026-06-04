@@ -1,13 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import { courseService } from "@/services/course.service";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
@@ -89,9 +83,7 @@ export default async function CourseDetailsPage({
             <CardHeader>
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div className="flex-1">
-                  <CardTitle className="text-3xl mb-2">
-                    {course.title}
-                  </CardTitle>
+                  <CardTitle className="text-3xl mb-2">{course.title}</CardTitle>
                   {course.category && (
                     <CardDescription className="flex items-center gap-2 text-base">
                       <Tag className="h-4 w-4" />
@@ -138,9 +130,7 @@ export default async function CourseDetailsPage({
                     </div>
                     <div>
                       <p className="text-xs text-muted-foreground">Enrolled</p>
-                      <p className="text-xl font-bold">
-                        {course._count.enrollments}
-                      </p>
+                      <p className="text-xl font-bold">{course._count.enrollments}</p>
                     </div>
                   </div>
                 )}
@@ -150,12 +140,8 @@ export default async function CourseDetailsPage({
 
               {/* Description */}
               <div>
-                <h3 className="font-semibold text-lg mb-2">
-                  About this Course
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {course.description}
-                </p>
+                <h3 className="font-semibold text-lg mb-2">About this Course</h3>
+                <p className="text-muted-foreground leading-relaxed">{course.description}</p>
               </div>
             </CardContent>
           </Card>
@@ -172,15 +158,10 @@ export default async function CourseDetailsPage({
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <div className="flex items-center gap-3">
-                    {course.institute.logoUrl ||
-                    course.institute.user?.image ? (
+                    {course.institute.logoUrl || course.institute.user?.image ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
-                        src={
-                          course.institute.logoUrl ||
-                          course.institute.user?.image ||
-                          ""
-                        }
+                        src={course.institute.logoUrl || course.institute.user?.image || ""}
                         alt={course.institute.name}
                         className="h-14 w-14 rounded-full object-cover border"
                       />
@@ -190,9 +171,7 @@ export default async function CourseDetailsPage({
                       </div>
                     )}
                     <div>
-                      <p className="font-bold text-lg">
-                        {course.institute.name}
-                      </p>
+                      <p className="font-bold text-lg">{course.institute.name}</p>
                     </div>
                   </div>
                   {course.institute.description && (
@@ -216,9 +195,7 @@ export default async function CourseDetailsPage({
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-green-500 shrink-0" />
-                    Level:{" "}
-                    {course.level.charAt(0) +
-                      course.level.slice(1).toLowerCase()}
+                    Level: {course.level.charAt(0) + course.level.slice(1).toLowerCase()}
                   </li>
                   {course.duration && (
                     <li className="flex items-center gap-2">
@@ -251,9 +228,7 @@ export default async function CourseDetailsPage({
                 <Users className="h-5 w-5" />
                 Course Instructors
               </CardTitle>
-              <CardDescription>
-                Meet the mentors teaching this course
-              </CardDescription>
+              <CardDescription>Meet the mentors teaching this course</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -272,12 +247,8 @@ export default async function CourseDetailsPage({
                       </AvatarFallback>
                     </Avatar>
                     <div>
-                      <p className="font-semibold text-base">
-                        {mentor.user.name}
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        Instructor
-                      </p>
+                      <p className="font-semibold text-base">{mentor.user.name}</p>
+                      <p className="text-sm text-muted-foreground">Instructor</p>
                       {mentor.expertise && (
                         <p className="text-xs text-muted-foreground mt-1 line-clamp-1">
                           {mentor.expertise}

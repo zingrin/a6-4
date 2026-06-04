@@ -51,23 +51,12 @@ export default function PaymentTable({ payments }: PaymentTableProps) {
           ) : (
             payments.map((payment) => (
               <TableRow key={payment.id}>
-                <TableCell className="font-mono text-xs text-muted-foreground uppercase">
-                  {payment.transactionId || payment.id.split("-")[0]}
-                </TableCell>
-                <TableCell className="font-medium text-sm">
-                  {payment.student.name}
-                </TableCell>
-                <TableCell className="text-sm">
-                  {payment.courseEnrollment.course.title}
-                </TableCell>
-                <TableCell className="font-bold tracking-tight">
-                  ${payment.amount}
-                </TableCell>
+                <TableCell className="font-mono text-xs text-muted-foreground uppercase">{payment.transactionId || payment.id.split('-')[0]}</TableCell>
+                <TableCell className="font-medium text-sm">{payment.student.name}</TableCell>
+                <TableCell className="text-sm">{payment.courseEnrollment.course.title}</TableCell>
+                <TableCell className="font-bold tracking-tight">${payment.amount}</TableCell>
                 <TableCell>
-                  <Badge
-                    variant={getStatusVariant(payment.status)}
-                    className="font-bold text-[10px] tracking-tight"
-                  >
+                  <Badge variant={getStatusVariant(payment.status)} className="font-bold text-[10px] tracking-tight">
                     {payment.status}
                   </Badge>
                 </TableCell>

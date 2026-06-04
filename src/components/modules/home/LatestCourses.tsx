@@ -16,18 +16,12 @@ const levelColors: Record<string, string> = {
 };
 
 export default async function LatestCourses() {
-  const { data } = await courseService.getPublicCourses(
-    { limit: "6", sortBy: "createdAt", sortOrder: "desc" },
-    { cache: "no-store" },
-  );
+  const { data } = await courseService.getPublicCourses({ limit: "6", sortBy: "createdAt", sortOrder: "desc" }, { cache: "no-store" });
   const courses: Course[] = data?.data?.data ?? data?.data ?? [];
 
   return (
     <section className="container mx-auto px-8 py-16">
-      <SectionHeader
-        title="Latest Courses"
-        description="Freshly added courses from our top institutes"
-      />
+      <SectionHeader title="Latest Courses" description="Freshly added courses from our top institutes" />
 
       <CourseCarousel>
         {courses.map((course) => (
@@ -58,8 +52,7 @@ export default async function LatestCourses() {
                       variant="outline"
                       className={`text-xs font-medium border ${levelColors[course.level] ?? ""}`}
                     >
-                      {course.level.charAt(0) +
-                        course.level.slice(1).toLowerCase()}
+                      {course.level.charAt(0) + course.level.slice(1).toLowerCase()}
                     </Badge>
                   </div>
                 </div>
@@ -104,10 +97,7 @@ export default async function LatestCourses() {
                       <span>{course.price}</span>
                     </div>
                     <Link href={`/courses/${course.id}`}>
-                      <Button
-                        size="sm"
-                        className="bg-primary hover:bg-primary/90 text-white text-xs"
-                      >
+                      <Button size="sm" className="bg-primary hover:bg-primary/90 text-white text-xs">
                         View Course
                       </Button>
                     </Link>
@@ -122,11 +112,7 @@ export default async function LatestCourses() {
       {/* View All */}
       <div className="flex justify-center mt-12">
         <Link href="/courses">
-          <Button
-            variant="outline"
-            size="lg"
-            className="px-8 border-gray-300 hover:bg-gray-50"
-          >
+          <Button variant="outline" size="lg" className="px-8 border-gray-300 hover:bg-gray-50">
             Browse All Courses
           </Button>
         </Link>

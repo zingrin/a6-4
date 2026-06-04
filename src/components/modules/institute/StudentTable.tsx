@@ -40,20 +40,14 @@ export default function StudentTable({ enrollments }: StudentTableProps) {
                 <TableCell className="flex items-center gap-3">
                   <Avatar className="h-8 w-8">
                     <AvatarImage src={enrollment.student.image || undefined} />
-                    <AvatarFallback>
-                      {enrollment.student.name.charAt(0)}
-                    </AvatarFallback>
+                    <AvatarFallback>{enrollment.student.name.charAt(0)}</AvatarFallback>
                   </Avatar>
                   <span className="font-medium">{enrollment.student.name}</span>
                 </TableCell>
-                <TableCell className="text-muted-foreground">
-                  {enrollment.student.email}
-                </TableCell>
+                <TableCell className="text-muted-foreground">{enrollment.student.email}</TableCell>
                 <TableCell>{enrollment.course.title}</TableCell>
                 <TableCell>
-                  <span className="capitalize">
-                    {enrollment.status.toLowerCase()}
-                  </span>
+                    <span className="capitalize">{enrollment.status.toLowerCase()}</span>
                 </TableCell>
                 <TableCell className="text-right text-muted-foreground">
                   {new Date(enrollment.enrolledAt).toLocaleDateString()}

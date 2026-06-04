@@ -84,15 +84,11 @@ export default function AboutTeam() {
               </div>
 
               {/* Info */}
-              <h4 className="text-base font-bold text-slate-900">
-                {member.name}
-              </h4>
+              <h4 className="text-base font-bold text-slate-900">{member.name}</h4>
               <p className="text-xs text-primary font-semibold uppercase tracking-widest mt-0.5 mb-3">
                 {member.role}
               </p>
-              <p className="text-sm text-slate-500 leading-relaxed">
-                {member.bio}
-              </p>
+              <p className="text-sm text-slate-500 leading-relaxed">{member.bio}</p>
 
               {/* Social links */}
               <div className="flex items-center gap-3 mt-4">

@@ -1,13 +1,13 @@
 import { Route } from "@/types";
-import {
-  LayoutDashboard,
-  Users,
-  Layers,
+import { 
+  LayoutDashboard, 
+  Users, 
+  Layers, 
   ShieldAlert,
   ClipboardList,
   Award,
   CreditCard,
-  ShieldCheck,
+  ShieldCheck
 } from "lucide-react";
 
 export const adminRoutes: Route[] = [

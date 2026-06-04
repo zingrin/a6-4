@@ -49,9 +49,7 @@ export default function MentorTable({ mentors }: MentorTableProps) {
                 <TableCell className="flex items-center gap-3">
                   <Avatar className="h-8 w-8">
                     <AvatarImage src={mentor.user.image || undefined} />
-                    <AvatarFallback>
-                      {mentor.user.name.charAt(0)}
-                    </AvatarFallback>
+                    <AvatarFallback>{mentor.user.name.charAt(0)}</AvatarFallback>
                   </Avatar>
                   <span className="font-medium">{mentor.user.name}</span>
                 </TableCell>
@@ -60,9 +58,7 @@ export default function MentorTable({ mentors }: MentorTableProps) {
                   {mentor.specialization ? (
                     <Badge variant="secondary">{mentor.specialization}</Badge>
                   ) : (
-                    <span className="text-muted-foreground text-xs">
-                      Not specified
-                    </span>
+                    <span className="text-muted-foreground text-xs">Not specified</span>
                   )}
                 </TableCell>
                 <TableCell className="text-muted-foreground text-sm">

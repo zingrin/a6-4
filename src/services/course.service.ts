@@ -25,10 +25,7 @@ export const courseService = {
       const data = await res.json();
       return { data, error: null };
     } catch (error: any) {
-      return {
-        data: null,
-        error: { message: error?.message || "Something went wrong" },
-      };
+      return { data: null, error: { message: error?.message || "Something went wrong" } };
     }
   },
 
@@ -38,10 +35,7 @@ export const courseService = {
       const data = await res.json();
       return { data, error: null };
     } catch (error: any) {
-      return {
-        data: null,
-        error: { message: error?.message || "Something went wrong" },
-      };
+      return { data: null, error: { message: error?.message || "Something went wrong" } };
     }
   },
 
@@ -59,10 +53,7 @@ export const courseService = {
       const data = await res.json();
       return { data, error: null };
     } catch (error: any) {
-      return {
-        data: null,
-        error: { message: error?.message || "Something went wrong" },
-      };
+      return { data: null, error: { message: error?.message || "Something went wrong" } };
     }
   },
 
@@ -84,10 +75,7 @@ export const courseService = {
       const data = await res.json();
       return { data, error: null };
     } catch (error: any) {
-      return {
-        data: null,
-        error: { message: error?.message || "Something went wrong" },
-      };
+      return { data: null, error: { message: error?.message || "Something went wrong" } };
     }
   },
 
@@ -105,10 +93,7 @@ export const courseService = {
       const data = await res.json();
       return { data, error: null };
     } catch (error: any) {
-      return {
-        data: null,
-        error: { message: error?.message || "Something went wrong" },
-      };
+      return { data: null, error: { message: error?.message || "Something went wrong" } };
     }
   },
 
@@ -124,10 +109,7 @@ export const courseService = {
       const data = await res.json();
       return { data, error: null };
     } catch (error: any) {
-      return {
-        data: null,
-        error: { message: error?.message || "Something went wrong" },
-      };
+      return { data: null, error: { message: error?.message || "Something went wrong" } };
     }
   },
 
@@ -135,7 +117,7 @@ export const courseService = {
     try {
       const cookieStore = await cookies();
       const url = new URL(`${API_URL}/api/courses/enrolled/list`);
-
+      
       if (params) {
         Object.entries(params).forEach(([key, value]) => {
           if (value !== undefined && value !== null && value !== "") {
@@ -154,10 +136,7 @@ export const courseService = {
       const data = await res.json();
       return { data, error: null };
     } catch (error: any) {
-      return {
-        data: null,
-        error: { message: error?.message || "Something went wrong" },
-      };
+      return { data: null, error: { message: error?.message || "Something went wrong" } };
     }
   },
 };

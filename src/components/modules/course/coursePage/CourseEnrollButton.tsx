@@ -11,9 +11,7 @@ interface CourseEnrollButtonProps {
   courseId: string;
 }
 
-export default function CourseEnrollButton({
-  courseId,
-}: CourseEnrollButtonProps) {
+export default function CourseEnrollButton({ courseId }: CourseEnrollButtonProps) {
   const [loading, setLoading] = useState(false);
   const { data: session } = authClient.useSession();
   const user = session?.user;
@@ -57,10 +55,10 @@ export default function CourseEnrollButton({
   };
 
   return (
-    <Button
-      size="lg"
-      className="px-10 font-semibold"
-      onClick={handleEnroll}
+    <Button 
+      size="lg" 
+      className="px-10 font-semibold" 
+      onClick={handleEnroll} 
       disabled={loading}
     >
       {loading ? "Processing..." : "Enroll Now"}

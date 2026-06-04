@@ -28,7 +28,7 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  Filler,
+  Filler
 );
 
 interface DashboardChartsProps {
@@ -36,12 +36,7 @@ interface DashboardChartsProps {
 }
 
 export default function DashboardCharts({ overview }: DashboardChartsProps) {
-  const {
-    enrollmentsTrend,
-    enrollmentsByCourse,
-    coursesByLevel,
-    coursesByStatus,
-  } = overview;
+  const { enrollmentsTrend, enrollmentsByCourse, coursesByLevel, coursesByStatus } = overview;
 
   // Enrollment Trend Data
   const trendData = {
@@ -145,9 +140,7 @@ export default function DashboardCharts({ overview }: DashboardChartsProps) {
       {/* Enrollment Trend */}
       <Card className="lg:col-span-8 overflow-hidden border-none shadow-md bg-card/50 backdrop-blur-sm">
         <CardHeader>
-          <CardTitle className="text-base font-semibold">
-            Enrollment Trend
-          </CardTitle>
+          <CardTitle className="text-base font-semibold">Enrollment Trend</CardTitle>
         </CardHeader>
         <CardContent className="h-[300px]">
           <Line
@@ -176,9 +169,7 @@ export default function DashboardCharts({ overview }: DashboardChartsProps) {
       {/* Course Level Distribution */}
       <Card className="lg:col-span-4 overflow-hidden border-none shadow-md bg-card/50 backdrop-blur-sm">
         <CardHeader>
-          <CardTitle className="text-base font-semibold">
-            Content Level
-          </CardTitle>
+          <CardTitle className="text-base font-semibold">Content Level</CardTitle>
         </CardHeader>
         <CardContent className="h-[300px] flex items-center justify-center">
           <Doughnut data={levelData} options={donutOptions} />
@@ -188,9 +179,7 @@ export default function DashboardCharts({ overview }: DashboardChartsProps) {
       {/* Top Courses by Enrollment */}
       <Card className="lg:col-span-8 overflow-hidden border-none shadow-md bg-card/50 backdrop-blur-sm">
         <CardHeader>
-          <CardTitle className="text-base font-semibold">
-            Popular Courses
-          </CardTitle>
+          <CardTitle className="text-base font-semibold">Popular Courses</CardTitle>
         </CardHeader>
         <CardContent className="h-[350px]">
           <Bar
@@ -220,9 +209,7 @@ export default function DashboardCharts({ overview }: DashboardChartsProps) {
       {/* Course Status Distribution */}
       <Card className="lg:col-span-4 overflow-hidden border-none shadow-md bg-card/50 backdrop-blur-sm">
         <CardHeader>
-          <CardTitle className="text-base font-semibold">
-            Publishing Status
-          </CardTitle>
+          <CardTitle className="text-base font-semibold">Publishing Status</CardTitle>
         </CardHeader>
         <CardContent className="h-[350px] flex items-center justify-center">
           <Doughnut data={statusData} options={donutOptions} />

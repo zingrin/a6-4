@@ -14,3 +14,4 @@ export function StarRating({ rating }: { rating: number }) {
     </div>
   );
 }
+

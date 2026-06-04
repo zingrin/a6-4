@@ -22,7 +22,8 @@ export default function AboutHero() {
           className="text-white text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-7"
         >
           We&apos;re on a mission to{" "}
-          <span className="text-teal-300">democratize</span> expert learning
+          <span className="text-teal-300">democratize</span>{" "}
+          expert learning
         </motion.h1>
 
         <motion.p

@@ -1,8 +1,8 @@
-import DashPageHeader from "@/components/layout/DashPageHeader";
-import { AvailabilityCard } from "@/components/modules/tutor/availability/AvailabilityCard";
-import { CreateAvailabilityDialog } from "@/components/modules/tutor/availability/CreateAvailabilityDialog";
-import { availabilityService } from "@/services/availability.service";
-import { Availability } from "@/types";
+import DashPageHeader from '@/components/layout/DashPageHeader';
+import { AvailabilityCard } from '@/components/modules/tutor/availability/AvailabilityCard';
+import { CreateAvailabilityDialog } from '@/components/modules/tutor/availability/CreateAvailabilityDialog';
+import { availabilityService } from '@/services/availability.service';
+import { Availability } from '@/types';
 
 export default async function TutorAvailability() {
   const { data } = await availabilityService.getAvailabilities();
@@ -11,20 +11,16 @@ export default async function TutorAvailability() {
     <div className="container mx-auto">
       {/* Page header */}
       <div className="mb-8">
-        <DashPageHeader
-          title="Tutor Availability"
-          description="Manage your availability schedule"
-          className="mb-0"
-        />
-        <div className="mt-5 md:mt-0 flex justify-end">
-          <CreateAvailabilityDialog />
+              <DashPageHeader title='Tutor Availability' description='Manage your availability schedule' className='mb-0'/>
+        <div className='mt-5 md:mt-0 flex justify-end'>
+           <CreateAvailabilityDialog />
         </div>
       </div>
 
       {/* Availability cards grid */}
       {data?.data?.length > 0 ? (
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {data.data.map((availability: Availability) => (
+          {data.data.map((availability : Availability) => (
             <AvailabilityCard
               key={availability.id}
               availability={availability}

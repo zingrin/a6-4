@@ -10,4 +10,4 @@ export const DAYS = [
 
 export const BOOKING_STATUSES = ["COMPLETED", "PENDING", "CANCELLED"];
 
-export const USER_STATUS = ["ACTIVE", "BANNED"];
+export const USER_STATUS = ["ACTIVE", "BANNED"]
