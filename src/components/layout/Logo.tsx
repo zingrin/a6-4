@@ -20,8 +20,8 @@ export default function Logo({
       <Image
         src="/logo.png"
         alt="SkillBridge Logo"
-        width={400}
-        height={160}
+        width={100}
+        height={60}
         className={`w-auto h-6 dark:invert ${imgClassName || ""}`}
       />
       <span

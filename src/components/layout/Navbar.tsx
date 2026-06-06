@@ -92,7 +92,7 @@ interface NavbarProps {
 const Navbar = ({
   logo = {
     url: "/",
-    src: "/skillbridge.svg",
+    src: "/logo.png",
     alt: "logo",
     title: "SkillBridge",
   },
@@ -235,7 +235,7 @@ const Navbar = ({
                 src={logo.src}
                 className="max-h-6 dark:invert"
                 alt={logo.alt}
-                width={200}
+                width={100}
                 height={60}
               />
               <span
@@ -275,7 +275,7 @@ const Navbar = ({
             <Link href={logo.url} className="flex items-center gap-2 mb-1.5">
               <Image
                 src="/logo.png"
-                width={200}
+                width={100}
                 height={60}
                 className="max-h-6 dark:invert"
                 alt={logo.alt}

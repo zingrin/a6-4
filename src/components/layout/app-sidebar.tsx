@@ -1,4 +1,4 @@
-import * as React from "react"
+import * as React from "react";
 
 import {
   Sidebar,
@@ -12,18 +12,18 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
-} from "@/components/ui/sidebar"
-import Link from "next/link"
-import { adminRoutes } from "@/routes/adminRoutes"
-import { studentRoutes } from "@/routes/studentRoutes"
-import { tutorRoutes } from "@/routes/tutorRoutes"
-import { instituteRoutes } from "@/routes/instituteRoutes"
-import { mentorRoutes } from "@/routes/mentorRoutes"
-import { moderatorRoutes } from "@/routes/moderatorRoutes"
-import { NavUser } from "@/components/ui/nav-user"
-import { Route, User, UserRoles } from "@/types"
-import Image from "next/image"
-import { Roles } from "@/constants/roles"
+} from "@/components/ui/sidebar";
+import Link from "next/link";
+import { adminRoutes } from "@/routes/adminRoutes";
+import { studentRoutes } from "@/routes/studentRoutes";
+import { tutorRoutes } from "@/routes/tutorRoutes";
+import { instituteRoutes } from "@/routes/instituteRoutes";
+import { mentorRoutes } from "@/routes/mentorRoutes";
+import { moderatorRoutes } from "@/routes/moderatorRoutes";
+import { NavUser } from "@/components/ui/nav-user";
+import { Route, User, UserRoles } from "@/types";
+import Image from "next/image";
+import { Roles } from "@/constants/roles";
 
 // This is sample data.
 const data = {
@@ -52,14 +52,16 @@ const data = {
       ],
     },
   ],
-}
+};
 
-export function AppSidebar({user, ...props }: {user : User} & React.ComponentProps<typeof Sidebar>) {
-
-  let routes : Route[] = [];
+export function AppSidebar({
+  user,
+  ...props
+}: { user: User } & React.ComponentProps<typeof Sidebar>) {
+  let routes: Route[] = [];
 
   switch (user?.role) {
-    case Roles.admin :
+    case Roles.admin:
       routes = adminRoutes;
       break;
     case Roles.student:
@@ -84,18 +86,21 @@ export function AppSidebar({user, ...props }: {user : User} & React.ComponentPro
 
   return (
     <Sidebar {...props}>
-
       <SidebarHeader>
         <Link href="/" className="flex items-center gap-2 mb-1.5 p-1">
-              <img
-                src="/skillbridge.svg"
-                className="w-6 max-h-6 invert"
-                alt="skillbridge logo"
-              />
-              <span className={`text-2xl text-sidebar-foreground tracking-wider font-semibold font-logan`}>
-                SkillBridge
-              </span>
-            </Link>
+          <Image
+            src="/logo.png"
+            alt="SkillBridge Logo"
+            width={400}
+            height={160}
+            className={`w-auto h-6 dark:invert }`}
+          />
+          <span
+            className={`text-2xl text-sidebar-foreground tracking-wider font-semibold font-logan`}
+          >
+            SkillBridge
+          </span>
+        </Link>
       </SidebarHeader>
 
       <SidebarContent className="gap-12">
@@ -142,5 +147,5 @@ export function AppSidebar({user, ...props }: {user : User} & React.ComponentPro
 
       <SidebarRail />
     </Sidebar>
-  )
+  );
 }

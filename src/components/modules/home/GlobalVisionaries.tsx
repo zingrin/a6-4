@@ -17,11 +17,13 @@ export default function GlobalVisionaries() {
               priority
             />
           </div>
-          
+
           {/* Top Right: Stats Card */}
           <div className="aspect-square bg-primary rounded-3xl p-6 flex flex-col items-center justify-center text-white shadow-lg text-center">
             <p className="text-4xl md:text-5xl font-black mb-1">20+</p>
-            <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest opacity-90">Partner Institutes</p>
+            <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest opacity-90">
+              Partner Institutes
+            </p>
             <div className="mt-4 w-8 h-1 bg-white/30 rounded-full" />
           </div>
 
@@ -55,8 +57,9 @@ export default function GlobalVisionaries() {
               <span className="text-primary">Global Visionaries</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
-              Our mentors are not just teachers; they are industry veterans, 
-              award-winning designers, and pioneering researchers from around the globe.
+              Our mentors are not just teachers; they are industry veterans,
+              award-winning designers, and pioneering researchers from around
+              the globe.
             </p>
           </div>
 
@@ -67,8 +70,12 @@ export default function GlobalVisionaries() {
                 <ShieldCheck className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-slate-900 mb-1">Rigorous Vetting</h3>
-                <p className="text-muted-foreground">Only top 3% of applicants are selected to teach.</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-1">
+                  Rigorous Vetting
+                </h3>
+                <p className="text-muted-foreground">
+                  Only top 3% of applicants are selected to teach.
+                </p>
               </div>
             </div>
 
@@ -78,8 +85,12 @@ export default function GlobalVisionaries() {
                 <Clock className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-slate-900 mb-1">Global Availability</h3>
-                <p className="text-muted-foreground">Access world-class knowledge across 24 different timezones.</p>
+                <h3 className="text-lg font-bold text-slate-900 mb-1">
+                  Global Availability
+                </h3>
+                <p className="text-muted-foreground">
+                  Access world-class knowledge across 24 different timezones.
+                </p>
               </div>
             </div>
           </div>
