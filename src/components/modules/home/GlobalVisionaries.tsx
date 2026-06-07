@@ -10,8 +10,8 @@ export default function GlobalVisionaries() {
           {/* Top Left: Male Mentor */}
           <div className="aspect-square relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group">
             <Image
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvzfkQX_zJwIRJOTLzXl6T2lLPBiGFY_lEeUdQzTzvdcu7p5iJK2q9MKyq28ZipkrG8Cm759KgKat4Vb53CKk42-pF-gPPwqaQyd91DaR6zcQyiktj4LoH8rt_54lRrHXyzjwEidKKLoVOEbnNWioYZ27TNSb4DTeA7vi3POyX6so2LQXARk2hAar4s3estJakURPsw2DclGnuxcsHcfxhQMmpa8gzHSTLFe0hdjIlk8ZvyleH4nYEjgf0lMlQjM9hbqBRrWhNDes"
-              alt="Dr. Aris Miller"
+              src="/female"
+              alt="Dr. Aana Patel"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
               priority
@@ -40,8 +40,8 @@ export default function GlobalVisionaries() {
           {/* Bottom Right: Female Mentor */}
           <div className="aspect-square relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group translate-y-4 md:translate-y-8 border-4 border-white">
             <Image
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4jRc30zMs37L1DRAuXulHSt56qNVnEkwlXkChk2s-Lc2xuSNRqB64HaGeTBEbLUUMLQ4DHtLNiZliAOgvO1hABII0PEaWr8i-UoXElbyOh4tlTuwAdtlwImCXicjgSxsW1el_H1mbPT3ZWlFf-r4ZtlLEichysFCOjc0A1EmRJKwE-bsZU7IVmT_ycq-aiiJb5J7wFrWMawHAP11iRldaXciXEN7oZX0Skq_1hwuCMFg9hQP_qZx02otjJ-aRmp7qirkxqKeOi_o"
-              alt="Sarah Jenkins"
+              src="/male"
+              alt="James Lee"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
               priority
