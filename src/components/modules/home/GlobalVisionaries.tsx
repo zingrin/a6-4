@@ -10,7 +10,7 @@ export default function GlobalVisionaries() {
           {/* Top Left: Male Mentor */}
           <div className="aspect-square relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group">
             <Image
-              src="/female"
+              src="/female.jpg"
               alt="Dr. Aana Patel"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -22,7 +22,7 @@ export default function GlobalVisionaries() {
           <div className="aspect-square bg-primary rounded-3xl p-6 flex flex-col items-center justify-center text-white shadow-lg text-center">
             <p className="text-4xl md:text-5xl font-black mb-1">20+</p>
             <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest opacity-90">
-              Partner Institutes
+              Academic Collaborators
             </p>
             <div className="mt-4 w-8 h-1 bg-white/30 rounded-full" />
           </div>
@@ -33,14 +33,15 @@ export default function GlobalVisionaries() {
               <span className="text-white text-xl font-serif">"</span>
             </div>
             <p className="text-white text-sm md:text-base font-medium leading-tight">
-              Bridging the gap between theory and global industry mastery.
+              Transforming knowledge into meaningful skills for lifelong
+              success.
             </p>
           </div>
 
           {/* Bottom Right: Female Mentor */}
           <div className="aspect-square relative rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group translate-y-4 md:translate-y-8 border-4 border-white">
             <Image
-              src="/male"
+              src="/male.jpg"
               alt="James Lee"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -53,13 +54,16 @@ export default function GlobalVisionaries() {
         <div className="space-y-8">
           <div className="space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-              Master Classes with <br />
-              <span className="text-primary">Global Visionaries</span>
+              Meet the Experts Who <br />
+              <span className="text-primary">
+                Inspire Every Learning Journey
+              </span>
             </h2>
+
             <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
-              Our mentors are not just teachers; they are industry veterans,
-              award-winning designers, and pioneering researchers from around
-              the globe.
+              From academic specialists to industry professionals, our tutors
+              bring real-world experience and personalized guidance to help
+              learners excel with confidence.
             </p>
           </div>
 
