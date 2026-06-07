@@ -238,7 +238,7 @@ export function TutorProfileForm({
                   className="hover:bg-background rounded-sm p-0.5 transition-colors"
                   aria-label={`Remove ${subject.name}`}
                 >
-                  <X size={13}/>
+                  <X size={13} />
                 </button>
               </div>
             ))}
