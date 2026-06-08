@@ -39,9 +39,7 @@ export default async function StudentDashboard() {
       <StudentStatCards stats={stats} />
 
       {/* charts (only if data exists) */}
-      {stats?.spendingTrend?.length > 0 && (
-        <StudentDashboardCharts stats={stats} />
-      )}
+      {stats?.spendingTrend?.length > 0 && <StudentDashboardCharts />}
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-12">
         {/* recent enrollments */}

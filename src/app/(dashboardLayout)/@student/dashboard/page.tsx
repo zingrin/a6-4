@@ -47,8 +47,11 @@ export default async function StudentDashboard() {
         </div>
       </div>
 
+      {/* STATS SUMMARY */}
+      {stats && <StudentStatCards stats={stats} />}
+
       {/* CHARTS */}
-      {stats && <StudentDashboardCharts stats={stats} />}
+      <StudentDashboardCharts />
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-12">
         {/* RECENT ENROLLMENTS */}
