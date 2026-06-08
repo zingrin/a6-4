@@ -1,4 +1,4 @@
-# SkillBridge Frontend 
+# SkillBridge Frontend
 
 **Role-Based Tutor Booking Platform UI**
 
@@ -9,23 +9,23 @@ It provides a role-based dashboard experience for **students, tutors, and admins
 
 The frontend handles:
 
-* User authentication & email verification
-* Role-based navigation
-* Protected routes
-* Tutor browsing and booking UI
-* Admin management dashboards
+- User authentication & email verification
+- Role-based navigation
+- Protected routes
+- Tutor browsing and booking UI
+- Admin management dashboards
 
 ---
 
 ## Tech Stack
 
-* **Next.js**
-* **React**
-* **TypeScript**
-* **Tailwind CSS**
-* **Shadcn/ui**
-* **Lucide Icons**
-* **REST API integration with backend**
+- **Next.js**
+- **React**
+- **TypeScript**
+- **Tailwind CSS**
+- **Shadcn/ui**
+- **Lucide Icons**
+- **REST API integration with backend**
 
 ---
 
@@ -98,20 +98,20 @@ Accessible only when logged in as **Admin**:
 
 ### Authentication
 
-* Email & password login
-* Session-based authentication
-* Email verification required before accessing dashboards
+- Email & password login
+- Session-based authentication
+- Email verification required before accessing dashboards
 
 ### Authorization
 
-* Role-based access control implemented on frontend
-* Users are redirected if they try to access unauthorized routes
+- Role-based access control implemented on frontend
+- Users are redirected if they try to access unauthorized routes
 
 Example:
 
-* Student cannot access `/admin/*`
-* Tutor cannot access `/dashboard/*`
-* Admin cannot access student or tutor dashboards
+- Student cannot access `/admin/*`
+- Tutor cannot access `/dashboard/*`
+- Admin cannot access student or tutor dashboards
 
 ---
 
@@ -121,23 +121,23 @@ Navigation menus are rendered dynamically based on role.
 
 ### Student Navigation
 
-* Dashboard
-* My Profile
-* My Bookings
+- Dashboard
+- My Profile
+- My Bookings
 
 ### Tutor Navigation
 
-* Dashboard
-* Profile
-* Availability
+- Dashboard
+- Profile
+- Availability
 
 ### Admin Navigation
 
-* Analytics
-* User Management
-* All Bookings
-* Categories & Subjects
-* Featured Tutors
+- Analytics
+- User Management
+- All Bookings
+- Categories & Subjects
+- Featured Tutors
 
 ---
 
@@ -145,39 +145,39 @@ Navigation menus are rendered dynamically based on role.
 
 ### Public
 
-* View tutors
-* Search and filter tutors
-* View tutor profiles
+- View tutors
+- Search and filter tutors
+- View tutor profiles
 
 ### Student
 
-* Book sessions
-* View booking history
-* Manage profile
-* Leave reviews
+- Book sessions
+- View booking history
+- Manage profile
+- Leave reviews
 
 ### Tutor
 
-* Create and update profile
-* Manage availability
-* View sessions and reviews
+- Create and update profile
+- Manage availability
+- View sessions and reviews
 
 ### Admin
 
-* Manage users
-* Manage categories & subjects
-* View platform analytics
-* Feature tutors
+- Manage users
+- Manage categories & subjects
+- View platform analytics
+- Feature tutors
 
 ---
 
 ## UI Behavior
 
-* Responsive layout
-* Role-based sidebar navigation
-* Protected routes
-* Server-side session validation
-* Clean dashboard layout for all roles
+- Responsive layout
+- Role-based sidebar navigation
+- Protected routes
+- Server-side session validation
+- Clean dashboard layout for all roles
 
 ---
 
@@ -204,12 +204,12 @@ npm run dev
 App will run on:
 
 ```
-http://localhost:3000
+https://a6-4-b.vercel.app
 ```
 
 ---
 
-##  Application Flow
+## Application Flow
 
 ### Student Flow
 
@@ -235,7 +235,6 @@ http://localhost:3000
 3. Manage categories
 4. Monitor bookings
 5. Feature tutors
-
 
 ---
 
